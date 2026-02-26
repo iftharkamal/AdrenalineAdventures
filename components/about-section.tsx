@@ -68,7 +68,7 @@ export default function AboutSection() {
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden shadow-2xl">
               <Image
-                src="/motorcycle_group_bw.png"
+                src="/ourmission1.png"
                 alt="Adventure riders group"
                 fill
                 className="object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
@@ -83,7 +83,7 @@ export default function AboutSection() {
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden shadow-2xl mt-8 md:mt-32">
               <Image
-                src="/rider_fist_raised_bw.png"
+                src="/ourmission2.png"
                 alt="Triumphant rider"
                 fill
                 className="object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
