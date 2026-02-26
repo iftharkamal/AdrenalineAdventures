@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Encode_Sans_Expanded } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Encode_Sans_Expanded, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const encodeSansExpanded = Encode_Sans_Expanded({
@@ -52,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${encodeSansExpanded.variable} ${formula1Regular.variable} ${formula1Bold.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${encodeSansExpanded.variable} ${formula1Regular.variable} ${formula1Bold.variable} antialiased font-poppins`}
       >
         <Navbar />
         {children}

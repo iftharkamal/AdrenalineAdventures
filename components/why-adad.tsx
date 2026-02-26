@@ -21,25 +21,25 @@ export default function WhyAdad() {
       </div>
 
       {/* Text Content */}
-      <div className="relative z-20 h-full mx-auto max-w-[1400px] px-6 flex flex-col justify-center">
+      <div className="relative z-20 h-full mx-auto max-w-6xl px-6 flex flex-col justify-center py-12 md:py-16">
         <div className="max-w-3xl">
           <div className="flex items-center gap-1.5 mb-2">
             <Plus className="h-3.5 w-3.5 text-white stroke-[3]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-white">
+            <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] text-white font-inter">
               WHY
             </span>
           </div>
-          <h2 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl mb-6 md:mb-8 leading-none tracking-tight font-formula1-bold text-white uppercase">
             ADAD
           </h2>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mb-10 font-medium">
+          <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter max-w-xl mb-10">
             We set out to create adventure rides that truly capture the spirit of exploration — 
             journeys that reflect our passion for the open road and the world beyond it. 
             Each route is designed in collaboration with expert local guides to bring out the culture, 
             challenge, and character of every destination.
           </p>
           <Button 
-            className="bg-white hover:bg-white/90 text-black px-8 py-6 rounded-none text-base font-bold transition-all duration-300 group"
+            className="bg-white hover:bg-white/90 text-black px-8 py-6 rounded-md text-base  transition-all duration-300 group"
           >
             Find Out More
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

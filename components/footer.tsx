@@ -1,115 +1,151 @@
  "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Event", href: "#events" },
+    { name: "About us", href: "#about" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
+  const socialLinks = [
+    { name: "Instagram", href: "#" },
+    { name: "Whatsapp", href: "#" },
+    { name: "Facebook", href: "#" },
+  ];
+
   return (
-    <footer className="bg-[#121212] text-white pt-24 pb-12 overflow-hidden relative">
-      <div className="mx-auto w-full max-w-[1400px] px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative z-10">
+    <footer className="bg-[#121212] text-[#808080] py-16 lg:py-20 overflow-hidden relative border-t border-white/5">
+      <div className="mx-auto w-full max-w-[1400px] px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative">
           
-          {/* Left Column: Contact & Branding */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-3">
-                    CONTACT US
-                  </h4>
-                  <p className="text-sm font-medium hover:text-white/80 transition-colors">
+          {/* Left: Contact Info */}
+          <div className="space-y-12 text-center lg:text-left">
+            <div className="space-y-8 inline-block lg:block text-left">
+              <div className="space-y-2">
+                <h4 className="text-[10px] font-bold text-[#808080] uppercase tracking-[0.2em] font-inter">
+                  CONTACT US
+                </h4>
+                <div className="space-y-1">
+                  <p className="text-sm sm:text-base font-medium text-white/90 font-inter">
                     +918089713241
                   </p>
-                  <p className="text-sm font-medium hover:text-white/80 transition-colors">
+                  <p className="text-sm sm:text-base font-medium text-white/90 font-inter">
                     adrenalineadventuresindia@gmail.com
                   </p>
                 </div>
-                
-                <div>
-                  <h4 className="text-[10px] font-bold text-[#b8a47e] uppercase tracking-[0.3em] mb-3">
-                    WHATSAPP
-                  </h4>
-                  <p className="text-sm font-bold text-[#b8a47e]">
-                    +918089713241
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-white/40 leading-relaxed max-w-[180px]">
-                    2972 Westheimer Rd. Santa Ana,<br />
-                    Illinois 85486
-                  </p>
-                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <h4 className="text-[10px] font-bold text-[#FFD700] uppercase tracking-[0.2em] font-inter">
+                  WHATSAPP
+                </h4>
+                <p className="text-sm sm:text-base font-bold text-[#FFD700] font-inter">
+                  +918089713241
+                </p>
               </div>
 
-              <div className="pt-20">
-                <h2 className="text-4xl md:text-5xl font-black mb-1">
-                  Adrenaline Adventures
-                </h2>
-                <p className="text-sm font-medium text-white/50 italic tracking-wider">
-                  Curated adventures, Crafted memories
+              <div className="space-y-1">
+                <p className="text-[12px] text-[#808080] leading-relaxed font-inter opacity-80">
+                  2972 Westheimer Rd. Santa Ana,<br />
+                  Illinois 85486
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Newsletter & Links */}
-          <div className="lg:col-span-6 flex flex-col justify-between items-end">
-            <div className="w-full max-w-md">
-              <h3 className="text-4xl font-bold mb-10 text-[#cbb68d]">
+          {/* Right: Newsletter */}
+          <div className="flex flex-col items-center lg:items-end">
+            <div className="w-full max-w-lg">
+              <h3 className="text-3xl md:text-4xl font-bold mb-8 text-[#FFD700] font-inter text-center lg:text-right">
                 Newsletter
               </h3>
               
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input 
                     type="text" 
                     placeholder="Full Name" 
-                    className="w-full bg-white/5 border-none focus:ring-1 focus:ring-white/20 p-4 rounded-sm text-sm"
+                    className="w-full bg-[#1A1A1A] border border-white/5 focus:border-[#FFD700]/30 focus:ring-0 p-4 rounded-md text-sm text-white placeholder:text-[#555555] font-inter transition-colors"
                   />
                   <input 
                     type="email" 
                     placeholder="Your email address" 
-                    className="w-full bg-white/5 border-none focus:ring-1 focus:ring-white/20 p-4 rounded-sm text-sm"
+                    className="w-full bg-[#1A1A1A] border border-white/5 focus:border-[#FFD700]/30 focus:ring-0 p-4 rounded-md text-sm text-white placeholder:text-[#555555] font-inter transition-colors"
                   />
                 </div>
-                <button className="w-full bg-[#333333] hover:bg-[#444444] text-white/80 font-bold py-4 transition-all duration-300 rounded-sm">
-                  Submit
+                <button className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-bold py-4 transition-all duration-300 rounded-md text-sm tracking-widest font-inter">
+                  SUBMIT
                 </button>
               </form>
-            </div>
-
-            <div className="w-full mt-24">
-              <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-8 border-t border-white/10 pt-8">
-                <div>
-                  <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-4">
-                    FOLLOW US
-                  </h4>
-                  <div className="flex gap-6 text-xs font-medium">
-                    <a href="#" className="hover:text-white/70 transition-colors">Telegram</a>
-                    <span className="text-white/10">|</span>
-                    <a href="#" className="hover:text-white/70 transition-colors">Whatsapp</a>
-                    <span className="text-white/10">|</span>
-                    <a href="#" className="hover:text-white/70 transition-colors">Instagram</a>
-                  </div>
-                </div>
-
-                <div className="flex gap-6 text-[10px] font-bold text-white/70 uppercase tracking-widest">
-                  <a href="/" className="hover:text-white transition-colors">Home</a>
-                  <a href="#" className="hover:text-[#cbb68d] transition-colors text-[#cbb68d]">Services</a>
-                  <a href="#" className="hover:text-white transition-colors">Event</a>
-                  <a href="#" className="hover:text-white transition-colors">About us</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Large Background "A" or abstract shape */}
-        <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none opacity-10">
-           <svg viewBox="0 0 100 100" className="w-full h-full text-white">
-             <path fill="currentColor" d="M50 0 L100 100 L85 100 L50 30 L15 100 L0 100 Z" />
-           </svg>
+        {/* Bottom Bar */}
+        <div className="mt-20 pt-12 border-t border-white/5 flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:items-center lg:gap-10">
+          {/* Logo Branding - Horizontal on all screens now with better spacing */}
+          <div className="flex items-center gap-5 group">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+              <Image 
+                src="/logo.png" 
+                alt="Adrenaline Icon" 
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-formula1-bold text-white mb-1 leading-none tracking-tight">
+                Adrenaline Adventures
+              </h2>
+              <p className="text-[10px] sm:text-[11px] font-medium text-white/50 tracking-widest font-encode-sans-expanded uppercase">
+                Curated adventures, Crafted memories
+              </p>
+            </div>
+          </div>
+
+          {/* Socials & Navigation */}
+          <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
+            {/* Social Links */}
+            <div className="text-center lg:text-left">
+              <h4 className="text-[9px] font-bold text-[#808080] uppercase tracking-[0.3em] mb-4 font-inter">
+                FOLLOW US
+              </h4>
+              <div className="flex items-center justify-center lg:justify-start gap-5 text-xs font-semibold font-inter">
+                {socialLinks.map((social, i) => (
+                  <div key={social.name} className="flex items-center gap-5">
+                    <a href={social.href} className="text-white/60 hover:text-[#FFD700] transition-colors tracking-wide">
+                      {social.name}
+                    </a>
+                    {i < socialLinks.length - 1 && <span className="text-[#333333] select-none">/</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-6 sm:gap-8 text-[11px] font-bold uppercase tracking-[0.2em] font-inter">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className={`transition-all whitespace-nowrap hover:scale-105 ${
+                    pathname === link.href || (link.name === "Event" && pathname === "/#events")
+                      ? "text-[#FFD700]" 
+                      : "text-white/40 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>

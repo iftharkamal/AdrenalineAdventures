@@ -24,23 +24,23 @@ const MEMBER_ITEMS = [
 
 export default function MemberSection() {
   return (
-    <section className="bg-[#f2f1ef] text-[#1a1a1a] py-24 min-h-screen flex flex-col justify-center">
-      <div className="mx-auto w-full max-w-[1400px] px-6">
+    <section className="bg-[#f2f1ef] text-[#1a1a1a] py-12 md:py-16 min-h-screen flex flex-col justify-center">
+      <div className="mx-auto w-full max-w-6xl px-6">
         {/* Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-start">
           <div>
             <div className="flex items-center gap-1.5 mb-2">
-              <Plus className="h-4 w-4 text-[#1a1a1a] stroke-[3]" />
-              <span className="text-[12px] font-bold uppercase tracking-[0.4em]">
+              <Plus className="h-3.5 w-3.5 text-[#1a1a1a] stroke-[3]" />
+              <span className="text-[11px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] font-inter text-[#1a1a1a]">
                 BECOME A
               </span>
             </div>
-            <h2 className="text-6xl md:text-7xl font-bold tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl mb-6 md:mb-8 leading-none tracking-tight font-formula1-bold">
               Member
             </h2>
           </div>
           <div className="flex flex-col items-start gap-8">
-            <p className="text-lg md:text-xl text-[#1a1a1a]/80 leading-relaxed font-medium">
+            <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-[#1a1a1a]/80 font-medium tracking-wide font-inter">
               Become part of a growing tribe of thrill-seekers, explorers, and culture lovers
               from around the world. At Adrenaline Adventures, we're more than just a
               travel company — we're a community of passionate adventurers who believe in
@@ -67,12 +67,12 @@ export default function MemberSection() {
                 <span className="text-sm font-bold text-[#1a1a1a]/40 tracking-widest">
                   {item.id}
                 </span>
-                <h3 className="text-2xl md:text-4xl font-medium tracking-tight group-hover:translate-x-2 transition-transform duration-300">
+                <h3 className="text-sm md:text-xl lg:text-3xl font-medium tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                   {item.title}
                 </h3>
               </div>
-              <div className="h-10 w-10 md:h-12 md:w-12 border border-[#1a1a1a]/20 flex items-center justify-center rounded-sm group-hover:bg-[#1a1a1a] group-hover:border-[#1a1a1a] transition-all duration-300">
-                <ArrowRight className="h-5 w-5 text-[#1a1a1a] group-hover:text-white transition-colors" />
+              <div className="h-8 w-8 p-1 md:h-12 md:w-12 border border-[#1a1a1a]/20 flex items-center justify-center rounded-sm group-hover:bg-[#1a1a1a] group-hover:border-[#1a1a1a] transition-all duration-300">
+                <ArrowRight className="h-4 w-4 text-[#1a1a1a] group-hover:text-white transition-colors" />
               </div>
             </div>
           ))}

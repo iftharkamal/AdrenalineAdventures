@@ -71,20 +71,20 @@ export default function FeaturedEvents() {
   };
 
   return (
-    <section className="bg-[#f2f1ef] min-h-screen flex flex-col justify-center py-24 text-[#1a1a1a]">
-      <div className="mx-auto w-full max-w-[1400px] px-6">
+    <section className="bg-[#f2f1ef] min-h-screen flex flex-col justify-center py-12 md:py-16 text-[#1a1a1a]">
+      <div className="mx-auto w-full max-w-6xl px-6">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-10 md:mb-16">
           <div className="flex items-center gap-1.5 mb-2">
             <Plus className="h-3.5 w-3.5 text-[#1a1a1a] stroke-[3]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.4em]">
+            <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] font-inter text-[#1a1a1a]">
               EXPLORE OUR
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl mb-6 md:mb-8 leading-none tracking-tight font-formula1-bold">
             Featured Events
           </h2>
-          <p className="max-w-2xl text-lg text-[#1a1a1a]/70 leading-relaxed">
+          <p className="max-w-xl text-sm sm:text-base md:text-lg leading-[1.8] text-[#1a1a1a]/80 font-medium tracking-wide font-inter">
             Adventures that spark your spirit from quick rides to multi-day journeys, each experience blends thrill, culture, and community. More than trips, they're stories you'll carry forever.
           </p>
         </div>
@@ -129,17 +129,17 @@ export default function FeaturedEvents() {
 
         {/* Bottom Navigation */}
         <div className="flex flex-col md:flex-row items-end md:items-center gap-8 md:gap-12 mt-4">
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <button 
               onClick={() => scroll("left")}
-              className="h-14 w-14 flex items-center justify-center border border-[#1a1a1a]/10 hover:bg-[#1a1a1a] hover:text-white transition-all duration-300"
+              className="h-14 w-14 flex items-center justify-center border border-[#1a1a1a]/30 hover:bg-[#1a1a1a] hover:text-white transition-all duration-300"
               aria-label="Previous cards"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button 
               onClick={() => scroll("right")}
-              className="h-14 w-14 flex items-center justify-center border border-[#1a1a1a]/10 hover:bg-[#1a1a1a] hover:text-white transition-all duration-300"
+              className="h-14 w-14 flex items-center justify-center border border-[#1a1a1a]/30 hover:bg-[#1a1a1a] hover:text-white transition-all duration-300"
               aria-label="Next cards"
             >
               <ChevronRight className="h-5 w-5" />
@@ -151,7 +151,7 @@ export default function FeaturedEvents() {
               className="absolute h-full bg-[#1a1a1a] transition-all duration-300 linear"
               style={{ 
                 left: 0, 
-                width: `${Math.max(20, scrollProgress)}%` 
+                width: `${Math.max(50, scrollProgress)}%` 
               }}
             />
           </div>
