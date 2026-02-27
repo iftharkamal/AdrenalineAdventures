@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Encode_Sans_Expanded, Poppins } from "next/fo
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import SmoothScroll from "@/components/smooth-scroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,8 +61,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${encodeSansExpanded.variable} ${formula1Regular.variable} ${formula1Bold.variable} antialiased font-poppins`}
       >
-        <Navbar />
-        {children}
+        <SmoothScroll>
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
