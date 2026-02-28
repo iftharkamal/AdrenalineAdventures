@@ -65,9 +65,6 @@ export default function AboutSection() {
                 way. Our company aims to provide unique, unforgettable travel
                 experiences for adventure enthusiasts around the world.
               </ScrollReveal>
-              {/* <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter"> */}
-                
-              {/* </p> */}
             </div>
           </motion.div>
         </div>
