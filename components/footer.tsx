@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -26,7 +27,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative">
           
           {/* Left: Contact Info */}
-          <div className="space-y-12 text-center lg:text-left">
+          <motion.div 
+            className="space-y-12 text-center lg:text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="space-y-8 inline-block lg:block text-left">
               <div className="space-y-2">
                 <h4 className="text-[10px] font-bold text-[#808080] uppercase tracking-[0.2em] font-inter">
@@ -58,10 +65,16 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Newsletter */}
-          <div className="flex flex-col items-center lg:items-end">
+          <motion.div 
+            className="flex flex-col items-center lg:items-end"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="w-full max-w-lg">
               <h3 className="text-3xl md:text-4xl font-bold mb-8 text-[#FFD700] font-inter text-center lg:text-right">
                 Newsletter
@@ -85,11 +98,17 @@ export default function Footer() {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 pt-12 border-t border-white/5 flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:items-center lg:gap-10">
+        <motion.div 
+          className="mt-20 pt-12 border-t border-white/5 flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:items-center lg:gap-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           {/* Logo Branding - Horizontal on all screens now with better spacing */}
           <div className="flex items-center gap-5 group">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
@@ -146,7 +165,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

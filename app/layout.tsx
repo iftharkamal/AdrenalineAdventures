@@ -46,6 +46,13 @@ const formula1Bold = localFont({
   display: "swap",
 });
 
+const boldonse = localFont({
+  src: "../public/Boldonse-Regular.ttf",
+  variable: "--font-boldonse",
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Adrenaline Adventures",
   description: "Cinematic, full-screen adventure experiences.",
@@ -59,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${encodeSansExpanded.variable} ${formula1Regular.variable} ${formula1Bold.variable} antialiased font-poppins`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${encodeSansExpanded.variable} ${formula1Regular.variable} ${formula1Bold.variable} ${boldonse.variable} antialiased font-poppins`}
       >
         <SmoothScroll>
           <Navbar />

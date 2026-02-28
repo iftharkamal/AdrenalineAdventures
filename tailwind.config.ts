@@ -9,6 +9,7 @@ const config: Config = {
         "formula1-bold": ["var(--font-formula1-bold)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
         "encode-sans-expanded": ["var(--font-encode-sans-expanded)", "sans-serif"],
+        boldonse: ["var(--font-boldonse)", "sans-serif"],
       },
     },
   },

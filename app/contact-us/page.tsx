@@ -41,7 +41,7 @@ export default function ContactUsPage() {
                 </p>
               </div>
 
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* First Name */}
                   <div className="space-y-2">
@@ -103,7 +103,7 @@ export default function ContactUsPage() {
                   </label>
                   <textarea
                     id="message"
-                    rows={6}
+                    rows={3}
                     placeholder=""
                     className="w-full bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none p-3 lg:p-4 transition-all text-sm resize-none"
                   ></textarea>
@@ -112,7 +112,7 @@ export default function ContactUsPage() {
                 <div className="pt-4 flex justify-center lg:justify-start">
                   <button
                     type="submit"
-                    className="bg-white text-black font-bold py-4 px-10 rounded-sm hover:bg-white/90 transition-all uppercase tracking-widest text-xs shadow-lg shadow-white/5"
+                    className="bg-[#f5f0e8] text-black font-bold py-3 px-8 rounded-sm hover:bg-white/90 transition-all uppercase tracking-widest text-xs shadow-lg shadow-white/5"
                   >
                     SUBMIT NOW
                   </button>

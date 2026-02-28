@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -17,21 +20,31 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-end px-6 pb-10 pt-24 sm:pb-12">
         <div className="flex flex-col gap-6 text-white md:flex-row md:items-end md:justify-between">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <p className="text-[9px] sm:text-xs font-medium uppercase tracking-[0.35em] text-white/80 font-inter">
               + Born from the spirit of exploration
             </p>
             <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold font-formula1">
               - This is ADAD.
             </h1>
-          </div>
-          <Button
-            className="h-11 w-fit rounded-xl bg-white px-5 text-sm font-medium text-neutral-900 hover:bg-white/90"
-            aria-label="Discover ADAD"
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            discover adad .
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+            <Button
+              className="h-11 w-fit rounded-xl bg-white px-5 text-sm font-medium text-neutral-900 hover:bg-white/90"
+              aria-label="Discover ADAD"
+            >
+              discover adad .
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>

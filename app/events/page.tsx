@@ -119,16 +119,16 @@ export default function EventsPage() {
       {/* ─── Events Header Section ─── */}
       <section className="relative min-h-screen bg-gradient-to-br from-[#2a2017] via-[#3a2e1e] to-[#1a1510] text-white flex items-center overflow-hidden">
         {/* Subtle grain overlay */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" />
+        {/* <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" /> */}
 
         <div className="mx-auto w-full max-w-[1400px] px-6 py-32 md:py-40 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             {/* Left: Title & Description */}
             <div>
-              <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-[0.95]">
+              <h1 className="text-4xl md:text-6xl font-formula1 font-black mb-8 tracking-tight leading-[0.95] text-[#d4a843]">
                 EVENTS
               </h1>
-              <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-lg font-light">
+              <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-lg font-poppins font-medium">
                 When a user activates a theme, they have an expectation of
                 seeing their photos, theirs shop, their contributors and all of
                 their content with a new style or twist. Themes provide this
@@ -146,11 +146,16 @@ export default function EventsPage() {
                   href={`#event-${event.id}`}
                   className="group flex flex-col gap-0.5 transition-all duration-300 hover:translate-x-2"
                 >
-                  <span className="text-[#d4a843] font-black text-base md:text-lg italic tracking-wide">
-                    {event.id}.{event.title}
-                  </span>
-                  <span className="text-white/70 text-sm md:text-base font-light pl-6">
-                    {event.subtitle.replace(" – ", " – ")}
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-[#d4a843] font-boldonse font-bold text-base md:text-lg italic tracking-wide">
+                      {event.id}.
+                    </span>
+                    <span className="text-[#d4a843] font-boldonse text-base md:text-lg tracking-wide">
+                      {event.title}
+                    </span>
+                  </div>
+                  <span className="text-white text-sm md:text-base font-poppins font-medium pl-6">
+                    {event.subtitle}
                   </span>
                 </a>
               ))}
@@ -170,17 +175,35 @@ export default function EventsPage() {
             className={`relative min-h-screen bg-gradient-to-br ${event.bgGradient} text-white flex items-center overflow-hidden`}
           >
             <div className="mx-auto w-full max-w-[1400px] px-6 py-24 md:py-32 relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                 {/* Left: Image Card */}
-                <div className="relative">
-                  {/* Large faded event number */}
-                  <div className="absolute -top-16 md:-top-20 left-1/2 lg:left-auto lg:right-0 transform -translate-x-1/2 lg:translate-x-1/2 text-[140px] md:text-[200px] font-black text-white/5 leading-none select-none pointer-events-none z-0">
-                    {event.id}
-                  </div>
-
-                  {/* Polaroid-style card */}
-                  <div className="relative bg-white p-3 md:p-4 shadow-2xl shadow-black/30 max-w-sm mx-auto lg:mx-0 z-10">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative flex justify-center lg:justify-start">
+                  {index % 2 === 0 ? (
+                    /* Odd: Polaroid-style card */
+                    <div className="relative bg-[#eeeae3] p-4 pb-12 shadow-2xl shadow-black/40 max-w-sm w-full z-10">
+                      <div className="relative aspect-[3.5/4] overflow-hidden">
+                        <Image
+                          src={event.heroImage}
+                          alt={event.title}
+                          fill
+                          className="object-cover"
+                          sizes="(min-width: 1024px) 400px, 350px"
+                        />
+                      </div>
+                      <div className="mt-8 px-2">
+                        <h3 className="text-[#4a3520] text-3xl md:text-4xl font-boldonse tracking-tight leading-[1.3] max-w-[200px]">
+                          {event.title.split(" ").map((word, i) => (
+                            <span key={i} className="block">{word}</span>
+                          ))}
+                        </h3>
+                        <p className="text-[#4a3520]/80 text-sm md:text-base font-poppins font-medium mt-2">
+                          {event.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Even: Full-image card */
+                    <div className="relative max-w-sm w-full aspect-[3.5/5.5] shadow-2xl shadow-black/40 z-10 group overflow-hidden">
                       <Image
                         src={event.heroImage}
                         alt={event.title}
@@ -188,45 +211,46 @@ export default function EventsPage() {
                         className="object-cover"
                         sizes="(min-width: 1024px) 400px, 350px"
                       />
+                      {/* Gradient overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      
+                      <div className="absolute bottom-8 left-6 right-6 z-20">
+                        <h3 className="text-white text-3xl md:text-4xl font-boldonse tracking-tight leading-[1.3] max-w-[200px]">
+                        {event.title.split(" ").map((word, i) => (
+                            <span key={i} className="block">{word}</span>
+                          ))}
+                        </h3>
+                        <p className="text-white/90 text-sm md:text-base font-poppins font-medium mt-">
+                          {event.subtitle}
+                        </p>
+                      </div>
                     </div>
-                    <div className="mt-4 pb-2">
-                      <h3
-                        className="text-[#1a1a1a] text-xl md:text-2xl font-black tracking-wide leading-tight"
-                        style={{ fontFamily: "var(--font-formula1-bold)" }}
-                      >
-                        {event.title}
-                      </h3>
-                      <p className="text-[#1a1a1a]/60 text-sm font-medium mt-0.5">
-                        {event.subtitle}
-                      </p>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Right: Content */}
-                <div className="flex flex-col justify-center">
-                  {/* Large number */}
-                  <span className="text-[80px] md:text-[120px] font-black text-[#d4a843]/20 leading-none mb-2 select-none hidden lg:block">
+                <div className="relative flex flex-col justify-center py-12">
+                  {/* Large faded background number */}
+                  <div className="absolute top-0 left-0 lg:-left-20 transform -translate-y-1/2 text-[180px] md:text-[280px] font-formula1 font-black text-white/10 leading-none select-none pointer-events-none z-0">
                     {event.id}
-                  </span>
+                  </div>
 
-                  <h2
-                    className="text-3xl md:text-4xl font-black tracking-wider mb-2"
-                    style={{ fontFamily: "var(--font-formula1-bold)" }}
-                  >
-                    {event.title}
-                  </h2>
-                  <p className="text-[#d4a843] text-base md:text-lg font-medium mb-8">
-                    {event.subtitle}
-                  </p>
+                  <div className="relative z-10">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-boldonse tracking-tight mb-4 text-[#d4a843]">
+                      {event.title}
+                    </h2>
+                    <p className="text-white text-lg md:text-xl font-poppins font-semibold mb-10">
+                      {event.subtitle}
+                    </p>
 
-                  <p className="text-white/70 text-base md:text-lg leading-relaxed mb-8 font-light max-w-xl">
-                    {event.description}
-                  </p>
+                    <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 font-poppins font-normal max-w-xl">
+                      {event.description}
+                    </p>
 
-                  <p className="text-white/40 text-sm italic max-w-md leading-relaxed">
-                    –{event.quote}
-                  </p>
+                    <p className="text-white/50 text-base font-poppins font-light max-w-md leading-relaxed">
+                      – {event.quote}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,7 +269,7 @@ export default function EventsPage() {
                     {event.highlights.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-center gap-3 text-[#1a1a1a]/80 text-base md:text-lg font-light"
+                        className="flex items-center gap-3 text-[#1a1a1a]/80 text-base md:text-lg font-poppins font-light"
                       >
                         <span className="h-2 w-2 rounded-full bg-[#8b6914] flex-shrink-0" />
                         {item}

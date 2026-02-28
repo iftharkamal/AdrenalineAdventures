@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollReveal from "./ui/scroll-reveal";
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +36,13 @@ export default function AboutSection() {
       <div className="mx-auto w-full max-w-6xl px-6">
         {/* Text Section - Pushed to the right */}
         <div className="flex flex-col items-end mb-10 md:mb-16">
-          <div className="max-w-2xl">
+          <motion.div 
+            className="max-w-2xl"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="flex items-center gap-1.5 mb-2 ">
               <Plus className="h-3.5 w-3.5 text-white/90 stroke-[3]" />
                 <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] text-white/90 font-inter">
@@ -45,16 +53,23 @@ export default function AboutSection() {
               Mission
             </h2>
             <div className="max-w-xl">
-              <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter">
-                Adrenaline Adventures is an emerging Indian adventure travel company
+              <ScrollReveal  baseOpacity={0}
+                enableBlur={true}
+                baseRotation={0}
+                blurStrength={8}
+                textClassName="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter">
+              Adrenaline Adventures is an emerging Indian adventure travel company
                 creating unique experiences for foreign and domestic travellers in
                 India. We offer exciting type of adventure packages all designed to
                 let travellers experience the rich culture of India in an adventurous
                 way. Our company aims to provide unique, unforgettable travel
                 experiences for adventure enthusiasts around the world.
-              </p>
+              </ScrollReveal>
+              {/* <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter"> */}
+                
+              {/* </p> */}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Images Section */}

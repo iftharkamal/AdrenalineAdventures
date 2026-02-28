@@ -13,6 +13,8 @@ const COMMUNITY_IMAGES = [
   { id: 5, src: "/communitypic5.png", alt: "Meetup", initialPos: { y: "20%" }, desktopRange: [0.7, 0.9], mobileRange: [0.75, 1.0] },
 ];
 
+import ScrollReveal from "./ui/scroll-reveal";
+
 export default function CommunitySection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -53,7 +55,7 @@ export default function CommunitySection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center w-full">
             
             {/* Text Content */}
-            <motion.div 
+            <div 
               style={{ opacity: textOpacity, y: textY }}
               className={`lg:col-span-12 xl:col-span-5 z-40 lg:pr-8 ${isMobile ? "absolute inset-0 flex flex-col justify-center items-center text-center px-6" : "relative"}`}
             >
@@ -66,15 +68,21 @@ export default function CommunitySection() {
               <h2 className="text-4xl sm:text-6xl md:text-6xl mb-6 leading-none tracking-tight font-formula1-bold text-white uppercase italic">
                 community
               </h2>
-              <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter max-w-xl">
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={0}
+                blurStrength={8}
+                textClassName="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter max-w-xl"
+              >
                 Adrenaline Adventures&apos; is an emerging Indian adventure travel company
                 creating unique experiences for foreign and domestic travellers in India.
                 We offer exciting type of adventure packages all designed to let
                 travellers experience the rich culture of India in an adventurous way.
                 Our company aims to provide unique, unforgettable travel experiences
                 for adventure enthusiasts around the world.
-              </p>
-            </motion.div>
+              </ScrollReveal>
+            </div>
 
             {/* Images - Positioned right on desktop, transition to full screen on mobile */}
             <div className={`lg:col-span-12 xl:col-span-7 relative ${isMobile ? "h-screen w-full absolute inset-0 pt-0" : "h-[75vh] w-full"}`}>
@@ -87,23 +95,21 @@ export default function CommunitySection() {
                 const yInitial = img.initialPos.y || "10%";
                 const y = useTransform(scrollYProgress, range, [yInitial, "0%"]);
 
-                // "Rising stack" layout: newest (index 4) is highest, covers previous top.
-                // Desktop positions within the right panel (75vh height)
-                const desktopPositions = [
-                  "top-[55%] left-[5%] w-[42%] aspect-[4/3]",
-                  "top-[40%] right-[5%] w-[40%] aspect-[16/10]",
-                  "top-[22%] left-[20%] w-[45%] aspect-square shadow-[0_45px_100px_rgba(0,0,0,0.95)] border-white/20 border-2",
-                  "top-[10%] right-[12%] w-[38%] aspect-[3/4]",
-                  "top-[0%] left-[35%] w-[35%] aspect-[9/12]",
+                // "Card Stack" layout: images appear centered with slight rotations
+                const desktopStack = [
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] aspect-[4/3] -rotate-6",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] aspect-[4/3] rotate-3",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] aspect-square -rotate-2",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] aspect-[3/4] rotate-6",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] aspect-[9/12] rotate-2",
                 ];
 
-                // Mobile positions (Full Screen reveal)
-                const mobilePositions = [
-                   "top-[60%] left-[10%] w-[75%] aspect-[4/3]",
-                   "top-[45%] right-[10%] w-[70%] aspect-video",
-                   "top-[30%] left-[15%] w-[65%] aspect-square border-white/20 border-1",
-                   "top-[15%] left-[5%] w-[70%] aspect-[3/4]",
-                   "top-[0%] right-[15%] w-[70%] aspect-[9/12]",
+                const mobileStack = [
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] aspect-[4/3] -rotate-3",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-video rotate-2",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] aspect-square -rotate-1",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] aspect-[3/4] rotate-4",
+                  "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] aspect-[9/12] -rotate-2",
                 ];
 
                 return (
@@ -115,7 +121,7 @@ export default function CommunitySection() {
                       y,
                       zIndex: 10 + index * 10 // Guaranteed sequential Z order
                     }}
-                    className={`absolute ${isMobile ? mobilePositions[index] : desktopPositions[index]} overflow-hidden rounded-lg shadow-2xl border border-white/5 transition-all duration-300 group`}
+                    className={`absolute ${isMobile ? mobileStack[index] : desktopStack[index]} overflow-hidden rounded-lg shadow-2xl border border-white/5 transition-all duration-300 group`}
                   >
                     <Image
                       src={img.src}

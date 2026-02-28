@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Plus, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function WhyAdad() {
   return (
@@ -22,7 +23,13 @@ export default function WhyAdad() {
 
       {/* Text Content */}
       <div className="relative z-20 h-full mx-auto max-w-6xl px-6 flex flex-col justify-center py-12 md:py-16">
-        <div className="max-w-3xl">
+        <motion.div 
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="flex items-center gap-1.5 mb-2">
             <Plus className="h-3.5 w-3.5 text-white stroke-[3]" />
             <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] text-white font-inter">
@@ -44,7 +51,7 @@ export default function WhyAdad() {
             Find Out More
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Vignette/Gradient Effect */}

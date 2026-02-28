@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Plus, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const EVENTS = [
   {
@@ -74,7 +75,13 @@ export default function FeaturedEvents() {
     <section className="bg-[#f2f1ef] min-h-screen flex flex-col justify-center py-12 md:py-16 text-[#1a1a1a]">
       <div className="mx-auto w-full max-w-6xl px-6">
         {/* Header */}
-        <div className="mb-10 md:mb-16">
+        <motion.div 
+          className="mb-10 md:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="flex items-center gap-1.5 mb-2">
             <Plus className="h-3.5 w-3.5 text-[#1a1a1a] stroke-[3]" />
             <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] font-inter text-[#1a1a1a]">
@@ -87,7 +94,7 @@ export default function FeaturedEvents() {
           <p className="max-w-xl text-sm sm:text-base md:text-lg leading-[1.8] text-[#1a1a1a]/80 font-medium tracking-wide font-inter">
             Adventures that spark your spirit from quick rides to multi-day journeys, each experience blends thrill, culture, and community. More than trips, they're stories you'll carry forever.
           </p>
-        </div>
+        </motion.div>
 
         {/* Scroll Container */}
         <div 
@@ -128,7 +135,13 @@ export default function FeaturedEvents() {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="flex flex-col md:flex-row items-end md:items-center gap-8 md:gap-12 mt-4">
+        <motion.div 
+          className="flex flex-col md:flex-row items-end md:items-center gap-8 md:gap-12 mt-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <div className="flex gap-2">
             <button 
               onClick={() => scroll("left")}
@@ -155,7 +168,7 @@ export default function FeaturedEvents() {
               }}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <style jsx global>{`
