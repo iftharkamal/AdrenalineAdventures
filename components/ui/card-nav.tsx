@@ -172,9 +172,9 @@ export default function CardNav({
             aria-label="Scroll to top"
           >
             <Image src={logoSrc} alt={logoAlt} width={40} height={40} className="h-8 md:h-10 w-auto object-contain" />
-            <div className="flex flex-col items-start leading-[1.1]">
-              <span className="font-formula1 text-[15px] md:text-[20px] tracking-wider text-white">Adrenaline Adventures</span>
-              <span className="font-inter text-[9px] md:text-[11px] font-light tracking-[0.1em] text-white/70">Curated adventures, Crafted memories</span>
+            <div className="flex flex-col items-start leading-[1.2]">
+              <span className="font-formula1 text-[13px] md:text-[17px] tracking-lighter md:tracking-wider text-white">Adrenaline Adventures</span>
+              <span className="hidden sm:block font-inter text-[7px] md:text-[10px] font-light tracking-[0.1em] text-white/70">Curated adventures, Crafted memories</span>
             </div>
           </div>
 
@@ -188,7 +188,7 @@ export default function CardNav({
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "text-[15px] font-medium tracking-wide transition-colors duration-300 hover:text-[#ff8c00]",
+                      "text-[13px] lg:text-[16px] font-medium tracking-wide transition-colors duration-300 hover:text-[#ff8c00]",
                       isActive ? "text-[#ff8c00]" : "text-white/80"
                     )}
                   >

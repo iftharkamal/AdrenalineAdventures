@@ -36,60 +36,72 @@ export default function AboutUsPage() {
   return (
     <main className="bg-[#121212]">
       {/* ==================== SECTION 1: Hero with Background Image ==================== */}
-      <section className="relative min-h-screen w-full overflow-hidden">
-        {/* Background Image */}
-        <Image
-          src="/landingImage.png"
-          alt="Adventure group at sunset"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        {/* Warm overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-800/20 to-black/60" />
+      <section className="relative min-h-[140vh] w-full bg-[#FEF8F0]">
+        {/* Background Image Container */}
+        <div className="absolute bottom-0 left-0 w-full h-[65%]">
+          <Image
+            src="/aboutuspic1.png"
+            alt="Adventure group at sunset"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-top"
+          />
+          {/* Top linear gradient to fade image to cream background */}
+          <div className="absolute -top-1 left-0 w-full h-72 bg-gradient-to-b from-[#FEF8F0] via-[#FEF8F0]/70 to-transparent" />
+          
+          {/* Bottom linear gradient to fade image to dark background */}
+          <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#121212] via-[#121212]/80 to-transparent" />
+          
+          {/* Subtle dark overlay for readability of white text */}
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-6 pt-28 pb-20">
-          <h1 className="font-formula1-bold text-3xl sm:text-4xl md:text-5xl text-[#3d1a1a] mb-10 tracking-wide uppercase">
-            About Us
-          </h1>
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-6 md:px-12 pt-32 pb-48">
+          
+          {/* Top Part: Title and Dark Text */}
+          <div className="w-full">
+            <h1 className="font-formula1 text-xl sm:text-2xl md:text-3xl text-[#3d1a1a] mb-12 tracking-wide uppercase">
+              ABOUT US
+            </h1>
 
-          <div className="space-y-6 max-w-3xl text-[#2a1a0e] text-sm sm:text-[15px] leading-relaxed font-medium" style={{ textAlign: "justify" }}>
-            <p>
-              At Adrenaline Adventures, we believe true luxury lies in experiences that are rare, unforgettable,
-              and shared with the right people. We are more than an adventure company — we are a
-              community of explorers who value both the thrill of the unknown and the elegance of a well-
-              curated journey.
-            </p>
-            <p>
-              Our expeditions are crafted with precision and passion, offering everything from exclusive
-              motorcycle rides and elite car rallies to bespoke camping retreats, treks, and wilderness escapes.
-              Each plan is designed to be distinctive and immersive, ensuring that no two adventures are ever
-              alike.
-            </p>
-            <p>
-              What sets us apart is our unwavering commitment to quality, safety, and originality. Every journey
-              is meticulously designed — from the routes we choose to the moments we create — blending the
-              spirit of adventure with a refined sense of belonging. For us, the destination matters, but the
-              shared experience of the journey matters more.
-            </p>
-            <p>
-              Our vision goes beyond the present. We are continuously exploring new frontiers, bringing
-              innovative and one-of-a-kind adventures to our members. With each step, we push boundaries
-              while staying true to our ethos: adventure should be bold, different, and deeply personal.
-            </p>
+            <div className="space-y-8 max-w-4xl ml-2 md:ml-16 text-[#1a1a1a] text-sm md:text-base leading-relaxed font-poppins font-medium">
+              <p>
+                At Adrenaline Adventures, we believe true luxury lies in experiences that are rare, unforgettable,
+                and shared with the right people. We are more than an adventure company — we are a
+                community of explorers who value both the thrill of the unknown and the elegance of a well-
+                curated journey.
+              </p>
+              <p>
+                Our expeditions are crafted with precision and passion, offering everything from exclusive
+                motorcycle rides and elite car rallies to bespoke camping retreats, treks, and wilderness escapes.
+                Each plan is designed to be distinctive and immersive, ensuring that no two adventures are ever
+                alike.
+              </p>
+              <p>
+                What sets us apart is our unwavering commitment to quality, safety, and originality. Every journey
+                is meticulously designed — from the routes we choose to the moments we create — blending the
+                spirit of adventure with a refined sense of belonging. For us, the destination matters, but the
+                shared experience of the journey matters more.
+              </p>
+              <p>
+                Our vision goes beyond the present. We are continuously exploring new frontiers, bringing
+                innovative and one-of-a-kind adventures to our members. With each step, we push boundaries
+                while staying true to our ethos: adventure should be bold, different, and deeply personal.
+              </p>
+            </div>
           </div>
 
-          {/* Bottom overlay card */}
-          <div className="mt-12 sm:mt-16 flex justify-center sm:justify-end">
-            <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 sm:p-8 max-w-xl">
-              <p className="font-formula1-bold text-[#d4a843] text-base sm:text-lg md:text-xl leading-relaxed">
+          {/* Bottom Part: White Text over Image */}
+          <div className="mt-40 md:mt-[30vh] flex justify-center md:justify-end">
+            <div className="max-w-2xl px-4 md:px-0">
+              <p className="font-poppins font-semibold text-white text-base md:text-xl md:leading-[1.7] tracking-wide" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 At Adrenaline Adventures, you don&apos;t just take
                 part in activities —you become part of a
                 distinguished circle of like-minded individuals,
                 united by the spirit of discovery, camaraderie,
-                and the pursuit of the extraordinary. At
+                and the pursuit of the extraordinary.At
                 Adrenaline Adventures, you don&apos;t just take part
                 in activities —you become part of a
                 distinguished circle of like-minded individuals,
@@ -98,6 +110,7 @@ export default function AboutUsPage() {
               </p>
             </div>
           </div>
+
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import CardNav, { type CardNavItem } from "@/components/ui/card-nav";
 
@@ -29,6 +30,7 @@ const cardNavItems: CardNavItem[] = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 5);
@@ -36,6 +38,18 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isAboutUs = pathname === "/about-us";
+  
+  // Base color logic:
+  // About Us page: more dark initially, much lighter when scrolled
+  // Other pages: transparent initially, semi-transparent grey when scrolled
+  let baseColor = "transparent";
+  if (isAboutUs) {
+    baseColor = isScrolled ? "rgba(73, 72, 72, 0.54)" : "rgba(0, 0, 0, 0.85)";
+  } else {
+    baseColor = isScrolled ? "#aaa6a673" : "transparent";
+  }
 
   return (
     <header
@@ -55,7 +69,7 @@ export default function Navbar() {
           items={cardNavItems}
           className="mx-auto"
           ease="circ.out"
-         baseColor={isScrolled ? "#aaa6a673" : "transparent"}
+          baseColor={baseColor}
           menuColor="#ffffffff"
         />
       </div>
