@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import CardNav, { type CardNavItem } from "@/components/ui/card-nav";
@@ -30,13 +30,39 @@ const cardNavItems: CardNavItem[] = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 5);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      // Always visible at the very top
+      if (window.scrollY < 5) {
+        setIsVisible(true);
+        setIsScrolled(false);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        return;
+      }
+
+      setIsScrolled(true);
+      setIsVisible(true);
+
+      // Clear existing timeout
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      // Hide after 3 seconds of inactivity
+      timeoutRef.current = setTimeout(() => {
+        setIsVisible(false);
+      }, 3000);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   const isAboutUs = pathname === "/about-us";
@@ -55,6 +81,7 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed left-0 right-0 top-0 z-50 transition-all duration-500",
+        !isVisible && "-translate-y-full"
       )}
     > 
       <div

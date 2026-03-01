@@ -174,7 +174,7 @@ export default function EventsPage() {
           <section
             className={`relative min-h-screen bg-gradient-to-br ${event.bgGradient} text-white flex items-center overflow-hidden`}
           >
-            <div className="mx-auto w-full max-w-[1400px] px-6 py-24 md:py-32 relative z-10">
+            <div className="mx-auto w-full max-w-[1400px] px-6 py-24 md:py-42 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                 {/* Left: Image Card */}
                 <div className="relative flex justify-center lg:justify-start">
@@ -229,9 +229,9 @@ export default function EventsPage() {
                 </div>
 
                 {/* Right: Content */}
-                <div className="relative flex flex-col justify-center py-12">
+                <div className="relative flex flex-col justify-center pt-24 pb-12 lg:py-12">
                   {/* Large faded background number */}
-                  <div className="absolute top-0 left-0 lg:-left-20 transform -translate-y-1/2 text-[180px] md:text-[280px] font-formula1 font-black text-white/10 leading-none select-none pointer-events-none z-0">
+                  <div className="absolute top-0 left-0 lg:-left-20 transform lg:-translate-y-1/2 text-[180px] md:text-[280px] font-formula1 font-black text-white/10 leading-none select-none pointer-events-none z-0">
                     {event.id}
                   </div>
 

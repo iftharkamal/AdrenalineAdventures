@@ -55,7 +55,7 @@ export default function CommunitySection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center w-full">
             
             {/* Text Content */}
-            <div 
+            <motion.div 
               style={{ opacity: textOpacity, y: textY }}
               className={`lg:col-span-12 xl:col-span-5 z-40 lg:pr-8 ${isMobile ? "absolute inset-0 flex flex-col justify-center items-center text-center px-6" : "relative"}`}
             >
@@ -82,7 +82,7 @@ export default function CommunitySection() {
                 Our company aims to provide unique, unforgettable travel experiences
                 for adventure enthusiasts around the world.
               </ScrollReveal>
-            </div>
+            </motion.div>
 
             {/* Images - Positioned right on desktop, transition to full screen on mobile */}
             <div className={`lg:col-span-12 xl:col-span-7 relative ${isMobile ? "h-screen w-full absolute inset-0 pt-0" : "h-[75vh] w-full"}`}>

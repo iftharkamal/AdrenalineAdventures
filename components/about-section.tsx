@@ -7,29 +7,8 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ui/scroll-reveal";
 
 export default function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="about"
       className="min-h-screen scroll-mt-24 bg-[#121212] text-white flex flex-col justify-center py-12 md:py-16 overflow-hidden"
     >
@@ -59,11 +38,11 @@ export default function AboutSection() {
                 blurStrength={8}
                 textClassName="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter">
               Adrenaline Adventures is an emerging Indian adventure travel company
-                creating unique experiences for foreign and domestic travellers in
-                India. We offer exciting type of adventure packages all designed to
-                let travellers experience the rich culture of India in an adventurous
-                way. Our company aims to provide unique, unforgettable travel
-                experiences for adventure enthusiasts around the world.
+              creating unique experiences for foreign and domestic travellers in
+              India. We offer exciting type of adventure packages all designed to
+              let travellers experience the rich culture of India in an adventurous
+              way. Our company aims to provide unique, unforgettable travel
+              experiences for adventure enthusiasts around the world.
               </ScrollReveal>
             </div>
           </motion.div>
@@ -72,12 +51,12 @@ export default function AboutSection() {
         {/* Images Section */}
         {/* Images Section - Horizontal & Bottom Aligned */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-end">
-          <div
-            className={`w-full md:w-2/3 transition-all duration-1000 ease-out transform ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-12 opacity-0"
-            }`}
+          <motion.div
+            className="w-full md:w-2/3"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden shadow-2xl">
               <Image
@@ -88,11 +67,13 @@ export default function AboutSection() {
                 sizes="(min-width: 1024px) 70vw, 100vw"
               />
             </div>
-          </div>
-          <div
-            className={`w-full md:w-1/3 transition-all duration-1000 ease-out delay-300 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-            }`}
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/3"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden shadow-2xl">
               <Image
@@ -103,7 +84,7 @@ export default function AboutSection() {
                 sizes="(min-width: 1024px) 30vw, 100vw"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </div>
