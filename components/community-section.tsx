@@ -56,7 +56,7 @@ export default function CommunitySection() {
             
             {/* Text Content */}
             <motion.div 
-              style={{ opacity: textOpacity, y: textY }}
+              style={{ opacity: textOpacity as any, y: textY as any }}
               className={`lg:col-span-12 xl:col-span-5 z-40 lg:pr-8 ${isMobile ? "absolute inset-0 flex flex-col justify-center items-center text-center px-6" : "relative"}`}
             >
               <div className={`flex items-center gap-1.5 mb-2 ${isMobile ? "justify-center" : ""}`}>
