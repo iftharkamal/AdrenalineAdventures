@@ -6,9 +6,9 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const socialLinks = [
-    { name: "Instagram", href: "#", icon: FaInstagram },
-    { name: "Whatsapp", href: "#", icon: FaWhatsapp },
-    { name: "Facebook", href: "#", icon: FaFacebook },
+    { name: "Instagram", href: "https://www.instagram.com/_adrenaline_adventures?igsh=c3c2c3FsN3M5ZGpy", icon: FaInstagram },
+    { name: "Whatsapp", href: "https://wa.me/918089713241?text=Hi%20Adrenaline%20Adventures%2C%20I%27d%20like%20to%20know%20more%20about%20your%20rides%20and%20programs.", icon: FaWhatsapp },
+    { name: "Facebook", href: "https://www.facebook.com/share/1DyAopkEGK/", icon: FaFacebook },
   ];
 
   return (
@@ -54,8 +54,9 @@ export default function Footer() {
               </h4>
               <p className="text-sm font-bold text-[#FFD700] font-inter">+918089713241</p>
               <p className="text-[11px] text-[#808080] leading-relaxed font-inter opacity-70">
-                2972 Westheimer Rd. Santa Ana,<br />
-                Illinois 85486
+                Door No 36/267, Building No 7/619,<br />
+                Thrikkakara, Ernakulam,<br />
+                Ernakulam - 682021, Kerala, India
               </p>
             </div>
           </div>
@@ -71,7 +72,9 @@ export default function Footer() {
               {socialLinks.map((social, i) => (
                 <div key={social.name} className="flex items-center gap-6">
                   <a 
-                    href={social.href} 
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.name}
                     className="text-white/60 hover:text-[#FFD700] transition-colors tracking-wide text-[10px] font-bold uppercase hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.5)] flex items-center gap-2"
                   >
