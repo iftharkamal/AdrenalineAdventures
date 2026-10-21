@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-night">
       <Image
         src="/landingImage.png"
         alt="Cyclists riding on a trail at sunset"
@@ -16,36 +16,34 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
+      <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-end px-6 pb-10 pt-24 sm:pb-12">
-        <div className="flex flex-col gap-6 text-white md:flex-row md:items-end md:justify-between">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-[9px] sm:text-xs font-medium uppercase tracking-[0.35em] text-white/80 font-inter">
-              + Born from the spirit of exploration
-            </p>
-            <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold font-formula1">
-              - This is ADAD.
-            </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Button
-              className="h-11 w-fit rounded-xl bg-white px-5 text-sm font-medium text-neutral-900 hover:bg-white/90"
-              aria-label="Discover ADAD"
-            >
-              discover adad .
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </motion.div>
-        </div>
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-page flex-col justify-between px-6 pb-10 pt-36 md:pb-12 md:pt-44">
+        <motion.h1
+          className="max-w-5xl font-display text-[52px] leading-none tracking-[-0.02em] text-paper sm:text-heading-lg md:text-display lg:text-display-xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          This is ADAD.
+        </motion.h1>
+
+        <motion.div
+          className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <p className="max-w-md text-body-lg text-paper">Born from the spirit of exploration.</p>
+          <a href="#about" className="flex items-center gap-1" aria-label="Discover ADAD">
+            <span className={buttonVariants({ variant: "outline", className: "bg-night/60 backdrop-blur-md" })}>
+              Discover ADAD
+            </span>
+            <span className={buttonVariants({ variant: "accent", size: "icon" })}>
+              <ArrowRight />
+            </span>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
