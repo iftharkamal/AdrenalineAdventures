@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Footer from "@/components/footer";
+import { buttonVariants } from "@/components/ui/button";
+import { SectionLabel, Tag } from "@/components/ui/section-label";
 
 /* ───────────────────────────── Event Data ───────────────────────────── */
 
@@ -22,8 +25,6 @@ const EVENTS = [
       "No overnight stay needed",
     ],
     collageImage: "/eventcard1.png",
-    bgGradient: "from-[#7a5c34] via-[#6b4f2d] to-[#4a3520]",
-    highlightBg: "bg-[#f5f0e8]",
   },
   {
     id: "02",
@@ -43,8 +44,6 @@ const EVENTS = [
       "Local stays & authentic food",
     ],
     collageImage: "/eventcard1.png",
-    bgGradient: "from-[#3a2a18] via-[#2d2015] to-[#1a1510]",
-    highlightBg: "bg-[#f5f0e8]",
   },
   {
     id: "03",
@@ -64,8 +63,6 @@ const EVENTS = [
       "No prior rally experience needed",
     ],
     collageImage: "/maltera_rally_collage.png",
-    bgGradient: "from-[#7a5c34] via-[#6b4f2d] to-[#4a3520]",
-    highlightBg: "bg-[#f5f0e8]",
   },
   {
     id: "04",
@@ -85,8 +82,6 @@ const EVENTS = [
       "Award ceremony & finisher medals",
     ],
     collageImage: "/maltera_rally_collage.png",
-    bgGradient: "from-[#3a2a18] via-[#2d2015] to-[#1a1510]",
-    highlightBg: "bg-[#f5f0e8]",
   },
   {
     id: "05",
@@ -106,8 +101,6 @@ const EVENTS = [
       "Eco-friendly & leave-no-trace",
     ],
     collageImage: "/gohike_collage.png",
-    bgGradient: "from-[#2d4a2d] via-[#1e3520] to-[#152a15]",
-    highlightBg: "bg-[#eef5e8]",
   },
 ];
 
@@ -115,95 +108,64 @@ const EVENTS = [
 
 export default function EventsPage() {
   return (
-    <main>
+    <main className="bg-abyssal-ink">
       {/* ─── Events Header Section ─── */}
-      <section className="relative min-h-screen bg-gradient-to-br from-[#2a2017] via-[#3a2e1e] to-[#1a1510] text-white flex items-center overflow-hidden">
-        {/* Subtle grain overlay */}
-        {/* <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" /> */}
+      <section className="pb-20 pt-36 text-paper md:pb-32 md:pt-48">
+        <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
+          <div>
+            <h1 className="font-display text-heading-lg md:text-display-lg">Events.</h1>
+            <p className="mt-8 max-w-lg text-body text-paper/70">
+              When a user activates a theme, they have an expectation of seeing their photos, theirs shop, their
+              contributors and all of their content with a new style or twist. Themes provide this ability to showcase
+              user content in different ways. How a theme gets that content is what we look for. When there is no
+              content a theme should not show anything
+            </p>
+          </div>
 
-        <div className="mx-auto w-full max-w-[1400px] px-6 py-32 md:py-40 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Left: Title & Description */}
-            <div>
-              <h1 className="text-4xl md:text-6xl font-formula1 font-black mb-8 tracking-tight leading-[0.95] text-[#d4a843]">
-                EVENTS
-              </h1>
-              <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-lg font-poppins font-medium">
-                When a user activates a theme, they have an expectation of
-                seeing their photos, theirs shop, their contributors and all of
-                their content with a new style or twist. Themes provide this
-                ability to showcase user content in different ways. How a theme
-                gets that content is what we look for. When there is no content a
-                theme should not show anything
-              </p>
-            </div>
-
-            {/* Right: Event List */}
-            <div className="flex flex-col gap-6 lg:pt-4">
-              {EVENTS.map((event) => (
-                <a
-                  key={event.id}
-                  href={`#event-${event.id}`}
-                  className="group flex flex-col gap-0.5 transition-all duration-300 hover:translate-x-2"
-                >
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-[#d4a843] font-boldonse font-bold text-base md:text-lg italic tracking-wide">
-                      {event.id}.
+          <ul className="border-t border-graphite lg:mt-4">
+            {EVENTS.map((event) => (
+              <li key={event.id} className="border-b border-graphite">
+                <a href={`#event-${event.id}`} className="group flex items-center justify-between gap-6 py-5">
+                  <span className="flex items-center gap-5">
+                    <span className="rounded-full border border-graphite px-2.5 py-1 font-mono text-caption text-paper/60">
+                      {event.id}
                     </span>
-                    <span className="text-[#d4a843] font-boldonse text-base md:text-lg tracking-wide">
-                      {event.title}
+                    <span>
+                      <span className="block font-display text-subheading transition-transform duration-300 group-hover:translate-x-1">
+                        {event.title}
+                      </span>
+                      <span className="mt-1 block font-mono text-caption uppercase text-paper/60">{event.subtitle}</span>
                     </span>
-                  </div>
-                  <span className="text-white text-sm md:text-base font-poppins font-medium pl-6">
-                    {event.subtitle}
+                  </span>
+                  <span
+                    className={buttonVariants({
+                      variant: "accent",
+                      size: "icon",
+                      className: "opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100",
+                    })}
+                    aria-hidden="true"
+                  >
+                    <ArrowRight />
                   </span>
                 </a>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#7a5c34] to-transparent" />
       </section>
 
       {/* ─── Event Detail Sections ─── */}
       {EVENTS.map((event, index) => (
         <div key={event.id} id={`event-${event.id}`}>
-          {/* Hero Section */}
-          <section
-            className={`relative min-h-screen bg-gradient-to-br ${event.bgGradient} text-white flex items-center overflow-hidden`}
-          >
-            <div className="mx-auto w-full max-w-[1400px] px-6 py-24 md:py-42 relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-                {/* Left: Image Card */}
-                <div className="relative flex justify-center lg:justify-start">
-                  {index % 2 === 0 ? (
-                    /* Odd: Polaroid-style card */
-                    <div className="relative bg-[#eeeae3] p-4 pb-12 shadow-2xl shadow-black/40 max-w-sm w-full z-10">
-                      <div className="relative aspect-[3.5/4] overflow-hidden">
-                        <Image
-                          src={event.heroImage}
-                          alt={event.title}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 1024px) 400px, 350px"
-                        />
-                      </div>
-                      <div className="mt-8 px-2">
-                        <h3 className="text-[#4a3520] text-3xl md:text-4xl font-boldonse tracking-tight leading-[1.3] max-w-[200px]">
-                          {event.title.split(" ").map((word, i) => (
-                            <span key={i} className="block">{word}</span>
-                          ))}
-                        </h3>
-                        <p className="text-[#4a3520]/80 text-sm md:text-base font-poppins font-medium mt-2">
-                          {event.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    /* Even: Full-image card */
-                    <div className="relative max-w-sm w-full aspect-[3.5/5.5] shadow-2xl shadow-black/40 z-10 group overflow-hidden">
+          {/* Detail band */}
+          <section className="border-t border-graphite py-20 text-paper md:py-32">
+            <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-24">
+              {/* Left: Image Card */}
+              <div className="flex justify-center lg:justify-start">
+                {index % 2 === 0 ? (
+                  /* Paper card with inset photo */
+                  <div className="w-full max-w-sm rounded-card bg-paper p-3">
+                    <div className="relative aspect-[3.5/4] overflow-hidden rounded-xl">
                       <Image
                         src={event.heroImage}
                         alt={event.title}
@@ -211,120 +173,94 @@ export default function EventsPage() {
                         className="object-cover"
                         sizes="(min-width: 1024px) 400px, 350px"
                       />
-                      {/* Gradient overlay for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      
-                      <div className="absolute bottom-8 left-6 right-6 z-20">
-                        <h3 className="text-white text-3xl md:text-4xl font-boldonse tracking-tight leading-[1.3] max-w-[200px]">
-                        {event.title.split(" ").map((word, i) => (
-                            <span key={i} className="block">{word}</span>
-                          ))}
-                        </h3>
-                        <p className="text-white/90 text-sm md:text-base font-poppins font-medium mt-">
-                          {event.subtitle}
-                        </p>
-                      </div>
                     </div>
-                  )}
-                </div>
-
-                {/* Right: Content */}
-                <div className="relative flex flex-col justify-center pt-24 pb-12 lg:py-12">
-                  {/* Large faded background number */}
-                  <div className="absolute top-0 left-0 lg:-left-20 transform lg:-translate-y-1/2 text-[180px] md:text-[280px] font-formula1 font-black text-white/10 leading-none select-none pointer-events-none z-0">
-                    {event.id}
+                    <div className="px-3 pb-4 pt-6 text-abyssal-ink">
+                      <h3 className="font-display text-heading-sm">{event.title}</h3>
+                      <Tag tone="light" className="mt-3">
+                        {event.subtitle}
+                      </Tag>
+                    </div>
                   </div>
-
-                  <div className="relative z-10">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-boldonse tracking-tight mb-4 text-[#d4a843]">
-                      {event.title}
-                    </h2>
-                    <p className="text-white text-lg md:text-xl font-poppins font-semibold mb-10">
-                      {event.subtitle}
-                    </p>
-
-                    <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 font-poppins font-normal max-w-xl">
-                      {event.description}
-                    </p>
-
-                    <p className="text-white/50 text-base font-poppins font-light max-w-md leading-relaxed">
-                      – {event.quote}
-                    </p>
+                ) : (
+                  /* Full-bleed photo card */
+                  <div className="relative aspect-[3.5/5] w-full max-w-sm overflow-hidden rounded-card">
+                    <Image
+                      src={event.heroImage}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 400px, 350px"
+                    />
+                    <div className="absolute inset-0 bg-abyssal-ink/45" aria-hidden="true" />
+                    <div className="absolute inset-x-6 bottom-8">
+                      <h3 className="font-display text-heading-sm text-paper">{event.title}</h3>
+                      <Tag className="mt-3 text-paper/80">{event.subtitle}</Tag>
+                    </div>
                   </div>
-                </div>
+                )}
+              </div>
+
+              {/* Right: Content */}
+              <div>
+                <SectionLabel index={event.id}>{event.subtitle}</SectionLabel>
+                <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">{event.title}</h2>
+                <p className="mt-8 max-w-xl text-body text-paper/70">{event.description}</p>
+                <p className="mt-10 max-w-md border-t border-graphite pt-6 text-body-lg text-paper">
+                  &ldquo;{event.quote}&rdquo;
+                </p>
               </div>
             </div>
           </section>
 
-          {/* Highlights Section */}
-          <section className={`${event.highlightBg} py-20 md:py-28`}>
-            <div className="mx-auto w-full max-w-[1400px] px-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                {/* Left: Highlights List */}
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-[#1a1a1a] mb-8 tracking-tight">
-                    Highlights
-                  </h3>
-                  <ul className="flex flex-col gap-4">
-                    {event.highlights.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center gap-3 text-[#1a1a1a]/80 text-base md:text-lg font-poppins font-light"
-                      >
-                        <span className="h-2 w-2 rounded-full bg-[#8b6914] flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Highlights band */}
+          <section className="bg-bone-white py-20 text-abyssal-ink md:py-32">
+            <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
+              <div className="rounded-card bg-paper p-6 md:p-10">
+                <h3 className="font-display text-heading-sm">Highlights</h3>
+                <ul className="mt-8 border-t border-lichen">
+                  {event.highlights.map((item) => (
+                    <li key={item} className="flex items-center gap-4 border-b border-lichen py-4 text-body">
+                      <span className="size-1.5 shrink-0 rounded-full bg-abyssal-ink" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                {/* Right: Collage Image */}
-                <div className="relative">
-                  <div className="grid grid-cols-3 grid-rows-2 gap-3 md:gap-4">
-                    {/* Main large image */}
-                    <div className="col-span-2 row-span-2 relative aspect-[4/5] overflow-hidden rounded-sm shadow-lg">
-                      <Image
-                        src={event.collageImage}
-                        alt={`${event.title} highlights`}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 1024px) 450px, 300px"
-                      />
-                    </div>
-                    {/* Top-right small image */}
-                    <div className="relative aspect-square overflow-hidden rounded-sm shadow-lg">
-                      <Image
-                        src={event.heroImage}
-                        alt={`${event.title} highlight`}
-                        fill
-                        className="object-cover"
-                        sizes="150px"
-                      />
-                    </div>
-                    {/* Bottom-right small image */}
-                    <div className="relative aspect-square overflow-hidden rounded-sm shadow-lg">
-                      <Image
-                        src={event.collageImage}
-                        alt={`${event.title} highlight`}
-                        fill
-                        className="object-cover object-bottom"
-                        sizes="150px"
-                      />
-                    </div>
-                  </div>
+              <div className="grid grid-cols-3 grid-rows-2 gap-3 md:gap-4">
+                <div className="relative col-span-2 row-span-2 aspect-[4/5] overflow-hidden rounded-2xl">
+                  <Image
+                    src={event.collageImage}
+                    alt={`${event.title} highlights`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 450px, 300px"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden rounded-2xl">
+                  <Image
+                    src={event.heroImage}
+                    alt={`${event.title} highlight`}
+                    fill
+                    className="object-cover"
+                    sizes="150px"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden rounded-2xl">
+                  <Image
+                    src={event.collageImage}
+                    alt={`${event.title} highlight`}
+                    fill
+                    className="object-cover object-bottom"
+                    sizes="150px"
+                  />
                 </div>
               </div>
             </div>
           </section>
-
-          {/* Divider between events */}
-          {index < EVENTS.length - 1 && (
-            <div className="h-[2px] bg-gradient-to-r from-transparent via-[#8b6914]/20 to-transparent" />
-          )}
         </div>
       ))}
 
-      {/* ─── Footer ─── */}
       <Footer />
     </main>
   );

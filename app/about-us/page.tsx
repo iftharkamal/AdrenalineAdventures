@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import Footer from "@/components/footer";
+import { SectionLabel } from "@/components/ui/section-label";
+import { cn } from "@/lib/utils";
 
 const stats = [
   { number: "1000+", label: "Riders & Explorers" },
@@ -34,191 +36,154 @@ export default function AboutUsPage() {
   };
 
   return (
-    <main className="bg-[#121212]">
-      {/* ==================== SECTION 1: Hero with Background Image ==================== */}
-      <section className="relative min-h-[140vh] w-full bg-[#FEF8F0]">
-        {/* Background Image Container */}
-        <div className="absolute bottom-0 left-0 w-full h-[65%]">
-          <Image
-            src="/aboutuspic1.png"
-            alt="Adventure group at sunset"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-top"
-          />
-          {/* Top linear gradient to fade image to cream background */}
-          <div className="absolute -top-1 left-0 w-full h-72 bg-gradient-to-b from-[#FEF8F0] via-[#FEF8F0]/70 to-transparent" />
-          
-          {/* Bottom linear gradient to fade image to dark background */}
-          <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#121212] via-[#121212]/80 to-transparent" />
-          
-          {/* Subtle dark overlay for readability of white text */}
-          <div className="absolute inset-0 bg-black/10" />
+    <main className="bg-abyssal-ink">
+      {/* ==================== SECTION 1: Intro on light canvas ==================== */}
+      <section className="bg-bone-white pb-6 pt-36 text-abyssal-ink md:pb-6 md:pt-48">
+        <div className="mx-auto w-full max-w-page px-6">
+          <h1 className="font-display text-heading-lg md:text-display-lg">About us.</h1>
+
+          <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2fr]">
+            <SectionLabel index="01" tone="light">
+              Who we are
+            </SectionLabel>
+            <div className="space-y-6 text-body text-graphite">
+              <p>
+                At Adrenaline Adventures, we believe true luxury lies in experiences that are rare, unforgettable, and
+                shared with the right people. We are more than an adventure company — we are a community of explorers
+                who value both the thrill of the unknown and the elegance of a well- curated journey.
+              </p>
+              <p>
+                Our expeditions are crafted with precision and passion, offering everything from exclusive motorcycle
+                rides and elite car rallies to bespoke camping retreats, treks, and wilderness escapes. Each plan is
+                designed to be distinctive and immersive, ensuring that no two adventures are ever alike.
+              </p>
+              <p>
+                What sets us apart is our unwavering commitment to quality, safety, and originality. Every journey is
+                meticulously designed — from the routes we choose to the moments we create — blending the spirit of
+                adventure with a refined sense of belonging. For us, the destination matters, but the shared experience
+                of the journey matters more.
+              </p>
+              <p>
+                Our vision goes beyond the present. We are continuously exploring new frontiers, bringing innovative and
+                one-of-a-kind adventures to our members. With each step, we push boundaries while staying true to our
+                ethos: adventure should be bold, different, and deeply personal.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-6 md:px-12 pt-32 pb-48">
-          
-          {/* Top Part: Title and Dark Text */}
-          <div className="w-full">
-            <h1 className="font-formula1 text-xl sm:text-2xl md:text-3xl text-[#3d1a1a] mb-12 tracking-wide uppercase">
-              ABOUT US
-            </h1>
-
-            <div className="space-y-8 max-w-4xl ml-2 md:ml-16 text-[#1a1a1a] text-sm md:text-base leading-relaxed font-poppins font-medium">
-              <p>
-                At Adrenaline Adventures, we believe true luxury lies in experiences that are rare, unforgettable,
-                and shared with the right people. We are more than an adventure company — we are a
-                community of explorers who value both the thrill of the unknown and the elegance of a well-
-                curated journey.
-              </p>
-              <p>
-                Our expeditions are crafted with precision and passion, offering everything from exclusive
-                motorcycle rides and elite car rallies to bespoke camping retreats, treks, and wilderness escapes.
-                Each plan is designed to be distinctive and immersive, ensuring that no two adventures are ever
-                alike.
-              </p>
-              <p>
-                What sets us apart is our unwavering commitment to quality, safety, and originality. Every journey
-                is meticulously designed — from the routes we choose to the moments we create — blending the
-                spirit of adventure with a refined sense of belonging. For us, the destination matters, but the
-                shared experience of the journey matters more.
-              </p>
-              <p>
-                Our vision goes beyond the present. We are continuously exploring new frontiers, bringing
-                innovative and one-of-a-kind adventures to our members. With each step, we push boundaries
-                while staying true to our ethos: adventure should be bold, different, and deeply personal.
+        {/* Photo panel */}
+        <div className="mt-20 px-3 md:mt-32 md:px-6">
+          <div className="relative flex min-h-[80vh] items-end overflow-hidden rounded-card md:rounded-panel">
+            <Image
+              src="/aboutuspic1.png"
+              alt="Adventure group at sunset"
+              fill
+              sizes="100vw"
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-abyssal-ink/45" aria-hidden="true" />
+            <div className="relative z-10 mx-auto flex w-full max-w-page justify-end px-6 py-12 md:py-20">
+              <p className="max-w-xl text-body-lg text-paper">
+                At Adrenaline Adventures, you don&apos;t just take part in activities — you become part of a
+                distinguished circle of like-minded individuals, united by the spirit of discovery, camaraderie, and the
+                pursuit of the extraordinary.
               </p>
             </div>
           </div>
-
-          {/* Bottom Part: White Text over Image */}
-          <div className="mt-40 md:mt-[30vh] flex justify-center md:justify-end">
-            <div className="max-w-2xl px-4 md:px-0">
-              <p className="font-poppins font-semibold text-white text-base md:text-xl md:leading-[1.7] tracking-wide" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                At Adrenaline Adventures, you don&apos;t just take
-                part in activities —you become part of a
-                distinguished circle of like-minded individuals,
-                united by the spirit of discovery, camaraderie,
-                and the pursuit of the extraordinary.At
-                Adrenaline Adventures, you don&apos;t just take part
-                in activities —you become part of a
-                distinguished circle of like-minded individuals,
-                united by the spirit of discovery, camaraderie,
-                and the pursuit of the extraordinary.
-              </p>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* ==================== SECTION 2: Stats Bar ==================== */}
-      <section className="bg-[#1a1a1a] border-y border-white/10">
-        <div className="mx-auto w-full max-w-5xl px-4 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border border-white/20 rounded-lg px-4 py-5 text-center flex flex-col items-center justify-center"
-              >
-                <span className="font-formula1-bold text-2xl sm:text-3xl md:text-4xl text-[#d4a843] mb-1">
-                  {stat.number}
-                </span>
-                <span className="font-formula1 text-white text-xs sm:text-sm tracking-wide">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
+      {/* ==================== SECTION 2: Stats ==================== */}
+      <section className="bg-bone-white pb-20 pt-6 md:pb-32">
+        <div className="mx-auto grid w-full max-w-page grid-cols-2 gap-3 px-6 md:grid-cols-4 md:gap-5">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col gap-6 rounded-card bg-paper p-6 md:p-8">
+              <span className="font-display text-heading-sm text-abyssal-ink md:text-heading-lg">{stat.number}</span>
+              <span className="font-mono text-caption uppercase text-graphite">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ==================== SECTION 3: Why Join ==================== */}
-      <section className="bg-[#121212] relative overflow-hidden">
-        {/* Subtle golden radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(180,140,60,0.08)_0%,_transparent_70%)]" />
-
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 py-16 md:py-24">
-          <h2 className="font-formula1 text-white text-xl sm:text-2xl md:text-3xl italic mb-10">
-            Why Join Adrenaline Adventures?
-          </h2>
-
-          <div className="pl-4 sm:pl-8 border-l-2 border-[#d4a843]/30 space-y-6 max-w-3xl">
-            <p className="text-white/80 text-sm sm:text-[15px] leading-relaxed font-medium">
-              Because adventure is better when it&apos;s shared.<br />
-              With us, it&apos;s not just about the route or the destination — it&apos;s about the people you meet,
-              the stories you create, and the memories that stay long after the journey ends. Every ride,
-              rally, hike, or camp is crafted for thrill-seekers who value connection as much as the
-              experience itself. From handpicked routes and expert coordination to finish-line
-              celebrations and nights filled with music, laughter, and shared moments — we make
-              sure your adventure feels like it was made just for you.
+      <section className="py-20 text-paper md:py-32">
+        <div className="mx-auto grid w-full max-w-page gap-10 px-6 md:grid-cols-[1fr_2fr]">
+          <SectionLabel index="02">Why join</SectionLabel>
+          <div>
+            <h2 className="font-display text-heading-sm md:text-heading-lg">Why Join Adrenaline Adventures?</h2>
+            <p className="mt-8 text-body text-paper/70">
+              Because adventure is better when it&apos;s shared.
+              <br />
+              With us, it&apos;s not just about the route or the destination — it&apos;s about the people you meet, the
+              stories you create, and the memories that stay long after the journey ends. Every ride, rally, hike, or camp
+              is crafted for thrill-seekers who value connection as much as the experience itself. From handpicked routes
+              and expert coordination to finish-line celebrations and nights filled with music, laughter, and shared
+              moments — we make sure your adventure feels like it was made just for you.
             </p>
           </div>
         </div>
       </section>
 
       {/* ==================== SECTION 4: What We Do ==================== */}
-      <section className="bg-[#121212]">
-        <div className="mx-auto w-full max-w-5xl px-6 pb-16 md:pb-24">
-          <h2 className="font-formula1 text-white text-xl sm:text-2xl md:text-3xl italic mb-8">
-            What We Do
-          </h2>
-
-          <div className="pl-4 sm:pl-8 space-y-4">
+      <section className="pb-20 text-paper md:pb-32">
+        <div className="mx-auto grid w-full max-w-page gap-10 border-t border-graphite px-6 pt-20 md:grid-cols-[1fr_2fr] md:pt-32">
+          <SectionLabel index="03">What we do</SectionLabel>
+          <ul className="space-y-5">
             {whatWeDo.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-[#d4a843] flex-shrink-0" />
-                <p className="text-white/80 text-sm sm:text-[15px] leading-relaxed font-medium">
-                  {item}
-                </p>
-              </div>
+              <li key={item} className="flex items-start gap-4 text-body-lg">
+                <span className="mt-3 size-1.5 shrink-0 rounded-full bg-bioluminescent-lime" aria-hidden="true" />
+                {item}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* ==================== SECTION 5: FAQ Accordion ==================== */}
-      <section className="bg-[#121212]">
-        <div className="mx-auto w-full max-w-5xl px-6 pb-20 md:pb-28">
-          <div className="border-t border-white/10">
-            {faqs.map((faq, index) => (
-              <div key={faq} className="border-b border-white/10">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-5 sm:py-6 text-left group"
-                  aria-expanded={openFaq === index}
-                >
-                  <span className="font-formula1 text-white/80 text-sm sm:text-[15px] tracking-wide pr-4 group-hover:text-white transition-colors">
-                    {faq}
-                  </span>
-                  <span className="flex-shrink-0 text-white/60 group-hover:text-[#d4a843] transition-colors">
-                    {openFaq === index ? (
-                      <Minus className="h-5 w-5" />
-                    ) : (
-                      <Plus className="h-5 w-5" />
+      <section className="pb-20 text-paper md:pb-32">
+        <div className="mx-auto grid w-full max-w-page gap-10 px-6 md:grid-cols-[1fr_2fr]">
+          <SectionLabel index="04">Questions</SectionLabel>
+          <div className="border-t border-graphite">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div key={faq} className="border-b border-graphite">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="group flex w-full items-center justify-between gap-6 py-6 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-body-lg text-paper/80 transition-colors group-hover:text-paper">{faq}</span>
+                    <span
+                      className={cn(
+                        "flex size-10 shrink-0 items-center justify-center rounded-lg border transition-colors",
+                        isOpen
+                          ? "border-bioluminescent-lime bg-bioluminescent-lime text-abyssal-ink"
+                          : "border-graphite text-paper group-hover:border-paper"
+                      )}
+                    >
+                      {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                    </span>
+                  </button>
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-300 ease-in-out",
+                      isOpen ? "max-h-40 pb-6" : "max-h-0"
                     )}
-                  </span>
-                </button>
-                {/* Expandable answer area */}
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openFaq === index ? "max-h-40 pb-6" : "max-h-0"
-                  }`}
-                >
-                  <p className="text-white/60 text-sm leading-relaxed pl-2">
-                    Every journey with Adrenaline Adventures is designed to ignite your spirit and connect you with
-                    a community that shares your passion for discovery and the extraordinary.
-                  </p>
+                  >
+                    <p className="max-w-2xl text-body text-paper/60">
+                      Every journey with Adrenaline Adventures is designed to ignite your spirit and connect you with a
+                      community that shares your passion for discovery and the extraordinary.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </main>
   );

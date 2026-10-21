@@ -1,61 +1,35 @@
-"use client";
-
 import Image from "next/image";
-import { Plus, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import Reveal from "@/components/ui/reveal";
+import { SectionLabel } from "@/components/ui/section-label";
 
 export default function WhyAdad() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/whyadadimg.png"
-          alt="Adventure riders in the mountains"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Subtle Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/20 z-10" />
-      </div>
+    <section className="bg-abyssal-ink px-3 py-3 md:px-6 md:py-6">
+      <div className="relative flex min-h-[90vh] items-end overflow-hidden rounded-card md:rounded-panel">
+        <Image src="/whyadadimg.png" alt="Adventure riders in the mountains" fill sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-abyssal-ink/50" aria-hidden="true" />
 
-      {/* Text Content */}
-      <div className="relative z-20 h-full mx-auto max-w-6xl px-6 flex flex-col justify-center py-12 md:py-16">
-        <motion.div 
-          className="max-w-3xl"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="flex items-center gap-1.5 mb-2">
-            <Plus className="h-3.5 w-3.5 text-white stroke-[3]" />
-            <span className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] font-medium uppercase tracking-[0.5em] text-white font-inter">
-              WHY
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl mb-6 md:mb-8 leading-none tracking-tight font-formula1-bold text-white uppercase">
-            ADAD
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg leading-[1.8] text-white/80 font-medium tracking-wide font-inter max-w-xl mb-10">
-            We set out to create adventure rides that truly capture the spirit of exploration — 
-            journeys that reflect our passion for the open road and the world beyond it. 
-            Each route is designed in collaboration with expert local guides to bring out the culture, 
-            challenge, and character of every destination.
-          </p>
-          <Button 
-            className="bg-white hover:bg-white/90 text-black px-8 py-6 rounded-md text-base  transition-all duration-300 group"
-          >
-            Find Out More
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </motion.div>
+        <div className="relative z-10 mx-auto w-full max-w-page px-6 py-16 md:py-24">
+          <Reveal className="max-w-2xl">
+            <SectionLabel index="03">Why</SectionLabel>
+            <h2 className="mt-6 font-display text-heading-lg text-paper md:text-display">ADAD</h2>
+            <p className="mb-10 mt-6 text-body text-paper/80">
+              We set out to create adventure rides that truly capture the spirit of exploration — journeys that reflect
+              our passion for the open road and the world beyond it. Each route is designed in collaboration with expert
+              local guides to bring out the culture, challenge, and character of every destination.
+            </p>
+            <Link href="/about-us" className="inline-flex items-center gap-1">
+              <span className={buttonVariants({ variant: "inverse" })}>Find out more</span>
+              <span className={buttonVariants({ variant: "accent", size: "icon" })}>
+                <ArrowRight />
+              </span>
+            </Link>
+          </Reveal>
+        </div>
       </div>
-
-      {/* Bottom Vignette/Gradient Effect */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent z-15" />
     </section>
   );
 }
