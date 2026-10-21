@@ -49,7 +49,7 @@ function StackedImage({
   return (
     <motion.div
       style={{ opacity, scale, y, zIndex: 10 + index * 10 }}
-      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-graphite ${
+      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line ${
         isMobile ? MOBILE_STACK[index] : DESKTOP_STACK[index]
       }`}
     >
@@ -89,7 +89,7 @@ export default function CommunitySection() {
   const textY = useTransform(scrollYProgress, isMobile ? [0, 0.1, 0.2] : [0, 0.1], isMobile ? [20, 0, -20] : [20, 0]);
 
   return (
-    <section ref={containerRef} id="community" className="relative h-[600vh] bg-abyssal-ink text-paper">
+    <section ref={containerRef} id="community" className="relative h-[600vh] bg-night text-paper">
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         <div className="mx-auto flex h-full w-full max-w-page items-center px-6">
           <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">

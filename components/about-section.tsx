@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/section-label";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 bg-abyssal-ink py-20 text-paper md:py-32">
+    <section id="about" className="scroll-mt-24 bg-night py-20 text-paper md:py-32">
       <div className="mx-auto w-full max-w-page px-6">
         <div className="mb-16 grid gap-10 md:mb-24 md:grid-cols-2">
           <Reveal>

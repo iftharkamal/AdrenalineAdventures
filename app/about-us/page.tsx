@@ -36,9 +36,9 @@ export default function AboutUsPage() {
   };
 
   return (
-    <main className="bg-abyssal-ink">
+    <main className="bg-night">
       {/* ==================== SECTION 1: Intro on light canvas ==================== */}
-      <section className="bg-bone-white pb-6 pt-36 text-abyssal-ink md:pb-6 md:pt-48">
+      <section className="bg-stone pb-6 pt-36 text-ink md:pb-6 md:pt-48">
         <div className="mx-auto w-full max-w-page px-6">
           <h1 className="font-display text-heading-lg md:text-display-lg">About us.</h1>
 
@@ -46,7 +46,7 @@ export default function AboutUsPage() {
             <SectionLabel index="01" tone="light">
               Who we are
             </SectionLabel>
-            <div className="space-y-6 text-body text-graphite">
+            <div className="space-y-6 text-body text-ink/70">
               <p>
                 At Adrenaline Adventures, we believe true luxury lies in experiences that are rare, unforgettable, and
                 shared with the right people. We are more than an adventure company — we are a community of explorers
@@ -82,7 +82,7 @@ export default function AboutUsPage() {
               sizes="100vw"
               className="object-cover object-top"
             />
-            <div className="absolute inset-0 bg-abyssal-ink/45" aria-hidden="true" />
+            <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
             <div className="relative z-10 mx-auto flex w-full max-w-page justify-end px-6 py-12 md:py-20">
               <p className="max-w-xl text-body-lg text-paper">
                 At Adrenaline Adventures, you don&apos;t just take part in activities — you become part of a
@@ -95,12 +95,12 @@ export default function AboutUsPage() {
       </section>
 
       {/* ==================== SECTION 2: Stats ==================== */}
-      <section className="bg-bone-white pb-20 pt-6 md:pb-32">
+      <section className="bg-stone pb-20 pt-6 md:pb-32">
         <div className="mx-auto grid w-full max-w-page grid-cols-2 gap-3 px-6 md:grid-cols-4 md:gap-5">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-6 rounded-card bg-paper p-6 md:p-8">
-              <span className="font-display text-heading-sm text-abyssal-ink md:text-heading-lg">{stat.number}</span>
-              <span className="font-mono text-caption uppercase text-graphite">{stat.label}</span>
+              <span className="font-display text-heading-sm text-ink md:text-heading-lg">{stat.number}</span>
+              <span className="font-mono text-caption uppercase text-ink/70">{stat.label}</span>
             </div>
           ))}
         </div>
@@ -127,12 +127,12 @@ export default function AboutUsPage() {
 
       {/* ==================== SECTION 4: What We Do ==================== */}
       <section className="pb-20 text-paper md:pb-32">
-        <div className="mx-auto grid w-full max-w-page gap-10 border-t border-graphite px-6 pt-20 md:grid-cols-[1fr_2fr] md:pt-32">
+        <div className="mx-auto grid w-full max-w-page gap-10 border-t border-line px-6 pt-20 md:grid-cols-[1fr_2fr] md:pt-32">
           <SectionLabel index="03">What we do</SectionLabel>
           <ul className="space-y-5">
             {whatWeDo.map((item) => (
               <li key={item} className="flex items-start gap-4 text-body-lg">
-                <span className="mt-3 size-1.5 shrink-0 rounded-full bg-bioluminescent-lime" aria-hidden="true" />
+                <span className="mt-3 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                 {item}
               </li>
             ))}
@@ -144,11 +144,11 @@ export default function AboutUsPage() {
       <section className="pb-20 text-paper md:pb-32">
         <div className="mx-auto grid w-full max-w-page gap-10 px-6 md:grid-cols-[1fr_2fr]">
           <SectionLabel index="04">Questions</SectionLabel>
-          <div className="border-t border-graphite">
+          <div className="border-t border-line">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
-                <div key={faq} className="border-b border-graphite">
+                <div key={faq} className="border-b border-line">
                   <button
                     onClick={() => toggleFaq(index)}
                     className="group flex w-full items-center justify-between gap-6 py-6 text-left"
@@ -159,8 +159,8 @@ export default function AboutUsPage() {
                       className={cn(
                         "flex size-10 shrink-0 items-center justify-center rounded-lg border transition-colors",
                         isOpen
-                          ? "border-bioluminescent-lime bg-bioluminescent-lime text-abyssal-ink"
-                          : "border-graphite text-paper group-hover:border-paper"
+                          ? "border-accent bg-accent text-ink"
+                          : "border-line text-paper group-hover:border-paper"
                       )}
                     >
                       {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}

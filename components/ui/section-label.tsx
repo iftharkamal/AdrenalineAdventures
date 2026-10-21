@@ -20,31 +20,31 @@ export function SectionLabel({
       {index && (
         <span
           className={cn(
-            "rounded-full border border-graphite px-2.5 py-1 font-mono text-caption",
-            tone === "dark" ? "text-paper/60" : "text-graphite"
+            "rounded-full border border-line px-2.5 py-1 font-mono text-caption",
+            tone === "dark" ? "text-paper/60" : "text-ink/70"
           )}
         >
           {index}
         </span>
       )}
-      <span className={cn("font-mono text-caption uppercase", tone === "dark" ? "text-paper/60" : "text-graphite")}>
+      <span className={cn("font-mono text-caption uppercase", tone === "dark" ? "text-paper/60" : "text-ink/70")}>
         {children}
       </span>
     </div>
   );
 }
 
-// 6px lime dot + mono uppercase label
+// 6px accent dot + mono uppercase label
 export function Tag({ children, tone = "dark", className }: { children: ReactNode; tone?: Tone; className?: string }) {
   return (
     <span
       className={cn(
         "inline-flex items-center gap-2 font-mono text-caption uppercase",
-        tone === "dark" ? "text-paper/60" : "text-graphite",
+        tone === "dark" ? "text-paper/60" : "text-ink/70",
         className
       )}
     >
-      <span className="size-1.5 shrink-0 rounded-full bg-bioluminescent-lime" aria-hidden="true" />
+      <span className="size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
       {children}
     </span>
   );

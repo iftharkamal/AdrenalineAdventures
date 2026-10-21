@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-abyssal-ink">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-night">
       <Image
         src="/landingImage.png"
         alt="Cyclists riding on a trail at sunset"
@@ -16,7 +16,7 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-abyssal-ink/45" aria-hidden="true" />
+      <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-page flex-col justify-between px-6 pb-10 pt-36 md:pb-12 md:pt-44">
         <motion.h1
@@ -36,7 +36,7 @@ export default function Hero() {
         >
           <p className="max-w-md text-body-lg text-paper">Born from the spirit of exploration.</p>
           <a href="#about" className="flex items-center gap-1" aria-label="Discover ADAD">
-            <span className={buttonVariants({ variant: "outline", className: "bg-abyssal-ink/60 backdrop-blur-md" })}>
+            <span className={buttonVariants({ variant: "outline", className: "bg-night/60 backdrop-blur-md" })}>
               Discover ADAD
             </span>
             <span className={buttonVariants({ variant: "accent", size: "icon" })}>

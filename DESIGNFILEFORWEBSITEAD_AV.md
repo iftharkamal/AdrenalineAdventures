@@ -5,7 +5,24 @@
 
 Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.
 
-> **Adrenaline Adventures adaptation — fonts.** This site keeps its own typefaces in place of the reference's Aspekta and Roboto Mono: **Formula1 Regular** for display, **Poppins** for body copy and **Geist Mono** for labels. All three run at a single 400 weight, as the original system intends. Everything else in this file is applied as written. In code the families are `--font-display`, `--font-sans` and `--font-mono` (see `app/globals.css`).
+> **Adrenaline Adventures adaptation — fonts.** This site keeps its own typefaces in place of the reference's Aspekta and Roboto Mono: **Formula1 Regular** for display, **Poppins** for body copy and **Geist Mono** for labels. All three run at a single 400 weight, as the original system intends. In code the families are `--font-display`, `--font-sans` and `--font-mono` (see `app/globals.css`).
+
+> **Adrenaline Adventures adaptation — colours.** The site keeps its earlier palette instead of the reference colours. Read every colour in this file through this mapping; the roles and rules (flat surfaces, hairlines, accent rationed to micro-surfaces) still apply.
+>
+> | Reference colour | Role | Site token | Value |
+> |---|---|---|---|
+> | Abyssal Ink `#222f30` (as surface) | Dark sections, photo overlays | `night` | `#121212` |
+> | Abyssal Ink `#222f30` (as text/fill) | Text and dark buttons on light sections | `ink` | `#1a1a1a` |
+> | Bone White `#f7f7f5` | Light sections | `stone` | `#f2f1ef` |
+> | — | Navbar pill, light buttons on dark sections | `cream` | `#f5f0e8` |
+> | Paper `#ffffff` | Cards, text on dark | `paper` | `#ffffff` |
+> | Bioluminescent Lime `#cef79e` | Accent: arrow squares, active nav, tag dots, focus | `accent` | `#ff8c00` |
+> | Graphite `#4d5757` / Lichen `#c9cbbe` | Hairlines and outlines | `line` | `rgb(128 128 128 / 0.4)` |
+> | Void `#000000` | Footer | `night` | `#121212` (with a 1px top border) |
+>
+> Tissue and Frost are not used.
+>
+> Everything else in this file is applied as written, except that the site keeps its photography (always inside rounded containers) and a fixed floating navbar.
 
 Integrated Biosciences operates in a darkroom-laboratory visual language: a near-black canvas with cool green undertones, restrained white typography, and a single bioluminescent lime accent that activates only on small interactive elements like arrow buttons, tag dots, and progress indicators. The entire type system runs on a single weight — Formula1 Regular for display, Poppins 400 for body — and hierarchy is sculpted purely through size and aggressive negative letter-spacing, which makes 111px and 158px display lines feel architectural rather than decorative. Geist Mono is reserved for technical labels, nav items, and metadata, reinforcing the instrumentation-bench character of the brand. Surfaces stay mostly flat — no shadows, no gradients — with thin hairline borders in #c9cbbe or #4d5757 doing all the delineation. Light sections flip to a warm off-white canvas (#f7f7f5) with white cards, but the green accent persists as a constant biological signal.
 

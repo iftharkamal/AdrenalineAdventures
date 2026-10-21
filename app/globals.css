@@ -8,16 +8,14 @@
 }
 
 @theme {
-  /* Colors */
-  --color-bioluminescent-lime: #cef79e;
-  --color-abyssal-ink: #222f30;
-  --color-bone-white: #f7f7f5;
-  --color-paper: #ffffff;
-  --color-graphite: #4d5757;
-  --color-lichen: #c9cbbe;
-  --color-tissue: #e7e8e1;
-  --color-frost: #eeeeee;
-  --color-void: #000000;
+  /* Colors — Adrenaline Adventures palette */
+  --color-night: #121212; /* dark sections, photo overlays, footer */
+  --color-ink: #1a1a1a; /* text and dark buttons on light sections */
+  --color-stone: #f2f1ef; /* light sections */
+  --color-cream: #f5f0e8; /* navbar pill, light buttons on dark sections */
+  --color-paper: #ffffff; /* cards, text on dark */
+  --color-accent: #ff8c00; /* arrows, active nav, dots, focus — small surfaces only */
+  --color-line: rgb(128 128 128 / 0.4); /* hairlines on both dark and light */
 
   /* Type scale — single weight, hierarchy by size and tracking */
   --text-caption: 13px;
@@ -65,10 +63,10 @@
     scroll-padding-top: 96px;
   }
   body {
-    @apply bg-bone-white font-sans font-normal text-abyssal-ink antialiased;
+    @apply bg-stone font-sans font-normal text-ink antialiased;
   }
   ::selection {
-    @apply bg-bioluminescent-lime text-abyssal-ink;
+    @apply bg-accent text-ink;
   }
 }
 

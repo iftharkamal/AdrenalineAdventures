@@ -22,7 +22,7 @@ const phone = "+918089713241";
 
 export default function Footer() {
   return (
-    <footer className="bg-void text-paper">
+    <footer className="border-t border-white/5 bg-night text-paper">
       <div className="mx-auto w-full max-w-page px-6 pb-8 pt-16 md:pt-24">
         <div className="grid grid-cols-1 gap-12 pb-16 md:grid-cols-2 md:pb-24 lg:grid-cols-[2fr_1.5fr_1fr]">
           <div>
@@ -38,10 +38,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-mono text-caption uppercase text-paper/50">Contact</h4>
             <div className="space-y-1 text-base">
-              <a href={`tel:${phone}`} className="block transition-colors hover:text-bioluminescent-lime">
+              <a href={`tel:${phone}`} className="block transition-colors hover:text-accent">
                 {phone}
               </a>
-              <a href={`mailto:${email}`} className="block break-all text-paper/70 transition-colors hover:text-bioluminescent-lime lg:break-normal">
+              <a href={`mailto:${email}`} className="block break-all text-paper/70 transition-colors hover:text-accent lg:break-normal">
                 {email}
               </a>
             </div>
@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {pageLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="font-mono text-caption uppercase transition-colors hover:text-bioluminescent-lime">
+                  <Link href={link.href} className="font-mono text-caption uppercase transition-colors hover:text-accent">
                     {link.label}
                   </Link>
                 </li>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-6 border-t border-graphite pt-8 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start justify-between gap-6 border-t border-line pt-8 sm:flex-row sm:items-center">
           <ul className="flex flex-wrap items-center gap-6">
             {socialLinks.map((social) => (
               <li key={social.name}>
@@ -76,7 +76,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-caption uppercase text-paper/70 transition-colors hover:text-bioluminescent-lime"
+                  className="font-mono text-caption uppercase text-paper/70 transition-colors hover:text-accent"
                 >
                   {social.name} ↗
                 </a>

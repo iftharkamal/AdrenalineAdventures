@@ -30,7 +30,7 @@ function Logo({ solid }: { solid: boolean }) {
       aria-label="Adrenaline Adventures home"
       className={cn(
         "flex items-center gap-3 rounded-xl px-3 py-2 transition-colors duration-300",
-        solid ? "bg-abyssal-ink/85 backdrop-blur-md" : "bg-transparent"
+        solid ? "bg-night/85 backdrop-blur-md" : "bg-transparent"
       )}
     >
       <Image src="/logo.png" alt="" width={40} height={40} className="h-8 w-auto object-contain md:h-9" />
@@ -124,7 +124,7 @@ export default function Navbar() {
 
         <nav
           aria-label="Main"
-          className="flex items-center gap-1 rounded-xl border border-lichen bg-bone-white/85 p-1 backdrop-blur-md"
+          className="flex items-center gap-1 rounded-xl border border-ink/10 bg-cream/85 p-1 backdrop-blur-md"
         >
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -135,7 +135,7 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "flex h-10 items-center rounded-lg px-4 font-mono text-caption uppercase transition-colors duration-200 lg:px-5",
-                  isActive ? "bg-bioluminescent-lime text-abyssal-ink" : "text-graphite hover:text-abyssal-ink"
+                  isActive ? "bg-accent text-ink" : "text-ink/70 hover:text-ink"
                 )}
               >
                 {link.label}
@@ -157,7 +157,7 @@ export default function Navbar() {
         <div
           className={cn(
             "flex h-14 items-center justify-between rounded-xl pr-2 transition-colors duration-300",
-            isLogoSolid || isMenuOpen ? "bg-abyssal-ink/85 backdrop-blur-md" : "bg-transparent"
+            isLogoSolid || isMenuOpen ? "bg-night/85 backdrop-blur-md" : "bg-transparent"
           )}
         >
           <div onClick={closeMenu}>
@@ -171,7 +171,7 @@ export default function Navbar() {
             aria-controls="mobile-menu"
             className={cn(
               "flex size-10 items-center justify-center rounded-lg border text-paper transition-colors duration-200",
-              isMenuOpen ? "border-bioluminescent-lime" : "border-graphite bg-abyssal-ink/40 backdrop-blur-md"
+              isMenuOpen ? "border-accent" : "border-line bg-night/40 backdrop-blur-md"
             )}
           >
             {isMenuOpen ? <X className="h-5 w-5" strokeWidth={1.5} /> : <Menu className="h-5 w-5" strokeWidth={1.5} />}
@@ -188,11 +188,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col bg-abyssal-ink md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-night md:hidden"
           >
             {/* Contour lines backdrop */}
             <svg
-              className="pointer-events-none absolute inset-0 h-full w-full text-graphite/60"
+              className="pointer-events-none absolute inset-0 h-full w-full text-white/10"
               viewBox="0 0 400 800"
               preserveAspectRatio="xMidYMid slice"
               fill="none"
@@ -223,7 +223,7 @@ export default function Navbar() {
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
                         "block py-1 font-display text-[40px] leading-tight tracking-[-0.02em] transition-colors",
-                        isActive ? "text-bioluminescent-lime" : "text-paper"
+                        isActive ? "text-accent" : "text-paper"
                       )}
                     >
                       {link.label}
@@ -238,7 +238,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.35 }}
-              className="relative mx-auto mb-10 break-all px-6 text-center text-base text-paper/80 underline decoration-graphite underline-offset-4"
+              className="relative mx-auto mb-10 break-all px-6 text-center text-base text-paper/80 underline decoration-line underline-offset-4"
             >
               {contactEmail}
             </motion.a>

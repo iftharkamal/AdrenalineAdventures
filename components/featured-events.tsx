@@ -75,7 +75,7 @@ export default function FeaturedEvents() {
   };
 
   return (
-    <section className="bg-bone-white py-20 text-abyssal-ink md:py-32">
+    <section className="bg-stone py-20 text-ink md:py-32">
       <div className="mx-auto w-full max-w-page px-6">
         <Reveal className="mb-12 grid gap-10 md:mb-16 md:grid-cols-2">
           <div>
@@ -84,7 +84,7 @@ export default function FeaturedEvents() {
             </SectionLabel>
             <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">Featured Events</h2>
           </div>
-          <p className="self-end text-body text-graphite">
+          <p className="self-end text-body text-ink/70">
             Adventures that spark your spirit from quick rides to multi-day journeys, each experience blends thrill,
             culture, and community. More than trips, they&apos;re stories you&apos;ll carry forever.
           </p>
@@ -129,9 +129,9 @@ export default function FeaturedEvents() {
             </Button>
           </div>
 
-          <div className="relative h-px flex-1 bg-lichen">
+          <div className="relative h-px flex-1 bg-ink/10">
             <div
-              className="absolute inset-y-0 left-0 bg-abyssal-ink transition-[width] duration-300"
+              className="absolute inset-y-0 left-0 bg-night transition-[width] duration-300"
               style={{ width: `${visibleEnd}%` }}
             />
           </div>

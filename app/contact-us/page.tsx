@@ -14,11 +14,11 @@ const fields = [
 ];
 
 const inputClass =
-  "w-full rounded-lg border border-graphite bg-transparent px-4 py-3 text-base text-paper outline-none transition-colors placeholder:text-paper/30 focus:border-bioluminescent-lime";
+  "w-full rounded-lg border border-line bg-transparent px-4 py-3 text-base text-paper outline-none transition-colors placeholder:text-paper/30 focus:border-accent";
 
 export default function ContactUsPage() {
   return (
-    <main className="min-h-screen bg-abyssal-ink text-paper">
+    <main className="min-h-screen bg-night text-paper">
       <section className="px-6 pb-20 pt-36 md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Logo/Image */}

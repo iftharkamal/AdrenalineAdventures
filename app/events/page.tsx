@@ -108,7 +108,7 @@ const EVENTS = [
 
 export default function EventsPage() {
   return (
-    <main className="bg-abyssal-ink">
+    <main className="bg-night">
       {/* ─── Events Header Section ─── */}
       <section className="pb-20 pt-36 text-paper md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
@@ -122,12 +122,12 @@ export default function EventsPage() {
             </p>
           </div>
 
-          <ul className="border-t border-graphite lg:mt-4">
+          <ul className="border-t border-line lg:mt-4">
             {EVENTS.map((event) => (
-              <li key={event.id} className="border-b border-graphite">
+              <li key={event.id} className="border-b border-line">
                 <a href={`#event-${event.id}`} className="group flex items-center justify-between gap-6 py-5">
                   <span className="flex items-center gap-5">
-                    <span className="rounded-full border border-graphite px-2.5 py-1 font-mono text-caption text-paper/60">
+                    <span className="rounded-full border border-line px-2.5 py-1 font-mono text-caption text-paper/60">
                       {event.id}
                     </span>
                     <span>
@@ -158,7 +158,7 @@ export default function EventsPage() {
       {EVENTS.map((event, index) => (
         <div key={event.id} id={`event-${event.id}`}>
           {/* Detail band */}
-          <section className="border-t border-graphite py-20 text-paper md:py-32">
+          <section className="border-t border-line py-20 text-paper md:py-32">
             <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-24">
               {/* Left: Image Card */}
               <div className="flex justify-center lg:justify-start">
@@ -174,7 +174,7 @@ export default function EventsPage() {
                         sizes="(min-width: 1024px) 400px, 350px"
                       />
                     </div>
-                    <div className="px-3 pb-4 pt-6 text-abyssal-ink">
+                    <div className="px-3 pb-4 pt-6 text-ink">
                       <h3 className="font-display text-heading-sm">{event.title}</h3>
                       <Tag tone="light" className="mt-3">
                         {event.subtitle}
@@ -191,7 +191,7 @@ export default function EventsPage() {
                       className="object-cover"
                       sizes="(min-width: 1024px) 400px, 350px"
                     />
-                    <div className="absolute inset-0 bg-abyssal-ink/45" aria-hidden="true" />
+                    <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
                     <div className="absolute inset-x-6 bottom-8">
                       <h3 className="font-display text-heading-sm text-paper">{event.title}</h3>
                       <Tag className="mt-3 text-paper/80">{event.subtitle}</Tag>
@@ -205,7 +205,7 @@ export default function EventsPage() {
                 <SectionLabel index={event.id}>{event.subtitle}</SectionLabel>
                 <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">{event.title}</h2>
                 <p className="mt-8 max-w-xl text-body text-paper/70">{event.description}</p>
-                <p className="mt-10 max-w-md border-t border-graphite pt-6 text-body-lg text-paper">
+                <p className="mt-10 max-w-md border-t border-line pt-6 text-body-lg text-paper">
                   &ldquo;{event.quote}&rdquo;
                 </p>
               </div>
@@ -213,14 +213,14 @@ export default function EventsPage() {
           </section>
 
           {/* Highlights band */}
-          <section className="bg-bone-white py-20 text-abyssal-ink md:py-32">
+          <section className="bg-stone py-20 text-ink md:py-32">
             <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
               <div className="rounded-card bg-paper p-6 md:p-10">
                 <h3 className="font-display text-heading-sm">Highlights</h3>
-                <ul className="mt-8 border-t border-lichen">
+                <ul className="mt-8 border-t border-ink/10">
                   {event.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-4 border-b border-lichen py-4 text-body">
-                      <span className="size-1.5 shrink-0 rounded-full bg-abyssal-ink" aria-hidden="true" />
+                    <li key={item} className="flex items-center gap-4 border-b border-ink/10 py-4 text-body">
+                      <span className="size-1.5 shrink-0 rounded-full bg-night" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
