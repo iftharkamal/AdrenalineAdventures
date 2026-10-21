@@ -1,7 +1,6 @@
-import AboutSection from "@/components/about-section";
 import Hero from "@/components/hero";
+import StorySection from "@/components/story-section";
 import FeaturedEvents from "@/components/featured-events";
-import WhyAdad from "@/components/why-adad";
 import CommunitySection from "@/components/community-section";
 import MemberSection from "@/components/member-section";
 import DestinationsSection from "@/components/destinations-section";
@@ -11,9 +10,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <AboutSection />
+      <StorySection />
       <FeaturedEvents />
-      <WhyAdad />
       <CommunitySection />
       <MemberSection />
       <DestinationsSection />

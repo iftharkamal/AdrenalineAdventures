@@ -79,7 +79,7 @@ export default function FeaturedEvents() {
       <div className="mx-auto w-full max-w-page px-6">
         <Reveal className="mb-12 grid gap-10 md:mb-16 md:grid-cols-2">
           <div>
-            <SectionLabel index="02" tone="light">
+            <SectionLabel index="03" tone="light">
               Explore our
             </SectionLabel>
             <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">Featured Events</h2>
