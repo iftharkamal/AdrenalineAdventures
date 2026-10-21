@@ -261,7 +261,7 @@ export default function EventsPage() {
         </div>
       ))}
 
-      <Footer />
+      <Footer prevBg="bg-stone" />
     </main>
   );
 }

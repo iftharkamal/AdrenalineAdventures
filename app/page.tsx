@@ -17,7 +17,7 @@ export default function Home() {
       <CommunitySection />
       <MemberSection />
       <DestinationsSection />
-      <Footer />
+      <Footer prevBg="bg-stone" />
     </main>
   );
 }
