@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
+import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel, Tag } from "@/components/ui/section-label";
 
 const EVENTS = [
@@ -88,7 +89,9 @@ export default function FeaturedEvents() {
             <SectionLabel index="03" tone="light">
               Explore our
             </SectionLabel>
-            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">Featured Events</h2>
+            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">
+              <RiseText text="Featured Events" />
+            </h2>
           </div>
           <p className="self-end text-body text-ink/70">
             Adventures that spark your spirit from quick rides to multi-day journeys, each experience blends thrill,
@@ -115,7 +118,9 @@ export default function FeaturedEvents() {
               <div className="flex items-end justify-between gap-4 px-3 pb-3 pt-6">
                 <div>
                   <Tag tone="light">{event.category}</Tag>
-                  <h3 className="mt-3 font-display text-subheading">{event.title}</h3>
+                  <h3 className="mt-3 font-display text-subheading">
+                    <RiseText text={event.title} />
+                  </h3>
                 </div>
                 <span className={buttonVariants({ variant: "accent", size: "icon" })}>
                   <ArrowRight />

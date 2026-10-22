@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "@/components/footer";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
+import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
 
 const fields = [
@@ -35,7 +36,9 @@ export default function ContactUsPage() {
           {/* Right Column: Contact Form */}
           <div>
             <SectionLabel index="01">Talk to team</SectionLabel>
-            <h1 className="mt-6 font-display text-heading-lg md:text-display">Contact us.</h1>
+            <h1 className="mt-6 font-display text-heading-lg md:text-display">
+              <RiseText text="Contact us." delay={0.15} />
+            </h1>
 
             <form className="mt-12 space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

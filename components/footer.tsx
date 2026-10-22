@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
+import { BlockText } from "@/components/ui/intro-text";
 import { cn } from "@/lib/utils";
 
 const pageLinks = [
@@ -31,7 +32,9 @@ const linkClass = "text-body-lg text-paper transition-colors hover:text-accent";
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="border-l border-paper/25 pl-5">
-      <h4 className="mb-4 font-mono text-caption uppercase text-paper">{title}</h4>
+      <h4 className="mb-4 font-mono text-caption uppercase text-paper">
+        <BlockText text={title} />
+      </h4>
       {children}
     </div>
   );

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
 
 const COMMUNITY_IMAGES = [
@@ -100,7 +101,9 @@ export default function CommunitySection() {
               }`}
             >
               <SectionLabel index="04">About our</SectionLabel>
-              <h2 className="mb-6 mt-6 font-display text-heading-sm md:text-heading-lg">Community</h2>
+              <h2 className="mb-6 mt-6 font-display text-heading-sm md:text-heading-lg">
+              <RiseText text="Community" />
+            </h2>
               <p className="max-w-xl text-body text-paper/70">
                 Adrenaline Adventures&apos; is an emerging Indian adventure travel company creating unique experiences
                 for foreign and domestic travellers in India. We offer exciting type of adventure packages all designed

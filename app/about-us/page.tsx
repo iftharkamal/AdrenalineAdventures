@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import Footer from "@/components/footer";
+import { BlockText, RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +41,9 @@ export default function AboutUsPage() {
       {/* ==================== SECTION 1: Intro on light canvas ==================== */}
       <section className="bg-stone pb-6 pt-36 text-ink md:pb-6 md:pt-48">
         <div className="mx-auto w-full max-w-page px-6">
-          <h1 className="font-display text-heading-lg md:text-display-lg">About us.</h1>
+          <h1 className="font-display text-heading-lg md:text-display-lg">
+            <RiseText text="About us." />
+          </h1>
 
           <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2fr]">
             <SectionLabel index="01" tone="light">
@@ -99,8 +102,12 @@ export default function AboutUsPage() {
         <div className="mx-auto grid w-full max-w-page grid-cols-2 gap-3 px-6 md:grid-cols-4 md:gap-5">
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col gap-6 rounded-card bg-paper p-6 md:p-8">
-              <span className="font-display text-heading-sm text-ink md:text-heading-lg">{stat.number}</span>
-              <span className="font-mono text-caption uppercase text-ink/70">{stat.label}</span>
+              <span className="font-display text-heading-sm text-ink md:text-heading-lg">
+                <RiseText text={stat.number} />
+              </span>
+              <span className="font-mono text-caption uppercase text-ink/70">
+                <BlockText text={stat.label} />
+              </span>
             </div>
           ))}
         </div>
@@ -111,7 +118,9 @@ export default function AboutUsPage() {
         <div className="mx-auto grid w-full max-w-page gap-10 px-6 md:grid-cols-[1fr_2fr]">
           <SectionLabel index="02">Why join</SectionLabel>
           <div>
-            <h2 className="font-display text-heading-sm md:text-heading-lg">Why Join Adrenaline Adventures?</h2>
+            <h2 className="font-display text-heading-sm md:text-heading-lg">
+              <RiseText text="Why Join Adrenaline Adventures?" />
+            </h2>
             <p className="mt-8 text-body text-paper/70">
               Because adventure is better when it&apos;s shared.
               <br />
@@ -130,10 +139,12 @@ export default function AboutUsPage() {
         <div className="mx-auto grid w-full max-w-page gap-10 border-t border-line px-6 pt-20 md:grid-cols-[1fr_2fr] md:pt-32">
           <SectionLabel index="03">What we do</SectionLabel>
           <ul className="space-y-5">
-            {whatWeDo.map((item) => (
+            {whatWeDo.map((item, index) => (
               <li key={item} className="flex items-start gap-4 text-body-lg">
                 <span className="mt-3 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                {item}
+                <span>
+                  <BlockText text={item} delay={index * 0.1} />
+                </span>
               </li>
             ))}
           </ul>
@@ -154,7 +165,9 @@ export default function AboutUsPage() {
                     className="group flex w-full items-center justify-between gap-6 py-6 text-left"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-body-lg text-paper/80 transition-colors group-hover:text-paper">{faq}</span>
+                    <span className="text-body-lg text-paper/80 transition-colors group-hover:text-paper">
+                      <BlockText text={faq} delay={index * 0.1} />
+                    </span>
                     <span
                       className={cn(
                         "flex size-10 shrink-0 items-center justify-center rounded-lg border transition-colors",

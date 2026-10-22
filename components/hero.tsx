@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
+import { BlockText } from "@/components/ui/intro-text";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const EASE_IN_OUT = [0.76, 0, 0.24, 1] as const;
@@ -95,10 +96,8 @@ export default function Hero() {
           </h1>
 
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-md overflow-hidden text-body-lg text-paper">
-              <motion.span className="block" {...rise(0.15)}>
-                Born from the spirit of exploration.
-              </motion.span>
+            <p className="max-w-md text-body-lg text-paper">
+              <BlockText text="Born from the spirit of exploration." delay={CONTENT_DELAY + 0.2} stagger={0.06} />
             </p>
             <motion.a
               href="#about"
