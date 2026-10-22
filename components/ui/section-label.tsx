@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { BlockText } from "@/components/ui/intro-text";
 
 type Tone = "dark" | "light";
 
@@ -28,7 +29,7 @@ export function SectionLabel({
         </span>
       )}
       <span className={cn("font-mono text-caption uppercase", tone === "dark" ? "text-paper/60" : "text-ink/70")}>
-        {children}
+        {typeof children === "string" ? <BlockText text={children} /> : children}
       </span>
     </div>
   );
@@ -45,7 +46,7 @@ export function Tag({ children, tone = "dark", className }: { children: ReactNod
       )}
     >
       <span className="size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-      {children}
+      <span>{typeof children === "string" ? <BlockText text={children} /> : children}</span>
     </span>
   );
 }

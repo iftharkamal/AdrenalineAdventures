@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import HoverFillRow, { HoverFillArrow } from "@/components/ui/hover-fill-row";
 import Reveal from "@/components/ui/reveal";
+import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
 
 const MEMBER_ITEMS = [
@@ -32,7 +33,9 @@ export default function MemberSection() {
             <SectionLabel index="05" tone="light">
               Become a
             </SectionLabel>
-            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">Member</h2>
+            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">
+              <RiseText text="Member" />
+            </h2>
           </Reveal>
           <Reveal className="flex flex-col items-start gap-8" delay={0.1}>
             <p className="text-body text-ink/70">
@@ -58,7 +61,7 @@ export default function MemberSection() {
                       {item.id}
                     </span>
                     <h3 className="min-w-0 font-display text-subheading transition-[color,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-6 group-hover:text-paper md:text-heading-sm md:group-hover:translate-x-8">
-                      {item.title}
+                      <RiseText text={item.title} />
                     </h3>
                   </div>
                   <HoverFillArrow />

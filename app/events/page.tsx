@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/footer";
 import { buttonVariants } from "@/components/ui/button";
+import { BlockText, RiseText } from "@/components/ui/intro-text";
 import { SectionLabel, Tag } from "@/components/ui/section-label";
 
 /* ───────────────────────────── Event Data ───────────────────────────── */
@@ -144,7 +145,9 @@ export default function EventsPage() {
       <section className="pb-20 pt-36 text-paper md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div>
-            <h1 className="font-display text-heading-lg md:text-display-lg">Events.</h1>
+            <h1 className="font-display text-heading-lg md:text-display-lg">
+              <RiseText text="Events." />
+            </h1>
             <p className="mt-8 max-w-lg text-body text-paper/70">
               When a user activates a theme, they have an expectation of seeing their photos, theirs shop, their
               contributors and all of their content with a new style or twist. Themes provide this ability to showcase
@@ -154,7 +157,7 @@ export default function EventsPage() {
           </div>
 
           <ul className="border-t border-line lg:mt-4">
-            {EVENTS.map((event) => (
+            {EVENTS.map((event, index) => (
               <li key={event.id} className="border-b border-line">
                 <a href={`#event-${event.id}`} className="group flex items-center justify-between gap-6 py-5">
                   <span className="flex items-center gap-5">
@@ -163,9 +166,11 @@ export default function EventsPage() {
                     </span>
                     <span>
                       <span className="block font-display text-subheading transition-transform duration-300 group-hover:translate-x-1">
-                        {event.title}
+                        <RiseText text={event.title} delay={0.2 + index * 0.08} />
                       </span>
-                      <span className="mt-1 block font-mono text-caption uppercase text-paper/60">{event.subtitle}</span>
+                      <span className="mt-1 block font-mono text-caption uppercase text-paper/60">
+                        <BlockText text={event.subtitle} delay={0.3 + index * 0.08} />
+                      </span>
                     </span>
                   </span>
                   <span
@@ -206,7 +211,9 @@ export default function EventsPage() {
                       />
                     </div>
                     <div className="px-3 pb-4 pt-6 text-ink">
-                      <h3 className="font-display text-heading-sm">{event.title}</h3>
+                      <h3 className="font-display text-heading-sm">
+                        <RiseText text={event.title} />
+                      </h3>
                       <Tag tone="light" className="mt-3">
                         {event.subtitle}
                       </Tag>
@@ -224,7 +231,9 @@ export default function EventsPage() {
                     />
                     <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
                     <div className="absolute inset-x-6 bottom-8">
-                      <h3 className="font-display text-heading-sm text-paper">{event.title}</h3>
+                      <h3 className="font-display text-heading-sm text-paper">
+                        <RiseText text={event.title} />
+                      </h3>
                       <Tag className="mt-3 text-paper/80">{event.subtitle}</Tag>
                     </div>
                   </div>
@@ -234,7 +243,9 @@ export default function EventsPage() {
               {/* Right: Content */}
               <div>
                 <SectionLabel index={event.id}>{event.subtitle}</SectionLabel>
-                <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">{event.title}</h2>
+                <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">
+                  <RiseText text={event.title} />
+                </h2>
                 <div className="mt-8 max-w-xl space-y-5 text-body text-paper/70">
                   {event.description.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
@@ -251,12 +262,16 @@ export default function EventsPage() {
           <section className="bg-stone py-20 text-ink md:py-32">
             <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
               <div className="rounded-card bg-paper p-6 md:p-10">
-                <h3 className="font-display text-heading-sm">Highlights</h3>
+                <h3 className="font-display text-heading-sm">
+                  <RiseText text="Highlights" />
+                </h3>
                 <ul className="mt-8 border-t border-ink/10">
-                  {event.highlights.map((item) => (
+                  {event.highlights.map((item, i) => (
                     <li key={item} className="flex items-center gap-4 border-b border-ink/10 py-4 text-body">
                       <span className="size-1.5 shrink-0 rounded-full bg-night" aria-hidden="true" />
-                      {item}
+                      <span>
+                        <BlockText text={item} delay={i * 0.08} />
+                      </span>
                     </li>
                   ))}
                 </ul>

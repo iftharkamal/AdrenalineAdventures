@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/reveal";
+import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
 
 export default function DestinationsSection() {
@@ -11,7 +12,9 @@ export default function DestinationsSection() {
             <SectionLabel index="06" tone="light">
               Our global destinations
             </SectionLabel>
-            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">Your dream Destination</h2>
+            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">
+              <RiseText text="Your dream Destination" />
+            </h2>
           </Reveal>
 
           <div className="relative mx-auto aspect-[2/1] w-full">
