@@ -77,3 +77,13 @@
     display: none;
   }
 }
+
+/* Home hero intro: navbar fades in once the opening box has settled */
+@keyframes nav-intro {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
