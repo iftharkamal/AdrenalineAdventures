@@ -12,8 +12,10 @@ const EVENTS = [
     title: "WEEKEND ESCAPE",
     subtitle: "Group Bike Ride – One-Day",
     heroImage: "/eventcard1.png",
-    description:
-      "A day packed with throttle, curves, and camaraderie. Our one-day bike rides take you through scenic routes — from misty forest trails to winding mountain roads — with plenty of pit stops for stories, photos, and local flavours. Perfect for riders who crave thrill without an overnight stay.",
+    description: [
+      "Weekend Escape is a curated riding experience crafted for those who crave more than just a getaway. Designed by Adrenaline Adventures, this segment brings together passionate riders for one-day and multi-day motorcycle journeys that blend thrill, exploration, and community. From winding hill roads and mist-covered valleys to scenic coastal stretches, every ride is thoughtfully planned to deliver both adventure and comfort.",
+      "Whether it’s a quick one-day escape from the city or an immersive multi-day expedition, Weekend Escape focuses on creating meaningful experiences on two wheels. With well-defined routes, experienced ride coordinators, safety support, and a strong sense of rider camaraderie, each journey is built to help you disconnect from routine and reconnect with the road.",
+    ],
     quote: "Turning miles into memories, and strangers into friends.",
     highlights: [
       "Beginner friendly",
@@ -31,8 +33,10 @@ const EVENTS = [
     title: "MALTERRA RALLY",
     subtitle: "Car Rally – One-Day",
     heroImage: "/maltera_rally_hero.png",
-    description:
-      "Feel the raw power of the road beneath your wheels. Malterra Rally's one-day car events bring together petrolheads and speed enthusiasts for a day of adrenaline-fuelled driving through winding circuits and open stretches. With timed stages, precision challenges, and a festival-like atmosphere at every checkpoint, this is motorsport made for everyone — beginner or veteran.",
+    description: [
+      "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
+      "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together.",
+    ],
     quote: "Where rubber meets dust, and passion meets purpose.",
     highlights: [
       "Open to all skill levels",
@@ -50,8 +54,10 @@ const EVENTS = [
     title: "GOHIKE",
     subtitle: "Hiking Camp – Multi-Day",
     heroImage: "/gohike_hero.png",
-    description:
-      "Step away from the noise and into nature's cathedral. GoHike is our immersive multi-day hiking experience that takes you deep into forests, across river crossings, and up to summits where the air is thin but the views are infinite. Each camp brings a new trail, a new story, and a new connection with the people walking beside you. This isn't just a hike — it's a pilgrimage for the restless soul.",
+    description: [
+      "GoHike is the dedicated hiking program by Adrenaline Adventures, created for those who find peace and thrill in exploring the outdoors on foot. From lush forest trails and rolling hills to hidden viewpoints and misty peaks, each hike is carefully curated to offer a balance of adventure, nature, and mindful escape.",
+      "Whether it’s a short day hike or a more immersive trekking experience, GoHike focuses on safe, well-guided journeys that bring like-minded explorers together. With experienced coordinators, planned routes, and a strong sense of community, every hike is designed to help you disconnect from the noise and reconnect with nature.",
+    ],
     quote: "The best views come after the hardest climbs.",
     highlights: [
       "Guided trails for all fitness levels",
@@ -69,8 +75,10 @@ const EVENTS = [
     title: "SOUTH INDIA EXPEDITION",
     subtitle: "Bike Expedition – Multi-Day",
     heroImage: "/eventcard2.png",
-    description:
-      "From the misty ghats of Kerala to the temple towns of Tamil Nadu and the coffee country of Karnataka, the South India Expedition is a multi-day ride through the region's most beautiful roads. Hairpin climbs give way to coastal highways and palm-lined backwaters, and every evening ends with local food, music, and stories around the table. It's the south, seen the way it's meant to be — from the saddle.",
+    description: [
+      "South India Expedition is a curated long-distance journey by Adrenaline Adventures, designed for riders who want to explore the rich diversity of the southern landscapes. From coastal highways and dense forests to winding hill roads and serene countryside, this expedition brings together the best of nature, culture, and riding thrill.",
+      "Planned as a multi-day experience, it offers a perfect balance of adventure and comfort with well-structured routes, experienced ride leaders, and dedicated support throughout the journey. More than just a ride, it’s about discovering new places, building strong connections, and creating stories that stay long after the journey ends.",
+    ],
     quote: "Ghats, coastlines, and a thousand shades of green.",
     highlights: [
       "Western Ghats hairpin climbs",
@@ -88,8 +96,10 @@ const EVENTS = [
     title: "NORTH INDIA EXPEDITION",
     subtitle: "Himalayan Expedition – Multi-Day",
     heroImage: "/gohike_hero.png",
-    description:
-      "The ride every rider dreams about. The North India Expedition takes you into the Himalayas — over high mountain passes, through cold deserts and river valleys, past monasteries and villages that sit above the clouds. The roads are tough and the air is thin, but with acclimatisation days, experienced ride leaders, and full support behind you, you'll be free to take in some of the most breathtaking landscapes on earth.",
+    description: [
+      "North India Expedition is a signature long-distance journey by Adrenaline Adventures, crafted for riders who seek the ultimate test of endurance, exploration, and freedom. This expedition takes you through some of the most breathtaking and diverse landscapes in India. From winding mountain passes and high-altitude roads to vast valleys and remote terrains that redefine the meaning of adventure.",
+      "Designed as a multi-day experience, the expedition combines thrill with thoughtful planning, ensuring riders are supported every step of the way. With experienced ride leaders, backup support, and a strong focus on safety, it’s not just about reaching the destination... it’s about embracing every challenge, every mile, and every moment along the journey.",
+    ],
     quote: "Higher roads, thinner air, bigger stories.",
     highlights: [
       "High-altitude Himalayan passes",
@@ -107,8 +117,10 @@ const EVENTS = [
     title: "CUSTOMIZE YOUR RIDE",
     subtitle: "Private Ride – Your Dates",
     heroImage: "/landingImage.png",
-    description:
-      "Have a route in mind, a crew of friends, or a date that matters? Tell us, and we'll build the ride around you. From a one-day getaway to a week-long expedition, we handle the route planning, stays, permits, support crew, and the little details — so all you have to do is show up and ride. Your journey, your pace, your story.",
+    description: [
+      "Customize Your Ride is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
+      "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
+    ],
     quote: "Your route, your crew, your adventure.",
     highlights: [
       "Routes planned around you",
@@ -223,7 +235,11 @@ export default function EventsPage() {
               <div>
                 <SectionLabel index={event.id}>{event.subtitle}</SectionLabel>
                 <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">{event.title}</h2>
-                <p className="mt-8 max-w-xl text-body text-paper/70">{event.description}</p>
+                <div className="mt-8 max-w-xl space-y-5 text-body text-paper/70">
+                  {event.description.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
                 <p className="mt-10 max-w-md border-t border-line pt-6 text-body-lg text-paper">
                   &ldquo;{event.quote}&rdquo;
                 </p>
