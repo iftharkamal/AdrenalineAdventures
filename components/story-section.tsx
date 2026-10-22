@@ -12,8 +12,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
+import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 
 type Slide = {
   label: string;
@@ -120,11 +119,8 @@ function SlideBlock({
       </p>
       {slide.cta && (
         <motion.div style={{ opacity: reduceMotion ? 1 : ctaOpacity }} className="mt-10">
-          <Link href={slide.cta.href} className="inline-flex items-center gap-1">
-            <span className={buttonVariants({ variant: "inverse" })}>{slide.cta.label}</span>
-            <span className={buttonVariants({ variant: "accent", size: "icon" })}>
-              <ArrowRight />
-            </span>
+          <Link href={slide.cta.href} className={ctaButtonClass}>
+            <CtaButtonContent tone="inverse">{slide.cta.label}</CtaButtonContent>
           </Link>
         </motion.div>
       )}

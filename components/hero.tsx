@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 
 export default function Hero() {
   return (
@@ -35,13 +35,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <p className="max-w-md text-body-lg text-paper">Born from the spirit of exploration.</p>
-          <a href="#about" className="flex items-center gap-1" aria-label="Discover ADAD">
-            <span className={buttonVariants({ variant: "outline", className: "bg-night/60 backdrop-blur-md" })}>
-              Discover ADAD
-            </span>
-            <span className={buttonVariants({ variant: "accent", size: "icon" })}>
-              <ArrowRight />
-            </span>
+          <a href="#about" className={cn(ctaButtonClass, "self-start md:self-auto")}>
+            <CtaButtonContent tone="outline">Discover ADAD</CtaButtonContent>
           </a>
         </motion.div>
       </div>

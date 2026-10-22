@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import Reveal from "@/components/ui/reveal";
 import { SectionLabel } from "@/components/ui/section-label";
 
@@ -41,11 +42,8 @@ export default function MemberSection() {
               adventurers who believe in discovering India through unforgettable journeys, bold experiences, and deep
               cultural connections.
             </p>
-            <Link href="/contact-us" className="inline-flex items-center gap-1">
-              <span className={buttonVariants({ variant: "solid" })}>Join the community</span>
-              <span className={buttonVariants({ variant: "accent", size: "icon" })}>
-                <ArrowRight />
-              </span>
+            <Link href="/contact-us" className={ctaButtonClass}>
+              <CtaButtonContent>Join the community</CtaButtonContent>
             </Link>
           </Reveal>
         </div>
