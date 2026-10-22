@@ -26,7 +26,7 @@ const SLIDES: Slide[] = [
     text: "Adrenaline Adventures is an emerging Indian adventure travel company creating unique experiences for foreign and domestic travellers in India. We offer exciting type of adventure packages all designed to let travellers experience the rich culture of India in an adventurous way. Our company aims to provide unique, unforgettable travel experiences for adventure enthusiasts around the world.",
   },
   {
-    label: "Why ADAD",
+    label: "Why AD AD",
     text: "We set out to create adventure rides that truly capture the spirit of exploration — journeys that reflect our passion for the open road and the world beyond it. Each route is designed in collaboration with expert local guides to bring out the culture, challenge, and character of every destination.",
     cta: { label: "Find out more", href: "/about-us" },
   },

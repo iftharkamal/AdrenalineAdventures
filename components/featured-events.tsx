@@ -99,7 +99,8 @@ export default function FeaturedEvents() {
           </p>
         </Reveal>
 
-        <div ref={scrollContainerRef} className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-10">
+        {/* relative keeps the cards' absolutely positioned sr-only text clipped by the rail, not the page */}
+        <div ref={scrollContainerRef} className="no-scrollbar relative flex snap-x snap-mandatory gap-5 overflow-x-auto pb-10">
           {EVENTS.map((event) => (
             <Link
               key={event.id}
