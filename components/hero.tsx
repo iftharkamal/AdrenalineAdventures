@@ -88,15 +88,17 @@ export default function Hero() {
         </motion.div>
         <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
 
-        <div className="relative z-10 flex h-full w-full flex-col justify-end gap-6 px-6 pb-10 pt-36 md:gap-8 md:px-10 md:pb-14 md:pt-48 lg:px-15">
-          <h1 className="max-w-5xl overflow-hidden pb-[0.08em] font-display text-[52px] leading-none tracking-[-0.02em] text-paper sm:text-heading-lg md:text-display lg:text-display-xl">
+        <div className="relative z-10 flex h-full w-full flex-col justify-end px-6 pb-10 pt-36 md:px-10 md:pb-14 md:pt-48 lg:px-15">
+          {/* Heading and subheading read as one block, so they sit tight together; the heading gets the full width */}
+          <h1 className="overflow-hidden pb-[0.08em] font-display text-[44px] leading-none tracking-[-0.02em] text-paper min-[400px]:text-[52px] sm:text-heading-lg md:text-display lg:text-display-xl">
             <motion.span className="block" {...rise(0)}>
-              This is ADAD.
+              {/* Non-breaking space keeps "AD AD." on one line */}
+              This is AD{" "}AD.
             </motion.span>
           </h1>
 
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-md text-body-lg text-paper">
+          <div className="mt-2 flex flex-col gap-8 md:mt-3 md:flex-row md:items-end md:justify-between">
+            <p className="max-w-xl text-body-lg text-paper/85 md:text-subheading">
               <BlockText text="Born from the spirit of exploration." delay={CONTENT_DELAY + 0.2} stagger={0.06} />
             </p>
             <motion.a
@@ -106,7 +108,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: CONTENT_DELAY + 0.3, ease: EASE }}
             >
-              <CtaButtonContent tone="outline">Discover ADAD</CtaButtonContent>
+              <CtaButtonContent tone="outline">Discover AD AD</CtaButtonContent>
             </motion.a>
           </div>
         </div>
