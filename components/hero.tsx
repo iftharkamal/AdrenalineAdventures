@@ -87,7 +87,7 @@ export default function Hero() {
         </motion.div>
         <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
 
-        <div className="relative z-10 flex h-full w-full flex-col justify-between px-6 pb-10 pt-36 md:px-10 md:pb-14 md:pt-48 lg:px-15">
+        <div className="relative z-10 flex h-full w-full flex-col justify-end gap-6 px-6 pb-10 pt-36 md:gap-8 md:px-10 md:pb-14 md:pt-48 lg:px-15">
           <h1 className="max-w-5xl overflow-hidden pb-[0.08em] font-display text-[52px] leading-none tracking-[-0.02em] text-paper sm:text-heading-lg md:text-display lg:text-display-xl">
             <motion.span className="block" {...rise(0)}>
               This is ADAD.
