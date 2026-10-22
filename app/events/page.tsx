@@ -18,16 +18,6 @@ const EVENTS = [
       "Whether it’s a quick one-day escape from the city or an immersive multi-day expedition, Weekend Escape focuses on creating meaningful experiences on two wheels. With well-defined routes, experienced ride coordinators, safety support, and a strong sense of rider camaraderie, each journey is built to help you disconnect from routine and reconnect with the road.",
     ],
     quote: "Turning miles into memories, and strangers into friends.",
-    highlights: [
-      "Beginner friendly",
-      "Thrilling curves & scenic trails",
-      "Pit stops for chai & local flavors",
-      "Perfect for quick weekend riders",
-      "Group bonding & shared stories",
-      "Forest roads and mountain climbs",
-      "No overnight stay needed",
-    ],
-    collageImage: "/eventcard1.png",
   },
   {
     id: "02",
@@ -39,16 +29,6 @@ const EVENTS = [
       "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together.",
     ],
     quote: "Where rubber meets dust, and passion meets purpose.",
-    highlights: [
-      "Open to all skill levels",
-      "Timed rally stages & challenges",
-      "Scenic off-road terrain circuits",
-      "Expert marshals & safety crew",
-      "Festival vibe at checkpoints",
-      "Trophy ceremonies & recognition",
-      "No prior rally experience needed",
-    ],
-    collageImage: "/maltera_rally_collage.png",
   },
   {
     id: "03",
@@ -60,16 +40,6 @@ const EVENTS = [
       "Whether it’s a short day hike or a more immersive trekking experience, GoHike focuses on safe, well-guided journeys that bring like-minded explorers together. With experienced coordinators, planned routes, and a strong sense of community, every hike is designed to help you disconnect from the noise and reconnect with nature.",
     ],
     quote: "The best views come after the hardest climbs.",
-    highlights: [
-      "Guided trails for all fitness levels",
-      "Stunning sunrise summit treks",
-      "Riverside camps & forest stays",
-      "Night sky stargazing sessions",
-      "Local cuisine & campfire cooking",
-      "Nature photography workshops",
-      "Eco-friendly & leave-no-trace",
-    ],
-    collageImage: "/gohike_collage.png",
   },
   {
     id: "04",
@@ -81,16 +51,6 @@ const EVENTS = [
       "Planned as a multi-day experience, it offers a perfect balance of adventure and comfort with well-structured routes, experienced ride leaders, and dedicated support throughout the journey. More than just a ride, it’s about discovering new places, building strong connections, and creating stories that stay long after the journey ends.",
     ],
     quote: "Ghats, coastlines, and a thousand shades of green.",
-    highlights: [
-      "Western Ghats hairpin climbs",
-      "Coastal highways & backwaters",
-      "Tea and coffee estate stays",
-      "Authentic South Indian cuisine",
-      "Backup vehicle & mechanic support",
-      "Evening gatherings & live music",
-      "Ride captains for every group",
-    ],
-    collageImage: "/maltera_rally_collage.png",
   },
   {
     id: "05",
@@ -102,16 +62,6 @@ const EVENTS = [
       "Designed as a multi-day experience, the expedition combines thrill with thoughtful planning, ensuring riders are supported every step of the way. With experienced ride leaders, backup support, and a strong focus on safety, it’s not just about reaching the destination... it’s about embracing every challenge, every mile, and every moment along the journey.",
     ],
     quote: "Higher roads, thinner air, bigger stories.",
-    highlights: [
-      "High-altitude Himalayan passes",
-      "Planned acclimatisation days",
-      "Monasteries & mountain villages",
-      "Camps under starlit skies",
-      "Backup vehicle & medical support",
-      "Experienced Himalayan ride leaders",
-      "Once-in-a-lifetime landscapes",
-    ],
-    collageImage: "/gohike_collage.png",
   },
   {
     id: "06",
@@ -123,16 +73,6 @@ const EVENTS = [
       "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
     ],
     quote: "Your route, your crew, your adventure.",
-    highlights: [
-      "Routes planned around you",
-      "Pick your own dates & duration",
-      "Ideal for friends, clubs & teams",
-      "Stays, food & permits handled",
-      "Backup vehicle & mechanic support",
-      "Optional photo & video coverage",
-      "Any skill level welcome",
-    ],
-    collageImage: "/landingImage.png",
   },
 ];
 
@@ -258,60 +198,10 @@ export default function EventsPage() {
             </div>
           </section>
 
-          {/* Highlights band */}
-          <section className="bg-stone py-20 text-ink md:py-32">
-            <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
-              <div className="rounded-card bg-paper p-6 md:p-10">
-                <h3 className="font-display text-heading-sm">
-                  <RiseText text="Highlights" />
-                </h3>
-                <ul className="mt-8 border-t border-ink/10">
-                  {event.highlights.map((item, i) => (
-                    <li key={item} className="flex items-center gap-4 border-b border-ink/10 py-4 text-body">
-                      <span className="size-1.5 shrink-0 rounded-full bg-night" aria-hidden="true" />
-                      <span>
-                        <BlockText text={item} delay={i * 0.08} />
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grid grid-cols-3 grid-rows-2 gap-3 md:gap-4">
-                <div className="relative col-span-2 row-span-2 aspect-[4/5] overflow-hidden rounded-2xl">
-                  <Image
-                    src={event.collageImage}
-                    alt={`${event.title} highlights`}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 450px, 300px"
-                  />
-                </div>
-                <div className="relative aspect-square overflow-hidden rounded-2xl">
-                  <Image
-                    src={event.heroImage}
-                    alt={`${event.title} highlight`}
-                    fill
-                    className="object-cover"
-                    sizes="150px"
-                  />
-                </div>
-                <div className="relative aspect-square overflow-hidden rounded-2xl">
-                  <Image
-                    src={event.collageImage}
-                    alt={`${event.title} highlight`}
-                    fill
-                    className="object-cover object-bottom"
-                    sizes="150px"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       ))}
 
-      <Footer prevBg="bg-stone" />
+      <Footer />
     </main>
   );
 }
