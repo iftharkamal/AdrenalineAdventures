@@ -10,34 +10,40 @@ import { SectionLabel, Tag } from "@/components/ui/section-label";
 
 const EVENTS = [
   {
-    id: 1,
+    id: "01",
     title: "WEEKEND ESCAPE",
     category: "One Day / Group Bike Ride",
     image: "/eventcard1.png",
   },
   {
-    id: 2,
+    id: "02",
     title: "MALTERRA RALLY",
     category: "One Day / Car Rally",
     image: "/eventcard2.png",
   },
   {
-    id: 3,
-    title: "GO HIKE",
-    category: "Multi- Day / Hiking Camp",
+    id: "03",
+    title: "GOHIKE",
+    category: "Multi-Day / Hiking Camp",
     image: "/eventcard3.png",
   },
   {
-    id: 4,
-    title: "COASTAL RIDE",
-    category: "Two Day / Solo Ride",
-    image: "/eventcard1.png",
+    id: "04",
+    title: "SOUTH INDIA EXPEDITION",
+    category: "Multi-Day / Bike Expedition",
+    image: "/maltera_rally_collage.png",
   },
   {
-    id: 5,
-    title: "HIMALAYAN PASS",
-    category: "Five Day / Expedition",
-    image: "/eventcard2.png",
+    id: "05",
+    title: "NORTH INDIA EXPEDITION",
+    category: "Multi-Day / Himalayan Expedition",
+    image: "/gohike_hero.png",
+  },
+  {
+    id: "06",
+    title: "CUSTOMIZE YOUR RIDE",
+    category: "Your Dates / Private Ride",
+    image: "/landingImage.png",
   },
 ];
 
@@ -94,7 +100,7 @@ export default function FeaturedEvents() {
           {EVENTS.map((event) => (
             <Link
               key={event.id}
-              href="/events"
+              href={`/events#event-${event.id}`}
               className="group flex min-w-full snap-start flex-col rounded-card bg-paper p-3 md:min-w-[calc(33.333%-14px)]"
             >
               <div className="relative aspect-[4/4.2] overflow-hidden rounded-xl">
