@@ -27,7 +27,9 @@ const socialLinks = [
 const email = "adrenalineadventuresindia@gmail.com";
 const phone = "+918089713241";
 
-const linkClass = "text-body-lg text-paper transition-colors hover:text-accent";
+// Underline draws in from the left on hover and exits to the right on leave
+const linkClass =
+  "text-body-lg text-paper bg-linear-to-r from-current to-current bg-no-repeat bg-size-[0%_1px] bg-position-[100%_100%] pb-0.5 transition-[background-size] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] hover:bg-size-[100%_1px] hover:bg-position-[0%_100%]";
 
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -97,10 +99,10 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
             <div className="sm:col-span-2">
               <FooterColumn title="Contact">
                 <div className="space-y-1.5">
-                  <a href={`tel:${phone}`} className={cn(linkClass, "block")}>
+                  <a href={`tel:${phone}`} className={cn(linkClass, "block w-fit")}>
                     {phone}
                   </a>
-                  <a href={`mailto:${email}`} className={cn(linkClass, "block break-all sm:break-normal")}>
+                  <a href={`mailto:${email}`} className={cn(linkClass, "block w-fit break-all sm:break-normal")}>
                     {email}
                   </a>
                   <p className="pt-2 text-base text-paper/70">
