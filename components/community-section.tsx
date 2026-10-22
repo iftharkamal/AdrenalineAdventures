@@ -1,130 +1,148 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import Reveal from "@/components/ui/reveal";
 import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel } from "@/components/ui/section-label";
+import { cn } from "@/lib/utils";
 
 const COMMUNITY_IMAGES = [
-  { id: 1, src: "/communitypic1.png", alt: "Riders on road", desktopRange: [0.1, 0.3], mobileRange: [0.15, 0.35] },
-  { id: 2, src: "/communitypic2.png", alt: "Group photo", desktopRange: [0.25, 0.45], mobileRange: [0.3, 0.5] },
-  { id: 3, src: "/communitypic3.png", alt: "Bikes on road", desktopRange: [0.4, 0.6], mobileRange: [0.45, 0.65] },
-  { id: 4, src: "/communitypic4.png", alt: "B&W riders", desktopRange: [0.55, 0.75], mobileRange: [0.6, 0.8] },
-  { id: 5, src: "/communitypic5.png", alt: "Meetup", desktopRange: [0.7, 0.9], mobileRange: [0.75, 1.0] },
+  { src: "/communitypic1.png", alt: "Riders on road" },
+  { src: "/communitypic2.png", alt: "Group photo" },
+  { src: "/communitypic3.png", alt: "Bikes on road" },
+  { src: "/communitypic4.png", alt: "B&W riders" },
+  { src: "/communitypic5.png", alt: "Meetup" },
 ];
 
-// Stacked cards, each rising into place as the section scrolls
-const DESKTOP_STACK = [
-  "w-[70%] aspect-[4/3] -rotate-3",
-  "w-[70%] aspect-[4/3] rotate-2",
-  "w-[62%] aspect-square -rotate-1",
-  "w-[56%] aspect-[3/4] rotate-3",
-  "w-[52%] aspect-[3/4] rotate-1",
-];
+const EASE = [0.22, 1, 0.36, 1] as const;
+const SWIPE_THRESHOLD = 60; // px of drag before it counts as a swipe
 
-const MOBILE_STACK = [
-  "w-[85%] aspect-[4/3] -rotate-2",
-  "w-[80%] aspect-video rotate-1",
-  "w-[75%] aspect-square -rotate-1",
-  "w-[70%] aspect-[3/4] rotate-2",
-  "w-[65%] aspect-[3/4] -rotate-1",
-];
+const pad = (n: number) => String(n).padStart(2, "0");
 
-function StackedImage({
-  image,
-  index,
-  isMobile,
-  progress,
-}: {
-  image: (typeof COMMUNITY_IMAGES)[number];
-  index: number;
-  isMobile: boolean;
-  progress: MotionValue<number>;
-}) {
-  const range = isMobile ? image.mobileRange : image.desktopRange;
-  const opacity = useTransform(progress, range, [0, 1]);
-  const scale = useTransform(progress, range, [0.92, 1]);
-  const y = useTransform(progress, range, ["20%", "0%"]);
+// Slides in from the side it's heading towards
+const slide = {
+  enter: (direction: number) => ({ x: `${direction * 100}%` }),
+  center: { x: "0%" },
+  exit: (direction: number) => ({ x: `${direction * -100}%` }),
+};
+
+function CommunityCarousel() {
+  const [[index, direction], setState] = useState([0, 0]);
+  const reduceMotion = useReducedMotion();
+  const count = COMMUNITY_IMAGES.length;
+
+  const goTo = (next: number, dir: number) => setState([(next + count) % count, dir]);
+  const paginate = (dir: number) => goTo(index + dir, dir);
+
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    if (info.offset.x < -SWIPE_THRESHOLD) paginate(1);
+    else if (info.offset.x > SWIPE_THRESHOLD) paginate(-1);
+  };
+
+  const image = COMMUNITY_IMAGES[index];
 
   return (
-    <motion.div
-      style={{ opacity, scale, y, zIndex: 10 + index * 10 }}
-      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line ${
-        isMobile ? MOBILE_STACK[index] : DESKTOP_STACK[index]
-      }`}
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Community photos"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") paginate(-1);
+        if (event.key === "ArrowRight") paginate(1);
+      }}
+      className="outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-night"
     >
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        sizes="(min-width: 1024px) 50vw, 85vw"
-        className="object-cover grayscale transition-[filter] duration-700 hover:grayscale-0"
-      />
-    </motion.div>
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card border border-line">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            variants={slide}
+            initial={reduceMotion ? false : "enter"}
+            animate="center"
+            exit={reduceMotion ? undefined : "exit"}
+            transition={{ duration: 0.7, ease: EASE }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              draggable={false}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="pointer-events-none object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="mt-6 flex items-center justify-between gap-6">
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-caption text-paper/70" aria-live="polite">
+            {pad(index + 1)} / {pad(count)}
+          </span>
+          <div className="flex items-center gap-2">
+            {COMMUNITY_IMAGES.map((item, i) => (
+              <button
+                key={item.src}
+                type="button"
+                aria-label={`Show photo ${i + 1}`}
+                aria-current={i === index}
+                onClick={() => goTo(i, i > index ? 1 : -1)}
+                className={cn(
+                  "h-1.5 rounded-full transition-[width,background-color] duration-500",
+                  i === index ? "w-8 bg-accent" : "w-1.5 bg-paper/30 hover:bg-paper/60"
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="icon" aria-label="Previous photo" onClick={() => paginate(-1)}>
+            <ArrowLeft />
+          </Button>
+          <Button variant="outline" size="icon" aria-label="Next photo" onClick={() => paginate(1)}>
+            <ArrowRight />
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default function CommunitySection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Desktop: text stays. Mobile: text appears then fades to make room for full-screen images.
-  const textOpacity = useTransform(
-    scrollYProgress,
-    isMobile ? [0, 0.1, 0.2] : [0, 0.1],
-    isMobile ? [0, 1, 0] : [0, 1]
-  );
-  const textY = useTransform(scrollYProgress, isMobile ? [0, 0.1, 0.2] : [0, 0.1], isMobile ? [20, 0, -20] : [20, 0]);
-
   return (
-    <section ref={containerRef} id="community" className="relative h-[600vh] bg-night text-paper">
-      <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
-        <div className="mx-auto flex h-full w-full max-w-page items-center px-6">
-          <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
-            <motion.div
-              style={{ opacity: textOpacity, y: textY }}
-              className={`z-40 lg:col-span-5 ${
-                isMobile ? "absolute inset-0 flex flex-col items-center justify-center px-6 text-center" : "relative"
-              }`}
-            >
-              <SectionLabel index="04">About our</SectionLabel>
-              <h2 className="mb-6 mt-6 font-display text-heading-sm md:text-heading-lg">
+    <section id="community" className="bg-night py-20 text-paper md:py-32">
+      <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <Reveal>
+            <SectionLabel index="04">About our</SectionLabel>
+            <h2 className="mt-6 font-display text-heading-sm md:text-heading-lg">
               <RiseText text="Community" />
             </h2>
-              <p className="max-w-xl text-body text-paper/70">
-                Adrenaline Adventures&apos; is an emerging Indian adventure travel company creating unique experiences
-                for foreign and domestic travellers in India. We offer exciting type of adventure packages all designed
-                to let travellers experience the rich culture of India in an adventurous way. Our company aims to
-                provide unique, unforgettable travel experiences for adventure enthusiasts around the world.
-              </p>
-            </motion.div>
-
-            <div className={`relative lg:col-span-7 ${isMobile ? "absolute inset-0 h-screen w-full" : "h-[75vh] w-full"}`}>
-              {COMMUNITY_IMAGES.map((image, index) => (
-                <StackedImage
-                  key={image.id}
-                  image={image}
-                  index={index}
-                  isMobile={isMobile}
-                  progress={scrollYProgress}
-                />
-              ))}
-            </div>
-          </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-xl text-body text-paper/70">
+              Adrenaline Adventures&apos; is an emerging Indian adventure travel company creating unique experiences
+              for foreign and domestic travellers in India. We offer exciting type of adventure packages all designed
+              to let travellers experience the rich culture of India in an adventurous way. Our company aims to
+              provide unique, unforgettable travel experiences for adventure enthusiasts around the world.
+            </p>
+          </Reveal>
         </div>
+
+        <Reveal className="lg:col-span-7" delay={0.2}>
+          <CommunityCarousel />
+        </Reveal>
       </div>
     </section>
   );
