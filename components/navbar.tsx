@@ -108,14 +108,16 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed left-0 right-0 top-0 z-50 transition-transform duration-500",
+        // Wait for the home hero's opening box before showing the nav
+        pathname === "/" && "motion-safe:animate-[nav-intro_0.7s_ease-out_1.3s_both]",
         !isVisible && !isMenuOpen && "-translate-y-full"
       )}
     >
       {/* Desktop: free-standing logo + compact link pill */}
       <div
         className={cn(
-          "mx-auto hidden w-full max-w-7xl items-center justify-between px-6 transition-[padding] duration-300 md:flex lg:px-8",
-          isScrolled ? "py-3" : "py-6"
+          "hidden w-full items-center justify-between px-10 transition-[padding] duration-300 md:flex lg:px-15",
+          isScrolled ? "py-3" : "py-12"
         )}
       >
         <div className="-ml-3">
