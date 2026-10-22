@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import Footer from "@/components/footer";
-import { buttonVariants } from "@/components/ui/button";
+import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import { SectionLabel } from "@/components/ui/section-label";
 
 const fields = [
@@ -57,12 +56,11 @@ export default function ContactUsPage() {
                 <textarea id="message" rows={4} className={`${inputClass} resize-none`} />
               </div>
 
-              <button type="submit" className="inline-flex items-center gap-1 pt-2">
-                <span className={buttonVariants({ variant: "inverse" })}>Submit now</span>
-                <span className={buttonVariants({ variant: "accent", size: "icon" })}>
-                  <ArrowRight />
-                </span>
-              </button>
+              <div className="pt-2">
+                <button type="submit" className={ctaButtonClass}>
+                  <CtaButtonContent tone="inverse">Submit now</CtaButtonContent>
+                </button>
+              </div>
             </form>
           </div>
         </div>

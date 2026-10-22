@@ -134,8 +134,8 @@ export default function Navbar() {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "flex h-10 items-center rounded-lg px-4 font-mono text-caption uppercase transition-colors duration-200 lg:px-5",
-                  isActive ? "bg-accent text-ink" : "text-ink/70 hover:text-ink"
+                  "flex h-10 items-center rounded-lg px-4 font-mono text-caption uppercase transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:px-5",
+                  isActive ? "bg-accent text-ink" : "text-ink/70 hover:bg-paper hover:text-ink"
                 )}
               >
                 {link.label}
@@ -145,9 +145,19 @@ export default function Navbar() {
           <Link
             href={ctaLink.href}
             aria-current={pathname === ctaLink.href ? "page" : undefined}
-            className={buttonVariants({ variant: "solid", className: "ml-1 lg:px-5" })}
+            className={buttonVariants({
+              variant: "solid",
+              className: "group/nav-cta relative ml-1 overflow-hidden hover:bg-ink lg:px-5",
+            })}
           >
             {ctaLink.label}
+            {/* Light panel wipes up over the dark fill on hover */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 flex translate-y-full items-center justify-center rounded-lg bg-paper text-ink transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/nav-cta:translate-y-0 group-focus-visible/nav-cta:translate-y-0"
+            >
+              {ctaLink.label}
+            </span>
           </Link>
         </nav>
       </div>

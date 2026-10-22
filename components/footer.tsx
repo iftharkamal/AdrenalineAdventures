@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useLenis } from "lenis/react";
-import { buttonVariants } from "@/components/ui/button";
+import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import { cn } from "@/lib/utils";
 
 const pageLinks = [
@@ -60,23 +60,8 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
             <p className="max-w-xl font-display text-[30px] leading-[1.15] tracking-[-0.006em] md:text-heading-sm">
               Curated adventures, crafted memories.
             </p>
-            <Link href="/contact-us" className="group mt-10 inline-flex items-stretch">
-              <span
-                className={buttonVariants({
-                  variant: "solid",
-                  className: "h-12 rounded-r-none px-5 pr-7 [clip-path:polygon(0_0,100%_0,calc(100%-10px)_100%,0_100%)]",
-                })}
-              >
-                Contact us
-              </span>
-              <span
-                className={buttonVariants({
-                  variant: "accent",
-                  className: "-ml-1.5 h-12 w-14 rounded-l-none pl-3 [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%)]",
-                })}
-              >
-                <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" />
-              </span>
+            <Link href="/contact-us" className={cn(ctaButtonClass, "mt-10")}>
+              <CtaButtonContent size="lg">Contact us</CtaButtonContent>
             </Link>
           </div>
 
