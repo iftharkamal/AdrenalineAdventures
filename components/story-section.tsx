@@ -162,8 +162,8 @@ export default function StorySection() {
         <div className="relative flex h-full flex-col pt-24 md:pt-28">
           {/* Section chip */}
           <div className="mx-auto w-full max-w-page px-6">
-            <span className="inline-flex items-center gap-2 rounded-md bg-night/60 px-2.5 py-1.5 font-mono text-caption uppercase text-paper backdrop-blur-md">
-              <span className="size-2 rounded-[2px] bg-accent" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2.5 rounded-lg bg-night/60 px-3 py-2 font-mono text-[15px] uppercase leading-none tracking-[-0.02em] text-paper backdrop-blur-md md:px-3.5 md:text-[17px]">
+              <span className="size-2.5 rounded-[2px] bg-accent" aria-hidden="true" />
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={active}
