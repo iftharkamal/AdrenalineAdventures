@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import SmoothScroll from "@/components/smooth-scroll";
+import { SITE_URL } from "@/lib/site";
 
 // Single weight per family: hierarchy comes from size and tracking
 const formula1 = localFont({
@@ -26,6 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Adrenaline Adventures",
   description: "Cinematic, full-screen adventure experiences.",
 };
