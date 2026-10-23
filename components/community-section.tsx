@@ -131,12 +131,23 @@ export default function CommunitySection() {
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 max-w-xl text-body text-paper/70">
-              Adrenaline Adventures&apos; is an emerging Indian adventure travel company creating unique experiences
-              for foreign and domestic travellers in India. We offer exciting type of adventure packages all designed
-              to let travellers experience the rich culture of India in an adventurous way. Our company aims to
-              provide unique, unforgettable travel experiences for adventure enthusiasts around the world.
-            </p>
+            <div className="mt-6 max-w-xl space-y-4 text-body text-paper/70">
+              <p>
+                Adrenaline Adventures is more than a platform, it&rsquo;s a growing community of riders, hikers, and
+                explorers brought together by a shared love for adventure. From two wheels on open roads to footsteps
+                on hidden trails, our community thrives on the spirit of exploration, connection, and shared
+                experiences.
+              </p>
+              <p>
+                We welcome everyone who seeks the outdoors, whether you&apos;re an experienced adventurer or just
+                starting your journey. Through rides, hikes, rallies, and expeditions, we create spaces where people
+                connect, support each other, and build lasting memories together.
+              </p>
+              <p>
+                It&rsquo;s not just about the destination... it&rsquo;s about the people you meet and the stories you
+                create along the way.
+              </p>
+            </div>
           </Reveal>
         </div>
 
