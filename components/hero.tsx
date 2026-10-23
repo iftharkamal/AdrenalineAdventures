@@ -77,8 +77,8 @@ export default function Hero() {
             transition={{ duration: 24, ease: "easeInOut", repeat: Infinity }}
           >
             <Image
-              src="/landingImage.png"
-              alt="Cyclists riding on a trail at sunset"
+              src="/whyadadimg.png"
+              alt="Riders gathered with their motorbikes on a mountain pass"
               fill
               priority
               sizes="100vw"
