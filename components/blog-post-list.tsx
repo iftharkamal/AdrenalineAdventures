@@ -4,13 +4,14 @@ import Reveal from "@/components/ui/reveal";
 import { RiseText } from "@/components/ui/intro-text";
 import type { BlogPost } from "@/lib/blog-posts";
 
-// Numbered article rows for light sections; each row opens the full post
-export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
+// Numbered article rows for light sections; each row opens the full post.
+// `revealFrom` restarts the entrance stagger at that row, for rows appended after the first render.
+export default function BlogPostList({ posts, revealFrom = 0 }: { posts: BlogPost[]; revealFrom?: number }) {
   return (
     <ul className="border-t border-ink/10">
       {posts.map((post, index) => (
         <li key={post.slug} className="border-b border-ink/10">
-          <Reveal delay={Math.min(index, 4) * 0.08}>
+          <Reveal delay={Math.min(Math.max(index - revealFrom, 0), 4) * 0.08}>
             <Link
               href={`/blog/${post.slug}`}
               className="block outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"

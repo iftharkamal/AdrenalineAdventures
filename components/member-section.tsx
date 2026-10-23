@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BlogPostList from "@/components/blog-post-list";
+import ExpandablePostList from "@/components/expandable-post-list";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import Reveal from "@/components/ui/reveal";
 import { RiseText } from "@/components/ui/intro-text";
@@ -32,7 +32,7 @@ export default function MemberSection() {
           </Reveal>
         </div>
 
-        <BlogPostList posts={BLOG_POSTS} />
+        <ExpandablePostList posts={BLOG_POSTS} />
       </div>
     </section>
   );
