@@ -17,7 +17,6 @@ const EVENTS = [
       "Weekend Escape is a curated riding experience crafted for those who crave more than just a getaway. Designed by Adrenaline Adventures, this segment brings together passionate riders for one-day and multi-day motorcycle journeys that blend thrill, exploration, and community. From winding hill roads and mist-covered valleys to scenic coastal stretches, every ride is thoughtfully planned to deliver both adventure and comfort.",
       "Whether it’s a quick one-day escape from the city or an immersive multi-day expedition, Weekend Escape focuses on creating meaningful experiences on two wheels. With well-defined routes, experienced ride coordinators, safety support, and a strong sense of rider camaraderie, each journey is built to help you disconnect from routine and reconnect with the road.",
     ],
-    quote: "Turning miles into memories, and strangers into friends.",
   },
   {
     id: "02",
@@ -28,7 +27,6 @@ const EVENTS = [
       "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
       "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together.",
     ],
-    quote: "Where rubber meets dust, and passion meets purpose.",
   },
   {
     id: "03",
@@ -39,7 +37,6 @@ const EVENTS = [
       "GoHike is the dedicated hiking program by Adrenaline Adventures, created for those who find peace and thrill in exploring the outdoors on foot. From lush forest trails and rolling hills to hidden viewpoints and misty peaks, each hike is carefully curated to offer a balance of adventure, nature, and mindful escape.",
       "Whether it’s a short day hike or a more immersive trekking experience, GoHike focuses on safe, well-guided journeys that bring like-minded explorers together. With experienced coordinators, planned routes, and a strong sense of community, every hike is designed to help you disconnect from the noise and reconnect with nature.",
     ],
-    quote: "The best views come after the hardest climbs.",
   },
   {
     id: "04",
@@ -50,7 +47,6 @@ const EVENTS = [
       "South India Expedition is a curated long-distance journey by Adrenaline Adventures, designed for riders who want to explore the rich diversity of the southern landscapes. From coastal highways and dense forests to winding hill roads and serene countryside, this expedition brings together the best of nature, culture, and riding thrill.",
       "Planned as a multi-day experience, it offers a perfect balance of adventure and comfort with well-structured routes, experienced ride leaders, and dedicated support throughout the journey. More than just a ride, it’s about discovering new places, building strong connections, and creating stories that stay long after the journey ends.",
     ],
-    quote: "Ghats, coastlines, and a thousand shades of green.",
   },
   {
     id: "05",
@@ -61,7 +57,6 @@ const EVENTS = [
       "North India Expedition is a signature long-distance journey by Adrenaline Adventures, crafted for riders who seek the ultimate test of endurance, exploration, and freedom. This expedition takes you through some of the most breathtaking and diverse landscapes in India. From winding mountain passes and high-altitude roads to vast valleys and remote terrains that redefine the meaning of adventure.",
       "Designed as a multi-day experience, the expedition combines thrill with thoughtful planning, ensuring riders are supported every step of the way. With experienced ride leaders, backup support, and a strong focus on safety, it’s not just about reaching the destination... it’s about embracing every challenge, every mile, and every moment along the journey.",
     ],
-    quote: "Higher roads, thinner air, bigger stories.",
   },
   {
     id: "06",
@@ -72,7 +67,6 @@ const EVENTS = [
       "Customize Your Ride is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
       "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
     ],
-    quote: "Your route, your crew, your adventure.",
   },
 ];
 
@@ -191,9 +185,6 @@ export default function EventsPage() {
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
-                <p className="mt-10 max-w-md border-t border-line pt-6 text-body-lg text-paper">
-                  &ldquo;{event.quote}&rdquo;
-                </p>
               </div>
             </div>
           </section>

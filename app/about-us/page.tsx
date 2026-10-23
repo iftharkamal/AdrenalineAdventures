@@ -39,13 +39,13 @@ export default function AboutUsPage() {
   return (
     <main className="bg-night">
       {/* ==================== SECTION 1: Intro on light canvas ==================== */}
-      <section className="bg-stone pb-6 pt-36 text-ink md:pb-6 md:pt-48">
+      <section className="bg-stone pb-6 pt-28 text-ink md:pb-6 md:pt-32">
         <div className="mx-auto w-full max-w-page px-6">
           <h1 className="font-display text-heading-lg md:text-display-lg">
             <RiseText text="About us." />
           </h1>
 
-          <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2fr]">
+          <div className="mt-10 grid gap-10 md:mt-12 md:grid-cols-[1fr_2fr]">
             <SectionLabel index="01" tone="light">
               Who we are
             </SectionLabel>
