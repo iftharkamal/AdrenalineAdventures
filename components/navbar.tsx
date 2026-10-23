@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,16 +20,17 @@ const ctaLink = { label: "Contact Us", href: "/contact-us" };
 
 const contactEmail = "adrenalineadventuresindia@gmail.com";
 
-// Pages whose top section is light, where the cream logo needs a dark backing
+// Pages whose top section is light, where the logo needs its backing from the start
 const lightTopPages = ["/about-us"];
 
+// Bare cream logo over the hero; once scrolled it sits in a dark glass chip, the brand's cream-on-black pairing
 function Logo({ solid }: { solid: boolean }) {
   return (
     <Link
       href="/"
       aria-label="Adrenaline Adventures home"
       className={cn(
-        "flex items-center gap-3 rounded-xl px-3 py-2 transition-colors duration-300",
+        "flex items-center gap-3 rounded-xl px-3 py-2 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         solid ? "bg-night/85 backdrop-blur-md" : "bg-transparent"
       )}
     >
@@ -46,41 +47,15 @@ function Logo({ solid }: { solid: boolean }) {
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const lenis = useLenis();
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Always visible at the very top
-      if (window.scrollY < 5) {
-        setIsVisible(true);
-        setIsScrolled(false);
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        return;
-      }
-
-      setIsScrolled(true);
-      setIsVisible(true);
-
-      // Clear existing timeout
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
-      // Hide after 3 seconds of inactivity
-      timeoutRef.current = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 5);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Freeze the page behind the mobile menu and let Escape close it
@@ -107,19 +82,13 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 transition-transform duration-500",
+        "fixed left-0 right-0 top-0 z-50",
         // Wait for the home hero's opening box before showing the nav
-        pathname === "/" && "motion-safe:animate-[nav-intro_0.7s_ease-out_1.3s_both]",
-        !isVisible && !isMenuOpen && "-translate-y-full"
+        pathname === "/" && "motion-safe:animate-[nav-intro_0.7s_ease-out_1.3s_both]"
       )}
     >
-      {/* Desktop: free-standing logo + compact link pill */}
-      <div
-        className={cn(
-          "hidden w-full items-center justify-between px-10 transition-[padding] duration-300 md:flex lg:px-15",
-          isScrolled ? "py-3" : "py-12"
-        )}
-      >
+      {/* Desktop: free-standing logo + compact link pill, pinned in one place */}
+      <div className="hidden w-full items-center justify-between px-10 py-8 md:flex lg:px-15">
         <div className="-ml-3">
           <Logo solid={isLogoSolid} />
         </div>
@@ -168,7 +137,7 @@ export default function Navbar() {
       <div className="relative z-50 px-3 pt-3 md:hidden">
         <div
           className={cn(
-            "flex h-14 items-center justify-between rounded-xl pr-2 transition-colors duration-300",
+            "flex h-14 items-center justify-between rounded-xl pr-2 transition-colors duration-500",
             isLogoSolid || isMenuOpen ? "bg-night/85 backdrop-blur-md" : "bg-transparent"
           )}
         >
