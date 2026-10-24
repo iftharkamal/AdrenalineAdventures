@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${formula1.variable} ${poppins.variable} ${geistMono.variable}`}>
         <SmoothScroll>
           <Navbar />
