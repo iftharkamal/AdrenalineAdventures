@@ -79,7 +79,8 @@ export default function EventsPage() {
       <section className="pb-20 pt-36 text-paper md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div>
-            <h1 className="font-display text-heading-lg md:text-display-lg">
+            {/* "Adventures." is ~6.75em wide, so on phones it scales with the viewport and drops a size in the narrow two-column range */}
+            <h1 className="font-display text-[clamp(2.25rem,12vw,3.625rem)] leading-[1.1] tracking-[-0.012em] md:text-display-lg lg:text-heading-lg xl:text-display-lg">
               <span className="block text-subheading md:text-heading-sm">
                 <RiseText text="Our" />
               </span>
