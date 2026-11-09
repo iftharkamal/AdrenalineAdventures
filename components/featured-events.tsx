@@ -42,7 +42,7 @@ const EVENTS = [
   },
   {
     id: "06",
-    title: "CUSTOMIZE YOUR RIDE",
+    title: "CUSTOMIZE YOUR ADVENTURE",
     category: "Your Dates / Private Ride",
     image: "/landingImage.png",
   },
