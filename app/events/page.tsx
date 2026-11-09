@@ -11,7 +11,7 @@ const EVENTS = [
   {
     id: "01",
     title: "WEEKEND ESCAPE",
-    subtitle: "Group Bike Ride – One-Day",
+    subtitle: "Group Motorcycle Ride",
     heroImage: "/eventcard1.png",
     description: [
       "Weekend Escape is a curated riding experience crafted for those who crave more than just a getaway. Designed by Adrenaline Adventures, this segment brings together passionate riders for one-day and multi-day motorcycle journeys that blend thrill, exploration, and community. From winding hill roads and mist-covered valleys to scenic coastal stretches, every ride is thoughtfully planned to deliver both adventure and comfort.",
@@ -21,7 +21,7 @@ const EVENTS = [
   {
     id: "02",
     title: "MALTERRA RALLY",
-    subtitle: "Car Rally – One-Day",
+    subtitle: "Car Rally",
     heroImage: "/maltera_rally_hero.png",
     description: [
       "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
@@ -31,7 +31,7 @@ const EVENTS = [
   {
     id: "03",
     title: "GOHIKE",
-    subtitle: "Hiking Camp – Multi-Day",
+    subtitle: "Hiking / Trekking",
     heroImage: "/gohike_hero.png",
     description: [
       "GoHike is the dedicated hiking program by Adrenaline Adventures, created for those who find peace and thrill in exploring the outdoors on foot. From lush forest trails and rolling hills to hidden viewpoints and misty peaks, each hike is carefully curated to offer a balance of adventure, nature, and mindful escape.",
@@ -41,7 +41,7 @@ const EVENTS = [
   {
     id: "04",
     title: "SOUTH INDIA EXPEDITION",
-    subtitle: "Bike Expedition – Multi-Day",
+    subtitle: "Multi-Day",
     heroImage: "/eventcard2.png",
     description: [
       "South India Expedition is a curated long-distance journey by Adrenaline Adventures, designed for riders who want to explore the rich diversity of the southern landscapes. From coastal highways and dense forests to winding hill roads and serene countryside, this expedition brings together the best of nature, culture, and riding thrill.",
@@ -51,7 +51,7 @@ const EVENTS = [
   {
     id: "05",
     title: "NORTH INDIA EXPEDITION",
-    subtitle: "Himalayan Expedition – Multi-Day",
+    subtitle: "Multi-Day",
     heroImage: "/gohike_hero.png",
     description: [
       "North India Expedition is a signature long-distance journey by Adrenaline Adventures, crafted for riders who seek the ultimate test of endurance, exploration, and freedom. This expedition takes you through some of the most breathtaking and diverse landscapes in India. From winding mountain passes and high-altitude roads to vast valleys and remote terrains that redefine the meaning of adventure.",
@@ -60,11 +60,11 @@ const EVENTS = [
   },
   {
     id: "06",
-    title: "CUSTOMIZE YOUR RIDE",
+    title: "CUSTOMIZE YOUR ADVENTURE",
     subtitle: "Private Ride – Your Dates",
     heroImage: "/landingImage.png",
     description: [
-      "Customize Your Ride is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
+      "Customize Your Adventure is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
       "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
     ],
   },
@@ -79,15 +79,22 @@ export default function EventsPage() {
       <section className="pb-20 pt-36 text-paper md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div>
-            <h1 className="font-display text-heading-lg md:text-display-lg">
-              <RiseText text="Events." />
+            {/* "Adventures." is ~6.75em wide, so on phones it scales with the viewport and drops a size in the narrow two-column range */}
+            <h1 className="font-display text-[clamp(2.25rem,12vw,3.625rem)] leading-[1.1] tracking-[-0.012em] md:text-display-lg lg:text-heading-lg xl:text-display-lg">
+              <span className="block text-subheading md:text-heading-sm">
+                <RiseText text="Our" />
+              </span>
+              <span className="block">
+                <RiseText text="Adventures." delay={0.08} />
+              </span>
             </h1>
             <p className="mt-8 max-w-lg text-body text-paper/70">
-              When a user activates a theme, they have an expectation of seeing their photos, theirs shop, their
-              contributors and all of their content with a new style or twist. Themes provide this ability to showcase
-              user content in different ways. How a theme gets that content is what we look for. When there is no
-              content a theme should not show anything
+              From thrilling motorcycle expeditions and scenic road trips to immersive hiking trails, camping escapes,
+              and offbeat explorations, Adrenaline Adventures brings together riders, hikers, and explorers through
+              experiences that go beyond the usual. Every adventure is thoughtfully curated to inspire discovery,
+              embrace freedom, and create unforgettable memories.
             </p>
+            <p className="mt-6 max-w-lg text-body text-paper">Choose your adventure. Embrace the journey.</p>
           </div>
 
           <ul className="border-t border-line lg:mt-4">
