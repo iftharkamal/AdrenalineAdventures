@@ -191,7 +191,7 @@ Full-bleed Bone White (#f7f7f5) with white cards. Used for editorial/newsroom se
 ### Footer
 **Role:** Site closure
 
-Full-bleed photo (`gohike_hero.png`) under a 70% `night` overlay, at least 85vh tall. The section above ends in a rounded lip (40px bottom radius on desktop, 20px on mobile) drawn in that section's colour, so the page appears to lift off the photo; pages pass `prevBg` (`bg-night` or `bg-stone`) to set it.
+Full-bleed photo (`photos/random23.jpg`) under a 70% `night` overlay, at least 85vh tall. The section above ends in a rounded lip (40px bottom radius on desktop, 20px on mobile) drawn in that section's colour, so the page appears to lift off the photo; pages pass `prevBg` (`bg-night` or `bg-stone`) to set it.
 
 - **Top left:** a statement line in Formula1 at 36px ("Curated adventures, crafted memories."), then a CTA pair: a dark `Contact us` button with a slanted right edge, interlocking with a slanted orange arrow block.
 - **Top right:** link columns, each with a 1px left hairline (`paper` at 25%), a Geist Mono uppercase label (NAVIGATE, CONNECT, CONTACT) and Poppins 22px links that turn orange on hover. A 48px outlined back-to-top square sits at the far right.

@@ -54,7 +54,7 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
 
   return (
     <footer className="relative isolate overflow-hidden bg-night text-paper">
-      <Image src="/gohike_hero.png" alt="" fill sizes="100vw" className="-z-20 object-cover" />
+      <Image src="/photos/random23.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />
       <div className="absolute inset-0 -z-10 bg-night/70" aria-hidden="true" />
       <div className={cn("h-10 rounded-b-card md:h-16 md:rounded-b-panel", prevBg)} aria-hidden="true" />
 

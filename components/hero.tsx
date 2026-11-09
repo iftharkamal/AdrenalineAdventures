@@ -47,7 +47,8 @@ export default function Hero() {
     return `inset(calc(${edge}% + ${gap}px) calc(${edge}% + ${gap}px) round ${radius}px)`;
   });
 
-  const imageScale = useTransform([intro, expand], ([p, e]: number[]) => 1.15 - 0.12 * p - 0.03 * e);
+  // Settles at its natural size once the intro finishes, so the photo isn't zoomed in at rest
+  const imageScale = useTransform(intro, (p) => 1.1 - 0.1 * p);
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   useEffect(() => {
@@ -73,12 +74,13 @@ export default function Hero() {
           {/* Slow drift stands in for the reference's looping video background */}
           <motion.div
             className="absolute inset-0"
-            animate={reduceMotion ? undefined : { scale: [1, 1.06, 1], x: ["0%", "-1.5%", "0%"] }}
+            // Scale overflow (1.5% a side at peak) always covers the sideways drift, so no edge shows
+            animate={reduceMotion ? undefined : { scale: [1, 1.03, 1], x: ["0%", "-1%", "0%"] }}
             transition={{ duration: 24, ease: "easeInOut", repeat: Infinity }}
           >
             <Image
-              src="/whyadadimg.png"
-              alt="Riders gathered with their motorbikes on a mountain pass"
+              src="/photos/main-image.jpg"
+              alt="A rider on a Royal Enfield beside a turquoise mountain lake"
               fill
               priority
               sizes="100vw"
