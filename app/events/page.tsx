@@ -80,14 +80,20 @@ export default function EventsPage() {
         <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24">
           <div>
             <h1 className="font-display text-heading-lg md:text-display-lg">
-              <RiseText text="Events." />
+              <span className="block text-subheading md:text-heading-sm">
+                <RiseText text="Our" />
+              </span>
+              <span className="block">
+                <RiseText text="Adventures." delay={0.08} />
+              </span>
             </h1>
             <p className="mt-8 max-w-lg text-body text-paper/70">
-              When a user activates a theme, they have an expectation of seeing their photos, theirs shop, their
-              contributors and all of their content with a new style or twist. Themes provide this ability to showcase
-              user content in different ways. How a theme gets that content is what we look for. When there is no
-              content a theme should not show anything
+              From thrilling motorcycle expeditions and scenic road trips to immersive hiking trails, camping escapes,
+              and offbeat explorations, Adrenaline Adventures brings together riders, hikers, and explorers through
+              experiences that go beyond the usual. Every adventure is thoughtfully curated to inspire discovery,
+              embrace freedom, and create unforgettable memories.
             </p>
+            <p className="mt-6 max-w-lg text-body text-paper">Choose your adventure. Embrace the journey.</p>
           </div>
 
           <ul className="border-t border-line lg:mt-4">
