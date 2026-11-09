@@ -22,11 +22,58 @@ const whatWeDo = [
   "Focus on safety, authenticity, and storytelling in every trip",
 ];
 
+// The first paragraph of each answer is shown as a lead line.
 const faqs = [
-  "Why does every journey feel better with a tribe..?",
-  "How does travel shape your mindset?",
-  "Why is hiking the best way to reconnect with yourself?",
-  "Have you ever watched the stars without your phone?",
+  {
+    question: "How Does Travel Shape Your Mindset?",
+    answer: [
+      "Travel doesn't just change the places you see. It changes the way you see the world.",
+      "Every journey introduces us to something unfamiliar — new landscapes, different cultures, unexpected experiences, and perspectives beyond our everyday lives. Somewhere between leaving our comfort zones and embracing the unknown, we begin to discover a different version of ourselves.",
+      "Travel teaches us to be adaptable, patient, open-minded, and curious. It reminds us that not everything goes according to plan, and sometimes the most beautiful experiences come from the unexpected detours.",
+      "Whether navigating unfamiliar mountain roads, pushing through a challenging hiking trail, or connecting with people from different walks of life, every experience offers a lesson that stays with us long after we return home.",
+      "At Adrenaline Adventures, we believe travel is more than exploring destinations. It is about challenging limitations, embracing new perspectives, and discovering possibilities beyond our comfort zones.",
+      "Our motorcycle journeys, hiking expeditions, camping escapes, and group adventures bring people closer to nature, different cultures, and themselves.",
+      "You learn to appreciate the little things, find confidence in unfamiliar situations, and understand that the world is much bigger than the boundaries of your everyday routine.",
+      "Because sometimes, the greatest destination isn't a place on the map. It's the person you become along the way.",
+    ],
+  },
+  {
+    question: "Why Does Every Journey Feel Better With a Tribe?",
+    answer: [
+      "Because the best journeys are not just about the places we discover, but the people we meet along the way.",
+      "There is something special about exploring the world with people who share the same passion for adventure. The excitement of an open road, the challenge of an unfamiliar trail, the warmth of a campfire, and the joy of discovering new places become even more meaningful when experienced together.",
+      "A journey that begins with strangers often turns into a collection of unforgettable memories, genuine friendships, and connections that last far beyond the destination.",
+      "At Adrenaline Adventures, we believe adventure is more than travelling from one place to another. It is about bringing together riders, hikers, road-trippers, and explorers who share a common desire to experience life beyond the ordinary.",
+      "From motorcycle journeys across breathtaking landscapes to hiking expeditions, camping escapes, and offbeat road trips, every experience is an opportunity to explore, connect, and discover something new.",
+      "We celebrate the little moments just as much as the big adventures — spontaneous conversations, unexpected detours, shared laughter, music nights, and stories around the campfire. Because these are the moments that turn an ordinary trip into an extraordinary experience.",
+      "We are not just creating travel experiences. We are building a community where strangers become friends, experiences become stories, and every journey brings us a little closer.",
+    ],
+  },
+  {
+    question: "Have You Ever Watched the Stars Without Your Phone?",
+    answer: [
+      "Sometimes, the most beautiful moments happen when we put our screens away and simply look up.",
+      "We live in a world where almost every moment is captured, shared, and consumed through a screen. We photograph sunsets, record experiences, and scroll through countless images of places we dream of visiting. But when was the last time you simply stopped and experienced a moment without reaching for your phone?",
+      "Imagine sitting beneath an open sky, surrounded by mountains, listening to the sounds of nature, with thousands of stars illuminating the darkness. No notifications, no deadlines, no distractions. Just you, the night sky, and the quiet beauty of being present.",
+      "There is something extraordinary about disconnecting from the digital world and reconnecting with the natural one. The silence feels different, conversations become deeper, and even the simplest moments begin to mean more.",
+      "At Adrenaline Adventures, we believe adventure is also about discovering these little moments. Through our camping escapes, hiking expeditions, and outdoor experiences, we encourage people to step away from their routines and embrace the beauty of the world around them.",
+      "Sometimes, the best memories aren't the ones stored in your phone gallery. They are the ones you carry within you.",
+      "So, the next time you find yourself beneath a sky full of stars, put your phone away. Look up. Take a deep breath. And let the moment be yours.",
+    ],
+  },
+  {
+    question: "Why Is Hiking the Best Way to Reconnect With Yourself?",
+    answer: [
+      "Sometimes, the best way to find yourself is to get lost in nature.",
+      "In a world that rarely slows down, we often forget to pause, breathe, and appreciate the moment. Between daily routines, endless notifications, and constant responsibilities, we gradually lose touch with the simplest things that make us feel alive.",
+      "Hiking offers a chance to step away from all of that.",
+      "With every step along a forest trail, every breath of fresh mountain air, and every viewpoint that unfolds before you, something begins to change. The noise fades, the mind becomes clearer, and you start noticing things you might have overlooked in everyday life.",
+      "Hiking teaches patience, builds resilience, and reminds us that meaningful experiences often come from taking things one step at a time. The challenging climbs, unexpected trails, and moments of silence become opportunities to discover your own strength.",
+      "But hiking is not always about walking alone. Sharing trails, stories, laughter, and beautiful landscapes with like-minded explorers makes the experience even more meaningful.",
+      "At Adrenaline Adventures, through our GoHike experiences, we bring people closer to nature through curated hiking adventures, outdoor exploration, and meaningful connections.",
+      "Because sometimes, you don't need another escape. You just need a trail, a little fresh air, and the freedom to rediscover yourself.",
+    ],
+  },
 ];
 
 export default function AboutUsPage() {
@@ -158,15 +205,17 @@ export default function AboutUsPage() {
           <div className="border-t border-line">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
+              const [lead, ...rest] = faq.answer;
               return (
-                <div key={faq} className="border-b border-line">
+                <div key={faq.question} className="border-b border-line">
                   <button
                     onClick={() => toggleFaq(index)}
                     className="group flex w-full items-center justify-between gap-6 py-6 text-left"
                     aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${index}`}
                   >
                     <span className="text-body-lg text-paper/80 transition-colors group-hover:text-paper">
-                      <BlockText text={faq} delay={index * 0.1} />
+                      <BlockText text={faq.question} delay={index * 0.1} />
                     </span>
                     <span
                       className={cn(
@@ -179,16 +228,24 @@ export default function AboutUsPage() {
                       {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
                     </span>
                   </button>
+                  {/* grid-rows 0fr -> 1fr animates to the answer's natural height, however long it is */}
                   <div
+                    id={`faq-panel-${index}`}
                     className={cn(
-                      "overflow-hidden transition-all duration-300 ease-in-out",
-                      isOpen ? "max-h-40 pb-6" : "max-h-0"
+                      "grid transition-[grid-template-rows] duration-500 ease-in-out",
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     )}
                   >
-                    <p className="max-w-2xl text-body text-paper/60">
-                      Every journey with Adrenaline Adventures is designed to ignite your spirit and connect you with a
-                      community that shares your passion for discovery and the extraordinary.
-                    </p>
+                    <div className="overflow-hidden">
+                      <div className="max-w-2xl space-y-4 pb-8 md:pr-16">
+                        <p className="text-body-lg text-paper/90">{lead}</p>
+                        {rest.map((paragraph) => (
+                          <p key={paragraph} className="text-body text-paper/60">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
