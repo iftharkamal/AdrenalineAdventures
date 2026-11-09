@@ -146,10 +146,11 @@ export default function AboutUsPage() {
 
       {/* ==================== SECTION 2: Stats ==================== */}
       <section className="bg-stone pb-20 pt-6 md:pb-32">
-        <div className="mx-auto grid w-full max-w-page grid-cols-2 gap-3 px-6 md:grid-cols-4 md:gap-5">
+        <div className="mx-auto grid w-full max-w-page grid-cols-2 gap-3 px-6 md:gap-5 lg:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-6 rounded-card bg-paper p-6 md:p-8">
-              <span className="font-display text-heading-sm text-ink md:text-heading-lg">
+            <div key={stat.label} className="@container flex flex-col gap-6 rounded-card bg-paper p-5 sm:p-6 md:p-8">
+              {/* Sized to the card (cqi) so the widest figure, "1000+", always fits, capped at heading-lg */}
+              <span className="font-display text-[clamp(24px,26cqi,58px)] leading-[1.1] tracking-[-0.012em] text-ink">
                 <RiseText text={stat.number} />
               </span>
               <span className="font-mono text-caption uppercase text-ink/70">
