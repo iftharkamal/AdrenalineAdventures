@@ -1,25 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
+import { AnimatePresence, motion, useInView, useReducedMotion, type PanInfo } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import { RiseText } from "@/components/ui/intro-text";
+import { photo } from "@/lib/photos";
 import { SectionLabel } from "@/components/ui/section-label";
 import { cn } from "@/lib/utils";
 
 const COMMUNITY_IMAGES = [
-  { src: "/communitypic1.png", alt: "Riders on road" },
-  { src: "/communitypic2.png", alt: "Group photo" },
-  { src: "/communitypic3.png", alt: "Bikes on road" },
-  { src: "/communitypic4.png", alt: "B&W riders" },
-  { src: "/communitypic5.png", alt: "Meetup" },
+  photo("community2", "The whole crew together on a forest meadow"),
+  photo("community5", "Riders with their arms raised beside their bikes, mountains behind"),
+  photo("community", "Group photo in front of a thatched hilltop lodge"),
+  photo("community7", "A big group of riders cheering by the roadside"),
+  photo("community4", "The group gathered on a green hillside"),
+  photo("community6", "Group photo outside a grass-roofed cottage"),
+  photo("community3", "The crew posing outside an old hillside shed"),
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const SWIPE_THRESHOLD = 60; // px of drag before it counts as a swipe
+const AUTOPLAY_MS = 5000; // time each photo stays up
+const RESUME_AFTER_MS = 8000; // quiet period after someone uses the carousel before it moves again
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -32,11 +37,29 @@ const slide = {
 
 function CommunityCarousel() {
   const [[index, direction], setState] = useState([0, 0]);
+  const [hovering, setHovering] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const pausedUntil = useRef(0);
   const reduceMotion = useReducedMotion();
+  const inView = useInView(rootRef, { amount: 0.4 });
   const count = COMMUNITY_IMAGES.length;
 
-  const goTo = (next: number, dir: number) => setState([(next + count) % count, dir]);
+  const goTo = (next: number, dir: number) => {
+    pausedUntil.current = Date.now() + RESUME_AFTER_MS;
+    setState([(next + count) % count, dir]);
+  };
   const paginate = (dir: number) => goTo(index + dir, dir);
+
+  // Slides on by itself while in view, unless someone is hovering or has just used it
+  const playing = !reduceMotion && inView && !hovering;
+  useEffect(() => {
+    if (!playing) return;
+    const timer = window.setInterval(() => {
+      if (document.hidden || Date.now() < pausedUntil.current) return;
+      setState(([i]) => [(i + 1) % count, 1]);
+    }, AUTOPLAY_MS);
+    return () => window.clearInterval(timer);
+  }, [playing, count]);
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
     if (info.offset.x < -SWIPE_THRESHOLD) paginate(1);
@@ -47,10 +70,15 @@ function CommunityCarousel() {
 
   return (
     <div
+      ref={rootRef}
       role="region"
       aria-roledescription="carousel"
       aria-label="Community photos"
       tabIndex={0}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      onFocus={() => setHovering(true)}
+      onBlur={() => setHovering(false)}
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft") paginate(-1);
         if (event.key === "ArrowRight") paginate(1);

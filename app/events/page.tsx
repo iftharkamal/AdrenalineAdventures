@@ -1,74 +1,11 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/footer";
+import PhotoStrip from "@/components/photo-strip";
 import { buttonVariants } from "@/components/ui/button";
 import { BlockText, RiseText } from "@/components/ui/intro-text";
 import { SectionLabel, Tag } from "@/components/ui/section-label";
-
-/* ───────────────────────────── Event Data ───────────────────────────── */
-
-const EVENTS = [
-  {
-    id: "01",
-    title: "WEEKEND ESCAPE",
-    subtitle: "Group Motorcycle Ride",
-    heroImage: "/eventcard1.png",
-    description: [
-      "Weekend Escape is a curated riding experience crafted for those who crave more than just a getaway. Designed by Adrenaline Adventures, this segment brings together passionate riders for one-day and multi-day motorcycle journeys that blend thrill, exploration, and community. From winding hill roads and mist-covered valleys to scenic coastal stretches, every ride is thoughtfully planned to deliver both adventure and comfort.",
-      "Whether it’s a quick one-day escape from the city or an immersive multi-day expedition, Weekend Escape focuses on creating meaningful experiences on two wheels. With well-defined routes, experienced ride coordinators, safety support, and a strong sense of rider camaraderie, each journey is built to help you disconnect from routine and reconnect with the road.",
-    ],
-  },
-  {
-    id: "02",
-    title: "MALTERRA RALLY",
-    subtitle: "Car Rally",
-    heroImage: "/maltera_rally_hero.png",
-    description: [
-      "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
-      "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together.",
-    ],
-  },
-  {
-    id: "03",
-    title: "GOHIKE",
-    subtitle: "Hiking / Trekking",
-    heroImage: "/gohike_hero.png",
-    description: [
-      "GoHike is the dedicated hiking program by Adrenaline Adventures, created for those who find peace and thrill in exploring the outdoors on foot. From lush forest trails and rolling hills to hidden viewpoints and misty peaks, each hike is carefully curated to offer a balance of adventure, nature, and mindful escape.",
-      "Whether it’s a short day hike or a more immersive trekking experience, GoHike focuses on safe, well-guided journeys that bring like-minded explorers together. With experienced coordinators, planned routes, and a strong sense of community, every hike is designed to help you disconnect from the noise and reconnect with nature.",
-    ],
-  },
-  {
-    id: "04",
-    title: "SOUTH INDIA EXPEDITION",
-    subtitle: "Multi-Day",
-    heroImage: "/eventcard2.png",
-    description: [
-      "South India Expedition is a curated long-distance journey by Adrenaline Adventures, designed for riders who want to explore the rich diversity of the southern landscapes. From coastal highways and dense forests to winding hill roads and serene countryside, this expedition brings together the best of nature, culture, and riding thrill.",
-      "Planned as a multi-day experience, it offers a perfect balance of adventure and comfort with well-structured routes, experienced ride leaders, and dedicated support throughout the journey. More than just a ride, it’s about discovering new places, building strong connections, and creating stories that stay long after the journey ends.",
-    ],
-  },
-  {
-    id: "05",
-    title: "NORTH INDIA EXPEDITION",
-    subtitle: "Multi-Day",
-    heroImage: "/gohike_hero.png",
-    description: [
-      "North India Expedition is a signature long-distance journey by Adrenaline Adventures, crafted for riders who seek the ultimate test of endurance, exploration, and freedom. This expedition takes you through some of the most breathtaking and diverse landscapes in India. From winding mountain passes and high-altitude roads to vast valleys and remote terrains that redefine the meaning of adventure.",
-      "Designed as a multi-day experience, the expedition combines thrill with thoughtful planning, ensuring riders are supported every step of the way. With experienced ride leaders, backup support, and a strong focus on safety, it’s not just about reaching the destination... it’s about embracing every challenge, every mile, and every moment along the journey.",
-    ],
-  },
-  {
-    id: "06",
-    title: "CUSTOMIZE YOUR ADVENTURE",
-    subtitle: "Private Ride – Your Dates",
-    heroImage: "/landingImage.png",
-    description: [
-      "Customize Your Adventure is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
-      "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
-    ],
-  },
-];
+import { EVENTS } from "@/lib/events";
 
 /* ───────────────────────────── Page Component ───────────────────────────── */
 
@@ -144,8 +81,8 @@ export default function EventsPage() {
                   <div className="w-full max-w-sm rounded-card bg-paper p-3">
                     <div className="relative aspect-[3.5/4] overflow-hidden rounded-xl">
                       <Image
-                        src={event.heroImage}
-                        alt={event.title}
+                        src={event.cover.src}
+                        alt={event.cover.alt}
                         fill
                         className="object-cover"
                         sizes="(min-width: 1024px) 400px, 350px"
@@ -164,8 +101,8 @@ export default function EventsPage() {
                   /* Full-bleed photo card */
                   <div className="relative aspect-[3.5/5] w-full max-w-sm overflow-hidden rounded-card">
                     <Image
-                      src={event.heroImage}
-                      alt={event.title}
+                      src={event.cover.src}
+                      alt={event.cover.alt}
                       fill
                       className="object-cover"
                       sizes="(min-width: 1024px) 400px, 350px"
@@ -194,8 +131,15 @@ export default function EventsPage() {
                 </div>
               </div>
             </div>
-          </section>
 
+            {/* Photos from past editions of this event */}
+            <div className="mx-auto mt-16 w-full max-w-page px-6 md:mt-24">
+              <p className="mb-6 font-mono text-caption uppercase text-paper/60">
+                Moments from {event.title}
+              </p>
+              <PhotoStrip photos={event.gallery} label={event.title} />
+            </div>
+          </section>
         </div>
       ))}
 

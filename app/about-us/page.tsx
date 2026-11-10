@@ -126,11 +126,11 @@ export default function AboutUsPage() {
         <div className="mt-20 px-3 md:mt-32 md:px-6">
           <div className="relative flex min-h-[80vh] items-end overflow-hidden rounded-card md:rounded-panel">
             <Image
-              src="/aboutuspic1.png"
-              alt="Adventure group at sunset"
+              src="/photos/northindiaexpedition13.jpg"
+              alt="Riders with their arms raised across a high-desert plain"
               fill
               sizes="100vw"
-              className="object-cover object-top"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-night/45" aria-hidden="true" />
             <div className="relative z-10 mx-auto flex w-full max-w-page justify-end px-6 py-12 md:py-20">

@@ -155,7 +155,7 @@ export default function StorySection() {
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div style={{ scale: reduceMotion ? 1 : bgScale }} className="absolute inset-0">
-          <Image src="/whyadadimg.png" alt="" fill sizes="100vw" className="object-cover" />
+          <Image src="/photos/random58.jpg" alt="" fill sizes="100vw" className="object-cover" />
         </motion.div>
         <div className="absolute inset-0 bg-night/70" aria-hidden="true" />
 

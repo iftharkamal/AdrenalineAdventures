@@ -35,8 +35,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Best Time to Visit Kerala",
       "Monsoon Adventures Kerala",
     ],
-    image: "/landingImage.png",
-    imageAlt: "Adventure travellers on a mountain road in Kerala",
+    image: "/photos/random60.jpg",
+    imageAlt: "Rolling tea-covered hills in Kerala under the clouds",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -196,8 +196,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Adventure Touring India",
       "Riding Through Kerala",
     ],
-    image: "/communitypic1.png",
-    imageAlt: "Riders on a motorcycle tour through South India",
+    image: "/photos/random58.jpg",
+    imageAlt: "Motorcycles parked at a hilltop stop in South India",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -260,8 +260,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Authentic India Experiences",
       "Nature & Cultural Tours India",
     ],
-    image: "/eventcard3.png",
-    imageAlt: "Hikers on a forest trail in the Western Ghats",
+    image: "/photos/community34.jpg",
+    imageAlt: "Prayer flags above a trailside shop below snowy peaks",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -331,8 +331,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Adventure Tourism India",
       "Monsoon Adventures South India",
     ],
-    image: "/gohike_hero.png",
-    imageAlt: "Mist-covered green hills in Kerala during the monsoon",
+    image: "/photos/random61.jpg",
+    imageAlt: "Mist rolling over green tea hills in Kerala during the monsoon",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -375,8 +375,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Adventure Travel India",
       "South India Motorcycle Tours",
     ],
-    image: "/communitypic3.png",
-    imageAlt: "Motorcycles lined up on a scenic Kerala road",
+    image: "/photos/random57.jpg",
+    imageAlt: "A line of riders on a road winding through Kerala's tea hills",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -444,8 +444,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Backpacking Kerala",
       "Royal Enfield Tours India",
     ],
-    image: "/whyadadimg.png",
-    imageAlt: "Explorers taking in a mountain view in Kerala",
+    image: "/photos/random38.jpg",
+    imageAlt: "The Adrenaline Adventures flag over a Kerala tea estate at sunrise",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -500,8 +500,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Scenic Road Trips India",
       "Backpacking India Adventures",
     ],
-    image: "/aboutuspic1.png",
-    imageAlt: "A guided group of adventurers exploring India",
+    image: "/photos/community13.jpg",
+    imageAlt: "A guided hiking group on a misty summit",
     publishedAt: "2026-10-23",
     content: [
       {
@@ -564,7 +564,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Guided Bike Tours Kerala",
       "Adventure Tourism India",
     ],
-    image: "/eventcard1.png",
+    image: "/photos/random47.jpg",
     imageAlt: "A group motorcycle ride through the hills of Kerala",
     publishedAt: "2026-10-23",
     content: [
@@ -624,8 +624,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Guided Adventure Tours India",
       "Adventure Holidays India",
     ],
-    image: "/communitypic2.png",
-    imageAlt: "A group of adventure travellers together in India",
+    image: "/photos/northindiaexpedition12.jpg",
+    imageAlt: "A line of riders across a high-desert plain in North India",
     publishedAt: "2026-10-23",
     content: [
       {

@@ -8,45 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import { RiseText } from "@/components/ui/intro-text";
 import { SectionLabel, Tag } from "@/components/ui/section-label";
-
-const EVENTS = [
-  {
-    id: "01",
-    title: "WEEKEND ESCAPE",
-    category: "One Day / Group Bike Ride",
-    image: "/eventcard1.png",
-  },
-  {
-    id: "02",
-    title: "MALTERRA RALLY",
-    category: "One Day / Car Rally",
-    image: "/eventcard2.png",
-  },
-  {
-    id: "03",
-    title: "GOHIKE",
-    category: "Multi-Day / Hiking Camp",
-    image: "/eventcard3.png",
-  },
-  {
-    id: "04",
-    title: "SOUTH INDIA EXPEDITION",
-    category: "Multi-Day / Bike Expedition",
-    image: "/maltera_rally_collage.png",
-  },
-  {
-    id: "05",
-    title: "NORTH INDIA EXPEDITION",
-    category: "Multi-Day / Himalayan Expedition",
-    image: "/gohike_hero.png",
-  },
-  {
-    id: "06",
-    title: "CUSTOMIZE YOUR ADVENTURE",
-    category: "Your Dates / Private Ride",
-    image: "/landingImage.png",
-  },
-];
+import { EVENTS } from "@/lib/events";
 
 export default function FeaturedEvents() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -109,8 +71,8 @@ export default function FeaturedEvents() {
             >
               <div className="relative aspect-[4/4.2] overflow-hidden rounded-xl">
                 <Image
-                  src={event.image}
-                  alt={event.title}
+                  src={event.cover.src}
+                  alt={event.cover.alt}
                   fill
                   sizes="(min-width: 768px) 400px, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
