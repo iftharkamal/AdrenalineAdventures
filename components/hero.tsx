@@ -84,7 +84,9 @@ export default function Hero() {
               fill
               priority
               sizes="100vw"
-              className="object-cover"
+              // Focal point on the rider: a cover crop only ever trims one axis, so x keeps the rider framed when
+              // tall phones trim the sides, and y keeps the helmet in view when wide screens trim top and bottom
+              className="object-cover object-[46%_22%]"
             />
           </motion.div>
         </motion.div>
