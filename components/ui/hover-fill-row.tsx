@@ -37,11 +37,11 @@ const arrowShape = {
   hover: "M8 0 H48 Q56 0 56 8 V40 Q56 48 48 48 H18 Q10 48 8.33 40 L1.67 8 Q0 0 8 0 Z",
 };
 
-export function HoverFillArrow() {
+export function HoverFillArrow({ className }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
-      className="relative flex h-12 w-14 shrink-0 items-center justify-center overflow-hidden text-ink"
+      className={cn("relative flex h-12 w-14 shrink-0 items-center justify-center overflow-hidden text-ink", className)}
     >
       <svg viewBox="0 0 56 48" preserveAspectRatio="none" className="absolute inset-0 size-full text-accent">
         <path data-fill-shape d={arrowShape.rest} fill="currentColor" />

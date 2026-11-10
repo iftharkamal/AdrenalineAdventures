@@ -62,8 +62,10 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           {/* Statement + CTA */}
           <div>
-            <p className="max-w-xl font-display text-[30px] leading-[1.15] tracking-[-0.006em] md:text-heading-sm">
-              Curated adventures, crafted memories.
+            {/* Always two lines: each half stays on one line, and the size scales with the viewport so the longer half fits on small phones */}
+            <p className="font-display text-[clamp(20px,6.5vw,32px)] leading-[1.15] tracking-[-0.006em]">
+              <span className="block whitespace-nowrap">Curated adventures,</span>{" "}
+              <span className="block whitespace-nowrap">crafted memories.</span>
             </p>
             <Link href="/contact-us" className={cn(ctaButtonClass, "mt-10")}>
               <CtaButtonContent size="lg">Contact us</CtaButtonContent>
