@@ -169,7 +169,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col bg-night md:hidden"
+            className="@container fixed inset-0 z-40 flex flex-col bg-night md:hidden"
           >
             {/* Contour lines backdrop */}
             <svg
@@ -214,12 +214,13 @@ export default function Navbar() {
               })}
             </nav>
 
+            {/* One line at every width: the address is about 19.7em wide, so the size follows the sheet's width minus its 24px gutters, capped at 16px */}
             <motion.a
               href={`mailto:${contactEmail}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.35 }}
-              className="relative mx-auto mb-10 break-all px-6 text-center text-base text-paper/80 underline decoration-line underline-offset-4"
+              className="relative mx-auto mb-10 whitespace-nowrap px-6 text-center text-[min(16px,calc((100cqi_-_48px)/21))] leading-normal text-paper/80 underline decoration-line underline-offset-4"
             >
               {contactEmail}
             </motion.a>

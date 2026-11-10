@@ -8,13 +8,6 @@ import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import { BlockText } from "@/components/ui/intro-text";
 import { cn } from "@/lib/utils";
 
-const pageLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Events", href: "/events" },
-  { label: "Contact Us", href: "/contact-us" },
-];
-
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/_adrenaline_adventures?igsh=c3c2c3FsN3M5ZGpy" },
   {
@@ -62,8 +55,10 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           {/* Statement + CTA */}
           <div>
-            <p className="max-w-xl font-display text-[30px] leading-[1.15] tracking-[-0.006em] md:text-heading-sm">
-              Curated adventures, crafted memories.
+            {/* Always two lines: each half stays on one line, and the size scales with the viewport so the longer half fits on small phones */}
+            <p className="font-display text-[clamp(20px,6.5vw,32px)] leading-[1.15] tracking-[-0.006em]">
+              <span className="block whitespace-nowrap">Curated adventures,</span>{" "}
+              <span className="block whitespace-nowrap">crafted memories.</span>
             </p>
             <Link href="/contact-us" className={cn(ctaButtonClass, "mt-10")}>
               <CtaButtonContent size="lg">Contact us</CtaButtonContent>
@@ -71,48 +66,41 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
           </div>
 
           {/* Link columns + back to top */}
-          <div className="relative grid grid-cols-1 gap-10 pr-16 sm:grid-cols-2">
-            <FooterColumn title="Navigate">
-              <ul className="space-y-1.5">
-                {pageLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className={linkClass}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-
-            <FooterColumn title="Connect">
-              <ul className="space-y-1.5">
-                {socialLinks.map((social) => (
-                  <li key={social.name}>
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                      {social.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-
-            <div className="sm:col-span-2">
-              <FooterColumn title="Contact">
-                <div className="space-y-1.5">
-                  <a href={`tel:${phone}`} className={cn(linkClass, "block w-fit")}>
-                    {phone}
-                  </a>
-                  <a href={`mailto:${email}`} className={cn(linkClass, "block w-fit break-all sm:break-normal")}>
-                    {email}
-                  </a>
-                  <p className="pt-2 text-base text-paper/70">
-                    Door No 36/267, Building No 7/619, Thrikkakara,
-                    <br />
-                    Ernakulam - 682021, Kerala, India
-                  </p>
-                </div>
+          <div className="relative grid grid-cols-1 gap-10">
+            {/* Right padding keeps the links clear of the back-to-top button */}
+            <div className="pr-16">
+              <FooterColumn title="Connect">
+                <ul className="space-y-1.5">
+                  {socialLinks.map((social) => (
+                    <li key={social.name}>
+                      <a href={social.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                        {social.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </FooterColumn>
             </div>
+
+            <FooterColumn title="Contact">
+              <div className="space-y-1.5 @container">
+                <a href={`tel:${phone}`} className={cn(linkClass, "block w-fit")}>
+                  {phone}
+                </a>
+                {/* The address is about 19.7em wide in Poppins, so 4.8cqi keeps it on one line in narrow columns; it caps at the usual 22px */}
+                <a
+                  href={`mailto:${email}`}
+                  className={cn(linkClass, "block w-fit whitespace-nowrap text-[min(22px,4.8cqi)] leading-[1.4] tracking-[-0.006em]")}
+                >
+                  {email}
+                </a>
+                <p className="pt-2 text-base text-paper/70">
+                  Door No 36/267, Building No 7/619, Thrikkakara,
+                  <br />
+                  Ernakulam - 682021, Kerala, India
+                </p>
+              </div>
+            </FooterColumn>
 
             <button
               type="button"

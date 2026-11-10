@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 
 const stats = [
   { number: "1000+", label: "Riders & Explorers" },
-  { number: "50+", label: "Curated Rides" },
-  { number: "25+", label: "Destinations" },
+  { number: "50+", label: "Curated Events" },
+  { number: "50+", label: "Destinations" },
   { number: "100+", label: "Evenings Shared" },
 ];
 
