@@ -106,7 +106,7 @@ export default function Hero() {
               <BlockText text="Born from the spirit of adventure." delay={CONTENT_DELAY + 0.1} stagger={0.06} />
             </p>
             <motion.a
-              href="#about"
+              href="/about-us"
               className={cn(ctaButtonClass, "self-start md:self-auto")}
               initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
