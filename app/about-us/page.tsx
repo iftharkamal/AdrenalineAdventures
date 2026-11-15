@@ -16,10 +16,10 @@ const stats = [
 ];
 
 const whatWeDo = [
-  "Craft one-day escapes and multi-day expeditions across India",
-  "Blend adventure and culture for a complete travel experience",
-  "Build a community of riders, drivers, and explorers",
-  "Focus on safety, authenticity, and storytelling in every trip",
+  "Crafting one-day escapes and multi-day expeditions across India",
+  "Blending adventure and culture for a richer travel experience",
+  "Bringing riders, hikers, and explorers together",
+  "Making safety, authenticity, and storytelling part of every journey",
 ];
 
 // The first paragraph of each answer is shown as a lead line.

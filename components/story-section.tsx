@@ -17,13 +17,21 @@ import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 type Slide = {
   label: string;
   text: string;
+  items?: string[];
   cta?: { label: string; href: string };
 };
 
 const SLIDES: Slide[] = [
   {
     label: "Our mission",
-    text: "At Adrenaline Adventures, we curate exceptional journeys that blend the thrill of exploration with the soul of India. From epic road rides to immersive hikes and offbeat expeditions, we create extraordinary experiences for riders, hikers, and explorers seeking authentic encounters, breathtaking landscapes, and the untamed spirit of adventure. Every journey is crafted with local expertise and a passion for discovery, leaving memories that last a lifetime.",
+    text: "Create extraordinary group rides, hikes, and offbeat expeditions. Inspire riders, hikers, and explorers to discover beyond the ordinary. Showcase India's breathtaking landscapes and rich local culture. Deliver authentic experiences through local expertise. Create meaningful adventures and lifelong memories.",
+    items: [
+      "Create extraordinary group rides, hikes, and offbeat expeditions.",
+      "Inspire riders, hikers, and explorers to discover beyond the ordinary.",
+      "Showcase India's breathtaking landscapes and rich local culture.",
+      "Deliver authentic experiences through local expertise.",
+      "Create meaningful adventures and lifelong memories.",
+    ],
   },
   {
     label: "Vision",
@@ -111,12 +119,26 @@ function SlideBlock({
 
   return (
     <motion.div style={{ opacity, y }} className="absolute inset-x-0 top-0">
-      <p
-        aria-label={slide.text}
-        className="text-[21px] leading-[1.3] tracking-[-0.01em] text-paper sm:text-[26px] lg:text-[32px] xl:text-[36px]"
-      >
-        {reduceMotion ? slide.text : <RevealText text={slide.text} progress={progress} start={revealStart} end={revealEnd} />}
-      </p>
+      {slide.items ? (
+        <ul
+          aria-label={slide.text}
+          className="space-y-3 text-[21px] leading-[1.3] tracking-[-0.01em] text-paper sm:text-[26px] lg:text-[32px] xl:text-[36px]"
+        >
+          {slide.items.map((item) => (
+            <li key={item} className="flex gap-3">
+              <span aria-hidden="true">•</span>
+              <span>{reduceMotion ? item : <RevealText text={item} progress={progress} start={revealStart} end={revealEnd} />}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p
+          aria-label={slide.text}
+          className="text-[21px] leading-[1.3] tracking-[-0.01em] text-paper sm:text-[26px] lg:text-[32px] xl:text-[36px]"
+        >
+          {reduceMotion ? slide.text : <RevealText text={slide.text} progress={progress} start={revealStart} end={revealEnd} />}
+        </p>
+      )}
       {slide.cta && (
         <motion.div style={{ opacity: reduceMotion ? 1 : ctaOpacity }} className="mt-10">
           <Link href={slide.cta.href} className={ctaButtonClass}>
@@ -155,7 +177,7 @@ export default function StorySection() {
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div style={{ scale: reduceMotion ? 1 : bgScale }} className="absolute inset-0">
-          <Image src="/photos/random58.jpg" alt="" fill sizes="100vw" className="object-cover" />
+          <Image src="/photos/random39.jpg" alt="" fill sizes="100vw" className="object-cover" />
         </motion.div>
         <div className="absolute inset-0 bg-night/70" aria-hidden="true" />
 
