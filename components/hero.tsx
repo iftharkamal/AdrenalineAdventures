@@ -103,7 +103,7 @@ export default function Hero() {
 
           <div className="mt-2 flex flex-col gap-8 md:mt-3 md:flex-row md:items-end md:justify-between">
             <p className="max-w-xl text-body-lg text-paper/85 md:text-subheading">
-              <BlockText text="Born from the spirit of exploration." delay={CONTENT_DELAY + 0.2} stagger={0.06} />
+              <BlockText text="Born from the spirit of adventure." delay={CONTENT_DELAY + 0.1} stagger={0.06} />
             </p>
             <motion.a
               href="#about"

@@ -17,8 +17,8 @@ export const EVENTS: AdventureEvent[] = [
     id: "01",
     title: "WEEKEND ESCAPE",
     subtitle: "Group Motorcycle Ride",
-    category: "One Day / Group Bike Ride",
-    cover: photo("random22", "Group of riders rounding a bend on a forest road"),
+    category: "Group Bike Ride",
+    cover: photo("random25", "Rider leading the pack around a curve"),
     gallery: [
       photo("random26", "Riders following each other down a tree-lined road"),
       photo("random51", "The group waving at the camera at a toll plaza, in black and white"),
@@ -46,26 +46,9 @@ export const EVENTS: AdventureEvent[] = [
   },
   {
     id: "02",
-    title: "MALTERRA RALLY",
-    subtitle: "Car Rally",
-    category: "One Day / Car Rally",
-    cover: photo("malterra2", "Off-road 4x4 parked on a rocky meadow"),
-    gallery: [
-      photo("malterra1", "Off-road 4x4 with its lights on, on a hill road at dusk"),
-      photo("malterra3", "Off-road 4x4 on a rocky meadow, in black and white"),
-      photo("malterra4", "Off-road 4x4 heading down a hill road at dusk"),
-      photo("malterra2", "Off-road 4x4 parked on a rocky meadow"),
-    ],
-    description: [
-      "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
-      "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together.",
-    ],
-  },
-  {
-    id: "03",
     title: "GOHIKE",
     subtitle: "Hiking / Trekking",
-    category: "Multi-Day / Hiking Camp",
+    category: "Hiking Camp",
     cover: photo("community29", "Hiker looking out over snowy mountains"),
     gallery: [
       photo("community26", "Two hikers on a ridge under a blue sky"),
@@ -108,10 +91,10 @@ export const EVENTS: AdventureEvent[] = [
     ],
   },
   {
-    id: "04",
+    id: "03",
     title: "SOUTH INDIA EXPEDITION",
     subtitle: "Multi-Day",
-    category: "Multi-Day / Bike Expedition",
+    category: "Bike Expedition",
     cover: photo("random53", "Rider with arms wide open among misty tea estates"),
     gallery: [
       photo("random57", "Line of riders on a road through tea-covered hills"),
@@ -142,10 +125,10 @@ export const EVENTS: AdventureEvent[] = [
     ],
   },
   {
-    id: "05",
+    id: "04",
     title: "NORTH INDIA EXPEDITION",
     subtitle: "Multi-Day",
-    category: "Multi-Day / Himalayan Expedition",
+    category: "Himalayan Expedition",
     cover: photo("northindiaexpedition8", "Rider holding up their helmet by a blue mountain lake"),
     gallery: [
       photo("northindiaexpedition13", "Riders with arms raised across a high-desert plain"),
@@ -168,11 +151,28 @@ export const EVENTS: AdventureEvent[] = [
     ],
   },
   {
+    id: "05",
+    title: "MALTERRA RALLY",
+    subtitle: "Car Rally",
+    category: "Car Rally",
+    cover: photo("malterra2", "Off-road 4x4 parked on a rocky meadow"),
+    gallery: [
+      photo("malterra1", "Off-road 4x4 with its lights on, on a hill road at dusk"),
+      photo("malterra3", "Off-road 4x4 on a rocky meadow, in black and white"),
+      photo("malterra4", "Off-road 4x4 heading down a hill road at dusk"),
+      photo("malterra2", "Off-road 4x4 parked on a rocky meadow"),
+    ],
+    description: [
+      "Malterra Rally is a curated group car rally experience designed for those who seek more than just a drive. Created by Adrenaline Adventures, this program brings together passionate drivers for immersive journeys across scenic routes, challenging terrains, and offbeat destinations. It’s not about speed... it’s about the experience, the connection with the road, and the shared energy of a convoy moving as one.",
+      "Each rally is thoughtfully planned with detailed routes, checkpoints, and coordinated support to ensure a smooth and engaging experience. Participants get to enjoy a perfect mix of exploration, teamwork, and driving excitement, whether it’s a single-day rally or a multi-day expedition. With a strong focus on safety, organization, and community, Malterra Rally creates an environment where drivers can push their limits while enjoying the journey together," 
+    ],
+  },
+  {
     id: "06",
     title: "CUSTOMIZE YOUR ADVENTURE",
     subtitle: "Private Ride – Your Dates",
-    category: "Your Dates / Private Ride",
-    cover: photo("random55", "Rider in a patch-covered jacket with their bike"),
+    category: "Private Ride",
+    cover: photo("random27", "Rider with an adventure bike, in black and white"),
     gallery: [
       photo("random23", "Rider leaning into a bend, seen from above"),
       photo("random40", "Two riders in helmets posing, in black and white"),
