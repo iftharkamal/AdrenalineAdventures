@@ -18,7 +18,7 @@ export const EVENTS: AdventureEvent[] = [
     title: "WEEKEND ESCAPE",
     subtitle: "Group Motorcycle Ride",
     category: "Group Bike Ride",
-    cover: photo("random25", "Rider leading the pack around a curve"),
+    cover: photo("weekend-escape", "Riders on white adventure bikes heading down the highway in formation"),
     gallery: [
       photo("random26", "Riders following each other down a tree-lined road"),
       photo("random51", "The group waving at the camera at a toll plaza, in black and white"),
@@ -169,7 +169,7 @@ export const EVENTS: AdventureEvent[] = [
   },
   {
     id: "06",
-    title: "CUSTOMIZE YOUR ADVENTURE",
+    title: "PRIVATE EXPEDITION",
     subtitle: "Private Ride – Your Dates",
     category: "Private Ride",
     cover: photo("random27", "Rider with an adventure bike, in black and white"),
@@ -198,7 +198,7 @@ export const EVENTS: AdventureEvent[] = [
       photo("random55", "Rider in a patch-covered jacket with their bike"),
     ],
     description: [
-      "Customize Your Adventure is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
+      "Private Expedition is built for those who don’t want a fixed itinerary but a journey shaped around their own vision. At Adrenaline Adventures, we design fully personalized rides tailored to your style. Whether it’s the route you want to take, the kind of terrain you prefer, or the pace you enjoy.",
       "From exclusive group rides to private getaways and special experiences, every detail is carefully planned to match your expectations. With expert coordination, route curation, and on-road support, we turn your idea of the perfect ride into a seamless, unforgettable journey.",
     ],
   },
