@@ -12,9 +12,9 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { cn } from "@/lib/utils";
 
 const COMMUNITY_IMAGES = [
+  photo("community13", "Hikers on a rocky summit in the mist"),
   photo("community2", "The whole crew together on a forest meadow"),
   photo("community5", "Riders with their arms raised beside their bikes, mountains behind"),
-  photo("community13", "Hikers on a rocky summit in the mist"),
   photo("community", "Group photo in front of a thatched hilltop lodge"),
   photo("community7", "A big group of riders cheering by the roadside"),
   photo("community4", "The group gathered on a green hillside"),

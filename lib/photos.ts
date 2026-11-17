@@ -41,6 +41,7 @@ const PHOTO_SIZES = {
   community40: [1500, 2000],
   community41: [1500, 2000],
   "main-image": [3840, 2880],
+  "weekend-escape": [1500, 2000],
   malterra1: [1333, 2000],
   malterra2: [1500, 2000],
   malterra3: [1500, 2000],
