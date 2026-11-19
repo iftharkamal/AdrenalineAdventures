@@ -17,7 +17,7 @@ export const EVENTS: AdventureEvent[] = [
     id: "01",
     title: "WEEKEND ESCAPE",
     subtitle: "Group Motorcycle Ride",
-    category: "Group Bike Ride",
+    category: "Group Motorcycle Ride",
     cover: photo("weekend-escape", "Riders on white adventure bikes heading down the highway in formation"),
     gallery: [
       photo("random26", "Riders following each other down a tree-lined road"),
@@ -170,9 +170,9 @@ export const EVENTS: AdventureEvent[] = [
   {
     id: "06",
     title: "PRIVATE EXPEDITION",
-    subtitle: "Private Ride – Your Dates",
-    category: "Private Ride",
-    cover: photo("random27", "Rider with an adventure bike, in black and white"),
+    subtitle: "Private Expedition – Your Dates",
+    category: "Private Expedition",
+    cover: photo("random17", "Rider on a sport bike"),
     gallery: [
       photo("random23", "Rider leaning into a bend, seen from above"),
       photo("random40", "Two riders in helmets posing, in black and white"),
