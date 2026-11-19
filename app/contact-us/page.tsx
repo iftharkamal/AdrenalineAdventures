@@ -22,13 +22,13 @@ export default function ContactUsPage() {
       <section className="px-6 pb-20 pt-36 md:pb-32 md:pt-48">
         <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Logo/Image */}
-          <div className="relative mx-auto aspect-square w-full max-w-[500px] overflow-hidden rounded-card md:rounded-panel lg:mx-0">
+          <div className="relative mx-auto aspect-square w-full max-w-[500px] lg:mx-0">
             <Image
-              src="/logoforcontactus.png"
-              alt="Adrenaline Adventures Contact Logo"
+              src="/logo-adad-square.png"
+              alt="Adrenaline Adventures logo"
               fill
               sizes="(min-width: 1024px) 500px, 100vw"
-              className="object-cover"
+              className="object-contain"
               priority
             />
           </div>
