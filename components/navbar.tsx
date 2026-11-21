@@ -150,10 +150,8 @@ export default function Navbar() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className={cn(
-              "flex size-10 items-center justify-center rounded-lg border text-paper transition-colors duration-200",
-              isMenuOpen ? "border-accent" : "border-line bg-night/40 backdrop-blur-md"
-            )}
+            // Bare icon with no box; the 40px area keeps it easy to tap
+            className="flex size-10 items-center justify-center rounded-lg text-paper outline-none focus-visible:ring-1 focus-visible:ring-accent"
           >
             {isMenuOpen ? <X className="h-5 w-5" strokeWidth={1.5} /> : <Menu className="h-5 w-5" strokeWidth={1.5} />}
           </button>
