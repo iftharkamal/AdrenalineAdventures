@@ -2,7 +2,7 @@
 
 import { Resend } from "resend";
 
-import { SITE_NAME } from "@/lib/site";
+import { CONTACT_PHONES, SITE_NAME } from "@/lib/site";
 
 export type ContactField = "firstName" | "lastName" | "email" | "phone" | "message";
 
@@ -24,7 +24,7 @@ const MAX_LENGTH: Record<ContactField, number> = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const SEND_FAILED = "Sorry, we couldn't send your message right now. Please try again later.";
+const SEND_FAILED = `Sorry, we couldn't send your message right now. Please call us on ${CONTACT_PHONES[0]}.`;
 
 function escapeHtml(value: string) {
   return value

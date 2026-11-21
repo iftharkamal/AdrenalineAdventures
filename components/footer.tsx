@@ -6,6 +6,7 @@ import { ArrowUp } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { CtaButtonContent, ctaButtonClass } from "@/components/ui/cta-button";
 import { BlockText } from "@/components/ui/intro-text";
+import { CONTACT_PHONES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const socialLinks = [
@@ -18,7 +19,6 @@ const socialLinks = [
 ];
 
 const email = "adrenalineadventuresindia@gmail.com";
-const phone = "+918089713241";
 
 // Underline draws in from the left on hover and exits to the right on leave
 const linkClass =
@@ -84,9 +84,11 @@ export default function Footer({ prevBg = "bg-night" }: { prevBg?: "bg-night" | 
 
             <FooterColumn title="Contact">
               <div className="space-y-1.5 @container">
-                <a href={`tel:${phone}`} className={cn(linkClass, "block w-fit")}>
-                  {phone}
-                </a>
+                {CONTACT_PHONES.map((phone) => (
+                  <a key={phone} href={`tel:${phone}`} className={cn(linkClass, "block w-fit")}>
+                    {phone}
+                  </a>
+                ))}
                 {/* The address is about 19.7em wide in Poppins, so 4.8cqi keeps it on one line in narrow columns; it caps at the usual 22px */}
                 <a
                   href={`mailto:${email}`}
