@@ -2,3 +2,6 @@
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
 export const SITE_NAME = "Adrenaline Adventures";
+
+// Listed in the footer; the first one is also offered when the contact form can't send
+export const CONTACT_PHONES = ["+918593901702", "+918089713241"];

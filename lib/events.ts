@@ -3,10 +3,8 @@ import { photo, type Photo } from "@/lib/photos";
 export type AdventureEvent = {
   id: string;
   title: string;
-  /** Short label on the Events page */
+  /** Short label on the Events page and the home page cards */
   subtitle: string;
-  /** Duration / type label on the home page cards */
-  category: string;
   cover: Photo;
   gallery: Photo[];
   description: string[];
@@ -17,7 +15,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "01",
     title: "WEEKEND ESCAPE",
     subtitle: "Group Motorcycle Ride",
-    category: "Group Motorcycle Ride",
     cover: photo("weekend-escape", "Riders on white adventure bikes heading down the highway in formation"),
     gallery: [
       photo("random26", "Riders following each other down a tree-lined road"),
@@ -48,7 +45,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "02",
     title: "GOHIKE",
     subtitle: "Hiking / Trekking",
-    category: "Hiking Camp",
     cover: photo("community29", "Hiker looking out over snowy mountains"),
     gallery: [
       photo("community26", "Two hikers on a ridge under a blue sky"),
@@ -94,7 +90,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "03",
     title: "SOUTH INDIA EXPEDITION",
     subtitle: "Multi-Day",
-    category: "Bike Expedition",
     cover: photo("random53", "Rider with arms wide open among misty tea estates"),
     gallery: [
       photo("random57", "Line of riders on a road through tea-covered hills"),
@@ -128,7 +123,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "04",
     title: "NORTH INDIA EXPEDITION",
     subtitle: "Multi-Day",
-    category: "Himalayan Expedition",
     cover: photo("northindiaexpedition8", "Rider holding up their helmet by a blue mountain lake"),
     gallery: [
       photo("northindiaexpedition13", "Riders with arms raised across a high-desert plain"),
@@ -154,7 +148,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "05",
     title: "MALTERRA RALLY",
     subtitle: "Car Rally",
-    category: "Car Rally",
     cover: photo("malterra2", "Off-road 4x4 parked on a rocky meadow"),
     gallery: [
       photo("malterra1", "Off-road 4x4 with its lights on, on a hill road at dusk"),
@@ -171,7 +164,6 @@ export const EVENTS: AdventureEvent[] = [
     id: "06",
     title: "PRIVATE EXPEDITION",
     subtitle: "Private Expedition – Your Dates",
-    category: "Private Expedition",
     cover: photo("random17", "Rider on a sport bike"),
     gallery: [
       photo("random23", "Rider leaning into a bend, seen from above"),

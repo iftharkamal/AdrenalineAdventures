@@ -80,7 +80,7 @@ export default function FeaturedEvents() {
               </div>
               <div className="flex items-end justify-between gap-4 px-3 pb-3 pt-6">
                 <div>
-                  <Tag tone="light">{event.category}</Tag>
+                  <Tag tone="light">{event.subtitle}</Tag>
                   <h3 className="mt-3 font-display text-subheading">
                     <RiseText text={event.title} />
                   </h3>
