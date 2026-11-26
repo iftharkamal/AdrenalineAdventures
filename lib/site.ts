@@ -4,4 +4,4 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3
 export const SITE_NAME = "Adrenaline Adventures";
 
 // Listed in the footer; the first one is also offered when the contact form can't send
-export const CONTACT_PHONES = ["+918593901702", "+918089713241"];
+export const CONTACT_PHONES = ["+918089713241", "+918593901702"];
