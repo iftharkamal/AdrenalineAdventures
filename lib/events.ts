@@ -162,7 +162,7 @@ export const EVENTS: AdventureEvent[] = [
   },
   {
     id: "06",
-    title: "PRIVATE EXPEDITION",
+    title: "CUSTOMIZE YOUR ADVENTURE",
     subtitle: "Private Expedition – Your Dates",
     cover: photo("random17", "Rider on a sport bike"),
     gallery: [
